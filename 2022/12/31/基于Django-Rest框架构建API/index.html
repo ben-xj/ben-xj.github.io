@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-Hans">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="代码,博客,思考,优化" />
+       
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>2. 基于Django Rest框架构建API |  哈欠星人的独白</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-基于Django-Rest框架构建API"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  2. 基于Django Rest框架构建API
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/12/31/%E5%9F%BA%E4%BA%8EDjango-Rest%E6%A1%86%E6%9E%B6%E6%9E%84%E5%BB%BAAPI/" class="article-date">
+  <time datetime="2022-12-31T09:58:24.000Z" itemprop="datePublished">2022-12-31</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.9k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">8 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
+<p>受作者水平所限，文中可能存在错误或不当之处，敬请谅解。</p>
+</blockquote>
+<h1 id="1-什么是API"><a href="#1-什么是API" class="headerlink" title="1. 什么是API?"></a>1. 什么是API?</h1><p>简单看一下百科的解释：</p>
+<blockquote>
+<p>API之主要目的是提供应用程序与开发人员以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。提供API所定义的功能的软件称作此API的实现。API是一种接口，故而是一种抽象。 应用程序接口（英语：ApplicationProgrammingInterface，简称：API），又称为应用编程接口，就是软件系统不同组成部分衔接的约定。</p>
+</blockquote>
+<p>简单来说，我们写程序是为了帮用户完成某件事，用户不需要知道我们是怎么完成的。对于用户来说，只需发个指令，譬如，“我想导航到萧山”，那么程序能把路线告诉用户即可。API是什么呢，就是接受用户指令，并返回程序结果的一个工具。</p>
+<h1 id="2-安装djangorestframework包"><a href="#2-安装djangorestframework包" class="headerlink" title="2. 安装djangorestframework包"></a>2. 安装djangorestframework包</h1><p>作为网络开发程序员，我们就是那个写软件的程序员，所以我们要为用户提供API 并告诉用户如何使用我们的软件。在Django项目中，一般使用djangorestframework包来开发API。</p>
+<p>djangorestframework包直接使用pip安装即可</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pip install djangorestframework<br></code></pre></td></tr></table></figure>
+
+<h1 id="3-建立Django项目"><a href="#3-建立Django项目" class="headerlink" title="3. 建立Django项目"></a>3. 建立Django项目</h1><p>在本文中，我们通过建立一个电影网站，让用户 获取、修改以及增加新的电影信息，以熟悉Django API的构建。</p>
+<p>可以参考[[基本Django项目构建]]一文建立起项目，简单列举一下相关命令。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">django-admin startproject movie_api<br>cd movie_api<br>python manage.py startapp movie <span class="hljs-comment"># 这里记得在配置文件中加入movie</span><br>python manage.py migrate<br>python manage.py runserver<br></code></pre></td></tr></table></figure>
+
+<p>这样就可以跑起来一个空项目了。</p>
+<p>因为本文只关注API的构建，这里只建立一个数据模型，其他的网页浏览视图、模板就不做了。</p>
+<h2 id="3-1-建立Model"><a href="#3-1-建立Model" class="headerlink" title="3.1 建立Model"></a>3.1 建立Model</h2><p>在<code>movie/models.py</code>中建立电影数据类，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models<br><br><span class="hljs-comment"># Create your models here.</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Movie</span>(models.Model):<br>    name = models.CharField(max_length=<span class="hljs-number">200</span>)<br>    year = models.IntegerField()<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__str__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span> (<span class="hljs-subst">&#123;self.year&#125;</span>)&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>对数据模型更改后，要进行迁移</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">python manage.py makemigrations<br>python manage.py migrate<br></code></pre></td></tr></table></figure>
+
+<p>使用<code>python manage.py shell</code>进行项目的shell添加一些数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> movie.models <span class="hljs-keyword">import</span> Movie<br><span class="hljs-meta">&gt;&gt;&gt; </span>Movie.objects.create(name=<span class="hljs-string">&quot;The Shawshank Redemption&quot;</span>, year=<span class="hljs-number">1994</span>)<br>&lt;Movie: The Shawshank Redemption (<span class="hljs-number">1994</span>)&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>Movie.objects.create(name=<span class="hljs-string">&quot;The Godfather&quot;</span>, year=<span class="hljs-number">1972</span>)<br>&lt;Movie: The Godfather (<span class="hljs-number">1972</span>)&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>Movie.objects.create(name=<span class="hljs-string">&quot;The Dark Knight&quot;</span>, year=<span class="hljs-number">2008</span>)<br>&lt;Movie: The Dark Knight (<span class="hljs-number">2008</span>)&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>Movie.objects.create(name=<span class="hljs-string">&#x27;The Godfather: Part II&#x27;</span>, year=<span class="hljs-number">1974</span>)<br>&lt;Movie: The Godfather: Part II (<span class="hljs-number">1974</span>)&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>Movie.objects.create(name=<span class="hljs-string">&#x27;12 Angry Men&#x27;</span>, year=<span class="hljs-number">1957</span>)<br>&lt;Movie: <span class="hljs-number">12</span> Angry Men (<span class="hljs-number">1957</span>)&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>Movie.objects.<span class="hljs-built_in">all</span>()<br>&lt;QuerySet [&lt;Movie: The Shawshank Redemption (<span class="hljs-number">1994</span>)&gt;, &lt;Movie: The Godfather (<span class="hljs-number">1972</span>)&gt;, &lt;Movie: The Dark Knight (<span class="hljs-number">2008</span>)&gt;, &lt;Movie: The Godfather: Part II (<span class="hljs-number">1974</span>)&gt;, &lt;Movie: <span class="hljs-number">12</span> Angry Men (<span class="hljs-number">1957</span>)&gt;]&gt;<br></code></pre></td></tr></table></figure>
+
+<h1 id="4-构建API"><a href="#4-构建API" class="headerlink" title="4. 构建API"></a>4. 构建API</h1><p>首先在<code>movie_api/settings.py</code>文件找到<code>INSTALLED_APPS</code>， 注册rest_framework，现在这个列表应该如下，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">INSTALLED_APPS = [<br>    ... <span class="hljs-comment"># 其他已有值</span><br>    <span class="hljs-string">&#x27;movie&#x27;</span>,<br>    <span class="hljs-string">&#x27;rest_framework&#x27;</span>,<br>]<br></code></pre></td></tr></table></figure>
+
+<p>为了避免与网站基本内容混淆，可以项目根目录下建立一个专门的api文件夹，并在其中建立一个空的<code>__init__.py</code>文件，表明这是一个包。</p>
+<h2 id="4-1-建立序列化器"><a href="#4-1-建立序列化器" class="headerlink" title="4.1 建立序列化器"></a>4.1 建立序列化器</h2><blockquote>
+<p>我们把变量从内存中变成可存储或传输的过程称之为序列化。——廖雪峰</p>
+</blockquote>
+<p>也就是说，从数据库中把数据读到我们的Model类型的变量中后，还要经过序列化，才能顺利传输到客户端（浏览器），供用户浏览使用。</p>
+<p>在api文件夹下建立<code>serializers.py</code>文件，内容如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> rest_framework <span class="hljs-keyword">import</span> serializers<br><span class="hljs-keyword">from</span> movie.models <span class="hljs-keyword">import</span> Movie<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MovieSerializer</span>(serializers.ModelSerializer):<br>    <span class="hljs-keyword">class</span> <span class="hljs-title class_">Meta</span>:<br>        model = Movie<br>        fields= <span class="hljs-string">&#x27;__all__&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>这里建立了一个Movie专用的序列化器，其中序列化的数据包括所有字段。</p>
+<h2 id="4-2-建立视图并绑定URL"><a href="#4-2-建立视图并绑定URL" class="headerlink" title="4.2 建立视图并绑定URL"></a>4.2 建立视图并绑定URL</h2><h3 id="4-2-1-获取所有电影"><a href="#4-2-1-获取所有电影" class="headerlink" title="4.2.1 获取所有电影"></a>4.2.1 获取所有电影</h3><p>在api文件夹下建立<code>views.py</code>文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> rest_framework.decorators <span class="hljs-keyword">import</span> api_view<br><span class="hljs-keyword">from</span> movie.models <span class="hljs-keyword">import</span> Movie<br><span class="hljs-keyword">from</span> .serializers <span class="hljs-keyword">import</span> MovieSerializer<br><span class="hljs-keyword">from</span> rest_framework.response <span class="hljs-keyword">import</span> Response<br><br><br><span class="hljs-meta">@api_view(<span class="hljs-params">[<span class="hljs-string">&#x27;GET&#x27;</span>]</span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_movies</span>(<span class="hljs-params">request</span>):<br>    movies = Movie.objects.<span class="hljs-built_in">all</span>()<br>    serializer = MovieSerializer(movies, many=<span class="hljs-literal">True</span>)<br>    <span class="hljs-keyword">return</span> Response(serializer.data)<br></code></pre></td></tr></table></figure>
+
+<p>这里通过装饰器来设置请求方法，这里只是获取，用GET即可。</p>
+<p>注意在一个普通的网站中，获取了电影列表后，应该传输给前端的模板，以供渲染，但在API中，我们进行序列化，以供传输。</p>
+<p>然后绑定url，在api文件夹下建立<code>urls.py</code>文件，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> path<br><span class="hljs-keyword">from</span> . <span class="hljs-keyword">import</span> views<br><br>urlpatterns = [<br>    path(<span class="hljs-string">&#x27;&#x27;</span>, views.get_movies, name=<span class="hljs-string">&#x27;get_movies&#x27;</span>)<br>]<br></code></pre></td></tr></table></figure>
+
+<p>如文章[[基本Django项目构建]]中提到的，还没有被django项目所识别，因此，需要在<code>movie_api/urls.py</code>文件中进行引用，以让项目进行识别。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> path, include<br><br>urlpatterns = [<br>    path(<span class="hljs-string">&#x27;admin/&#x27;</span>, admin.site.urls),<br>    path(<span class="hljs-string">&#x27;movies/&#x27;</span>, include(<span class="hljs-string">&#x27;api.urls&#x27;</span>)),<br>]<br></code></pre></td></tr></table></figure>
+
+<p>这样，运行项目后，我们就可以通过网址<a target="_blank" rel="noopener" href="http://127.0.0.1:8000/movies/">http://127.0.0.1:8000/movies/</a>访问电影列表api了，效果如下：<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/%E7%94%B5%E5%BD%B1%E5%88%97%E8%A1%A8API.png" alt="电影列表API.png"></p>
+<h3 id="4-2-2-新增电影"><a href="#4-2-2-新增电影" class="headerlink" title="4.2.2 新增电影"></a>4.2.2 新增电影</h3><p>新增电影条目可以保持与电影列表的网址相同，只需要在视图中增加一个POST请求方法即可。修改<code>api/views.py</code>中相关函数如下，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> rest_framework <span class="hljs-keyword">import</span> status<br><br><span class="hljs-meta">@api_view(<span class="hljs-params">[<span class="hljs-string">&#x27;GET&#x27;</span>, <span class="hljs-string">&#x27;POST&#x27;</span>]</span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_movies</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&#x27;GET&#x27;</span>:<br>        movies = Movie.objects.<span class="hljs-built_in">all</span>()<br>        serializer = MovieSerializer(movies, many=<span class="hljs-literal">True</span>)<br>        <span class="hljs-keyword">return</span> Response(serializer.data)<br>    <span class="hljs-keyword">elif</span> request.method == <span class="hljs-string">&#x27;POST&#x27;</span>:<br>        serializer = MovieSerializer(data=request.data)<br>        <span class="hljs-keyword">if</span> serializer.is_valid():<br>            serializer.save()<br>            <span class="hljs-keyword">return</span> Response(serializer.data, status=status.HTTP_201_CREATED)<br>        <span class="hljs-keyword">return</span> Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)<br></code></pre></td></tr></table></figure>
+
+<p>要注意的是，一旦数据有变动，要使用<code>is_valid</code>进行数据的验证并使用<code>save</code>保存，这里包括<strong>类型、长度</strong>等的验证。<br>再次访问网址<a target="_blank" rel="noopener" href="http://127.0.0.1:8000/movies/">http://127.0.0.1:8000/movies/</a>，可以看到下方多出了一个输入框，以增加电影条目。</p>
+<h3 id="4-2-3-获取某个电影的信息"><a href="#4-2-3-获取某个电影的信息" class="headerlink" title="4.2.3 获取某个电影的信息"></a>4.2.3 获取某个电影的信息</h3><p>这里也是获取内容，与[[#4 2 1 获取所有电影]]类似，首先在<code>api/views.py</code>中添加视图函数，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@api_view(<span class="hljs-params">[<span class="hljs-string">&#x27;PUT&#x27;</span>]</span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_movie_detail</span>(<span class="hljs-params">request, <span class="hljs-built_in">id</span></span>):<br>    movie = Movie.objects.get(pk=<span class="hljs-built_in">id</span>)<br>    serializer = MovieSerializer(movie)<br>    <span class="hljs-keyword">return</span> Response(serializer.data)<br></code></pre></td></tr></table></figure>
+
+<p>然后在<code>api/urls.py</code>中绑定网址，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">urlpatterns = [<br>    path(<span class="hljs-string">&#x27;&lt;int:id&gt;&#x27;</span>, views.get_movie_detail, name=<span class="hljs-string">&#x27;get_movie_detail&#x27;</span>),<br>]<br></code></pre></td></tr></table></figure>
+
+<p>即可通过<a target="_blank" rel="noopener" href="http://127.0.0.1:8000/movies/1">http://127.0.0.1:8000/movies/1</a> 访问id为1的电影信息了。</p>
+<h3 id="4-2-4-修改或删除某个电影的信息"><a href="#4-2-4-修改或删除某个电影的信息" class="headerlink" title="4.2.4 修改或删除某个电影的信息"></a>4.2.4 修改或删除某个电影的信息</h3><p>修改或删除也是针对某个电影，所以网址与[[#4 2 3 获取某个电影的信息]]可以相同，不过请求方法需要设置为PUT和DELETE，修改相应的视图函数如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@api_view(<span class="hljs-params">[<span class="hljs-string">&#x27;GET&#x27;</span>, <span class="hljs-string">&#x27;PUT&#x27;</span>, <span class="hljs-string">&#x27;DELETE&#x27;</span>]</span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_movie_detail</span>(<span class="hljs-params">request, <span class="hljs-built_in">id</span></span>):<br>    movie = Movie.objects.get(pk=<span class="hljs-built_in">id</span>)<br>    <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&#x27;GET&#x27;</span>:<br>        serializer = MovieSerializer(movie)<br>        <span class="hljs-keyword">return</span> Response(serializer.data)<br>    <span class="hljs-keyword">elif</span> request.method == <span class="hljs-string">&#x27;PUT&#x27;</span>:<br>        serializer = MovieSerializer(movie, data=request.data)<br>        <span class="hljs-keyword">if</span> serializer.is_valid():<br>            serializer.save()<br>            <span class="hljs-keyword">return</span> Response(serializer.data)<br>        <span class="hljs-keyword">return</span> Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)<br>    <span class="hljs-keyword">elif</span> request.method == <span class="hljs-string">&#x27;DELETE&#x27;</span>:<br>        movie.delete()<br>        <span class="hljs-keyword">return</span> Response(status=status.HTTP_204_NO_CONTENT)<br></code></pre></td></tr></table></figure>
+
+<p>这里增加了对请求方法PUT和DELETE的支持，在函数体中，针对不同的请求类型，有不同的处理。</p>
+<p>修改后页面效果如下，可以进行内容的修改和条目的删除。<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/%E6%9F%90%E4%B8%AA%E7%94%B5%E5%BD%B1%E4%BF%A1%E6%81%AF.png" alt="某个电影信息.png"></p>
+<h1 id="5-回顾"><a href="#5-回顾" class="headerlink" title="5. 回顾"></a>5. 回顾</h1><p>简单回顾一下，在一个普通的网站项目基础上，首先建立了专门的API文件夹，在其中首先建立序列化器以进行数据转化传输，然后建立了各类视图，并通过不同请求方法进行数据的增、删、改、查（即CRUD操作）API的构建。</p>
+<p>可以看到，API的视图函数与一般网站视图函数的主要区别在于，API的视图函数是从数据库获取数据后进行序列化再传输，而一般网站视图函数则是获取数据后传递给前端模板以供展示。</p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          版本归作者所有，如需转载，请联系作者邮箱3290701522@qq.com。
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/12/31/%E5%9F%BA%E4%BA%8EDjango-Rest%E6%A1%86%E6%9E%B6%E6%9E%84%E5%BB%BAAPI/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/api/" rel="tag">api</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6/" rel="tag">后端框架</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2022/12/31/%E5%9F%BA%E6%9C%ACDjango%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">1. 基本Django项目构建</div>
+      </a>
+    
+  </nav>
+
+  
+   
+    
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2022
+        <i class="ri-heart-fill heart_icon"></i> 哈欠星人
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="哈欠星人的独白"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpeg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpeg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>
