@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>4. 多面体和单纯形 |  哈欠星人的独白</title>
+      <title>Accelerate Your NumPy Matrix Operations with Cython |  哈欠星人的独白</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -55,7 +55,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-多面体和单纯形"
+  id="post-Accelerate Your NumPy Matrix Operations with Cython"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -66,7 +66,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  4. 多面体和单纯形
+  Accelerate Your NumPy Matrix Operations with Cython
 </h1>
  
 
@@ -74,11 +74,11 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/04/17/%E5%A4%9A%E9%9D%A2%E4%BD%93%E5%92%8C%E5%8D%95%E7%BA%AF%E5%BD%A2/" class="article-date">
-  <time datetime="2022-04-17T12:16:41.000Z" itemprop="datePublished">2022-04-17</time>
+      <a href="/2022/12/31/Accelerate%20Your%20NumPy%20Matrix%20Operations%20with%20Cython/" class="article-date">
+  <time datetime="2022-12-31T00:44:10.000Z" itemprop="datePublished">2022-12-31</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%B8%AD%E7%A7%91%E5%A4%A7%E5%87%B8%E4%BC%98%E5%8C%96%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">中科大凸优化课程笔记</a>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
   </div>
   
 <div class="word_count">
@@ -86,7 +86,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">676</span>
+            <span class="post-count">775</span>
         </span>
     </span>
 
@@ -95,7 +95,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">3 min</span>
+            <span class="post-count">4 min</span>
         </span>
     </span>
 </div>
@@ -113,22 +113,39 @@
   <blockquote>
 <p>受作者水平所限，文中可能存在错误或不当之处，敬请谅解。</p>
 </blockquote>
-<h1 id="1-多面体-Polyhedron"><a href="#1-多面体-Polyhedron" class="headerlink" title="1. 多面体(Polyhedron)"></a>1. 多面体(Polyhedron)</h1><p>多面体是一系列<strong>线性</strong>等式和不等式的解集。<br>$$\mathcal{P}&#x3D;\left{x \mid a_{j}^{T} x \leq b_{j}, j&#x3D;1, \ldots, m, c_{j}^{T} x&#x3D;d_{j}, j&#x3D;1, \ldots, p\right}$$<br>向量形式为<br>$$<br>\mathcal{P}&#x3D;{x \mid A x \preceq b, C x&#x3D;d}$$<br>从定义可以看出，多面体就是超平面和半空间的交集。</p>
-<p>有界的多面体称为Polytope。</p>
-<h1 id="2-单纯形-Simplex"><a href="#2-单纯形-Simplex" class="headerlink" title="2. 单纯形(Simplex)"></a>2. 单纯形(Simplex)</h1><h2 id="2-1-定义"><a href="#2-1-定义" class="headerlink" title="2.1 定义"></a>2.1 定义</h2><p>假设$k+1$个点$v_0, \ldots, v_k \in R^n$<strong>仿射独立</strong>，即$v_1-v_0, \ldots, v_k-v_0$线性不相关，则与这$k+1$个点相关的单纯形 即为这些点的凸包：<br>$$<br>\begin{align}<br>C &amp; &#x3D; \operatorname{conv}\left{v_{0}, \ldots, v_{k}\right}\ &amp; &#x3D; \left{\theta_{0} v_{0}+\cdots+\theta_{k} v_{k} \mid \theta \succeq 0, \mathbf{1}^{T} \theta &#x3D; 1\right}<br>\end{align}<br>$$</p>
-<h2 id="2-2-例子"><a href="#2-2-例子" class="headerlink" title="2.2 例子"></a>2.2 例子</h2><p>以二维空间为例</p>
-<ul>
-<li>若给两个不同的点，则构成的单纯形为一条线段</li>
-<li>若给三个不同的点，则构成的单纯形为一个三角形</li>
-<li>若给四个以上不同的点，则不可能仿射独立，不能构成单纯形</li>
-</ul>
-<h2 id="2-3-证明单纯形是多面体"><a href="#2-3-证明单纯形是多面体" class="headerlink" title="2.3 证明单纯形是多面体"></a>2.3 证明单纯形是多面体</h2><p>思路：</p>
-<ul>
-<li>把单纯形中的点表示成多面体的形式</li>
-<li>线性不相关-&gt;满秩</li>
-</ul>
-<p>设单纯形为$C$，则$C$中的点可表示为<br>$$x&#x3D;\theta_{0} v_{0}+\theta_{1} v_{1}+\cdots+\theta_{k} v_{k}$$<br>其中$\theta \succeq 0, \mathbf{1}^{T} \theta &#x3D; 1$，要注意的是$\theta$是可变的，决定了$x$的取值。<br>对上式进行变换，得<br>$$<br>\begin{align}<br>x &amp;&#x3D; v_{0}+\theta_{1} (v_{1}-v_{0})+\cdots+\theta_{k} (v_{k}-v_{0})\<br>&amp;&#x3D;v_0 +By<br>\end{align}<br>$$<br>其中<br>$$<br>\begin{align}<br>B &amp; &#x3D; \left[\begin{array}{lll}<br>v_{1}-v_{0} &amp; \cdots &amp; v_{k}-v_{0}<br>\end{array}\right] \in \mathbf{R}^{n \times k}\<br>y &amp; &#x3D; \left(\theta_{1}, \ldots, \theta_{k}\right)<br>\end{align}$$<br>注意这里的$y$不是$\theta$，少了一个元素。$y \succeq 0,\mathbf{1}^{T} y \le 1$。显然可以用$y$的约束条件来得到对$x$的约束，那么下一步要做的就是把$y$独立出来。</p>
-<p>由于$B$中各向量线性无关，则$rank(B)&#x3D;k$，因此，存在非奇异矩阵$A&#x3D;(A_1, A_2) \in R^{n \times n}$使得，<br>$$A B&#x3D;\left[\begin{array}{l}<br>A_{1} \<br>A_{2}<br>\end{array}\right] B&#x3D;\left[\begin{array}{l}<br>I \<br>0<br>\end{array}\right]<br>$$<br>在$x$的表达式左边乘上矩阵$A$，可得<br>$$<br>A_{1} x&#x3D;A_{1} v_{0}+y, \quad A_{2} x&#x3D;A_{2} v_{0}$$<br>代入$y$的约束，可得<br>$$A_{2} x&#x3D;A_{2} v_{0}, \quad A_{1} x \succeq A_{1} v_{0}, \quad \mathbf{1}^{T} A_{1} x \leq 1+\mathbf{1}^{T} A_{1} v_{0}$$<br>符合多面体的定义，证毕。</p>
+<p>#python #cython</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Python is widely used for scientific computing, data analysis, and machine learning tasks due to its ease of use and rich ecosystem. NumPy, a popular library for numerical computations in Python, provides a powerful array object and a variety of functions to operate on these arrays. However, performance can sometimes be a bottleneck when working with large datasets or complex operations.</p>
+<p>Cython, a superset of the Python language, allows you to write Python code with optional C-like syntax and static types, which can then be compiled to C and executed as a native extension. This can lead to significant performance improvements compared to pure Python code.</p>
+<p>In this blog post, we will demonstrate how to use Cython with NumPy to optimize matrix operations, and compare the performance of pure Python and Cython-accelerated implementations.</p>
+<h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><p>To follow along with the examples in this post, make sure you have both Cython and NumPy installed:</p>
+<p><code>pip install cython numpy</code></p>
+<h2 id="Example-Element-wise-Matrix-Multiplication"><a href="#Example-Element-wise-Matrix-Multiplication" class="headerlink" title="Example: Element-wise Matrix Multiplication"></a>Example: Element-wise Matrix Multiplication</h2><p>Let’s start by implementing element-wise matrix multiplication using Cython with NumPy.</p>
+<h3 id="Step-1-Create-a-Cython-file"><a href="#Step-1-Create-a-Cython-file" class="headerlink" title="Step 1: Create a Cython file"></a>Step 1: Create a Cython file</h3><p>Create a Cython file called <code>matrix_mult_cython.pyx</code> with the following code:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># matrix_mult_cython.pyx</span><br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br>cimport numpy <span class="hljs-keyword">as</span> cnp<br><br>cpdef cnp.ndarray[double, ndim=<span class="hljs-number">2</span>] elementwise_multiply(cnp.ndarray[double, ndim=<span class="hljs-number">2</span>] A, cnp.ndarray[double, ndim=<span class="hljs-number">2</span>] B):<br>    cdef <span class="hljs-built_in">int</span> nrows = A.shape[<span class="hljs-number">0</span>]<br>    cdef <span class="hljs-built_in">int</span> ncols = A.shape[<span class="hljs-number">1</span>]<br>    cdef cnp.ndarray[double, ndim=<span class="hljs-number">2</span>] result = np.zeros((nrows, ncols), dtype=np.float64)<br><br>    cdef <span class="hljs-built_in">int</span> i, j<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(nrows):<br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(ncols):<br>            result[i, j] = A[i, j] * B[i, j]<br><br>    <span class="hljs-keyword">return</span> result<br></code></pre></td></tr></table></figure>
+
+<h3 id="Step-2-Compile-the-Cython-module"><a href="#Step-2-Compile-the-Cython-module" class="headerlink" title="Step 2: Compile the Cython module"></a>Step 2: Compile the Cython module</h3><p>Create a <code>setup.py</code> file to build the Cython module:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># setup.py</span><br><span class="hljs-keyword">from</span> setuptools <span class="hljs-keyword">import</span> setup, Extension<br><span class="hljs-keyword">from</span> Cython.Build <span class="hljs-keyword">import</span> cythonize<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br>ext_modules = [<br>    Extension(<span class="hljs-string">&quot;matrix_mult_cython&quot;</span>, [<span class="hljs-string">&quot;matrix_mult_cython.pyx&quot;</span>],<br>              include_dirs=[np.get_include()])  <span class="hljs-comment"># Add the NumPy header files</span><br>]<br><br>setup(<br>    name=<span class="hljs-string">&#x27;Matrix Multiplication Cython Example&#x27;</span>,<br>    ext_modules=cythonize(ext_modules),<br>    zip_safe=<span class="hljs-literal">False</span>,<br>)<br></code></pre></td></tr></table></figure>
+
+<p>Compile the Cython module by running the following command in your terminal:</p>
+<p><code>python setup.py build_ext --inplace</code></p>
+<h3 id="Step-3-Use-the-Cython-module-in-your-Python-code"><a href="#Step-3-Use-the-Cython-module-in-your-Python-code" class="headerlink" title="Step 3: Use the Cython module in your Python code"></a>Step 3: Use the Cython module in your Python code</h3><p>Now, you can use the compiled Cython module in your Python code:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># main.py</span><br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">from</span> matrix_mult_cython <span class="hljs-keyword">import</span> elementwise_multiply<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>():<br>    A = np.random.rand(<span class="hljs-number">1000</span>, <span class="hljs-number">1000</span>)<br>    B = np.random.rand(<span class="hljs-number">1000</span>, <span class="hljs-number">1000</span>)<br><br>    result = elementwise_multiply(A, B)<br>    <span class="hljs-built_in">print</span>(result)<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>    main()<br></code></pre></td></tr></table></figure>
+
+<p>Run your Python code:</p>
+<p><code>python main.py</code></p>
+<h2 id="Performance-Comparison"><a href="#Performance-Comparison" class="headerlink" title="Performance Comparison"></a>Performance Comparison</h2><p>To compare the performance before and after using Cython, we can implement the same element-wise multiplication using pure Python with NumPy and then measure the execution time for both the pure Python and Cython-accelerated implementations.</p>
+<h3 id="Pure-Python-Implementation"><a href="#Pure-Python-Implementation" class="headerlink" title="Pure Python Implementation"></a>Pure Python Implementation</h3><p>Add a pure Python implementation of element-wise multiplication in <code>main.py</code>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">elementwise_multiply_python</span>(<span class="hljs-params">A, B</span>):<br>    <span class="hljs-keyword">assert</span> A.shape == B.shape, <span class="hljs-string">&quot;Both matrices must have the same shape.&quot;</span><br><br>    nrows, ncols = A.shape<br>    result = np.zeros((nrows, ncols), dtype=np.float64)<br><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(nrows):<br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(ncols):<br>            result[i, j] = A[i, j] * B[i, j]<br><br>    <span class="hljs-keyword">return</span> result<br></code></pre></td></tr></table></figure>
+
+<h3 id="Timing-the-Implementations"><a href="#Timing-the-Implementations" class="headerlink" title="Timing the Implementations"></a>Timing the Implementations</h3><p>Add timing code to <code>main.py</code> to measure the execution time of both the pure Python and Cython-accelerated implementations:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> time<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>():<br>    A = np.random.rand(<span class="hljs-number">1000</span>, <span class="hljs-number">1000</span>)<br>    B = np.random.rand(<span class="hljs-number">1000</span>, <span class="hljs-number">1000</span>)<br><br>    <span class="hljs-comment"># Time the pure Python implementation</span><br>    start_python = time.time()<br>    result_python = elementwise_multiply_python(A, B)<br>    end_python = time.time()<br>    elapsed_python = end_python - start_python<br><br>    <span class="hljs-comment"># Time the Cython-accelerated implementation</span><br>    start_cython = time.time()<br>    result_cython = elementwise_multiply(A, B)<br>    end_cython = time.time()<br>    elapsed_cython = end_cython - start_cython<br><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Pure Python: <span class="hljs-subst">&#123;elapsed_python:<span class="hljs-number">.5</span>f&#125;</span> seconds&quot;</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Cython-accelerated: <span class="hljs-subst">&#123;elapsed_cython:<span class="hljs-number">.5</span>f&#125;</span> seconds&quot;</span>)<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>    main()<br></code></pre></td></tr></table></figure>
+
+<p>Run the Python code:</p>
+<p><code>python main.py</code></p>
+<p>You should see the execution time of both the pure Python implementation and the Cython-accelerated implementation. Typically, the Cython-accelerated implementation should be significantly faster, as it leverages C-level array access and efficient looping. This is the result on my machine:</p>
+<p><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/cython_perf.png"></p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>In this blog post, we demonstrated how to use Cython with NumPy to optimize matrix operations, specifically element-wise matrix multiplication. We also compared the performance of pure Python and Cython-accelerated implementations, showing that Cython can provide significant performance improvements.</p>
+<p>Cython is a powerful tool for optimizing Python code that relies on numerical computations, especially when used in conjunction with libraries like NumPy. By taking advantage of C-level array access and efficient looping, you can achieve substantial speedups in your scientific computing, data analysis, and machine learning tasks.</p>
  
       <!-- reward -->
       
@@ -199,12 +216,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/04/17/%E5%A4%9A%E9%9D%A2%E4%BD%93%E5%92%8C%E5%8D%95%E7%BA%AF%E5%BD%A2/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/12/31/Accelerate%20Your%20NumPy%20Matrix%20Operations%20with%20Cython/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%87%B8%E4%BC%98%E5%8C%96/" rel="tag">凸优化</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cython/" rel="tag">cython</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
 
     </footer>
   </div>
@@ -212,19 +229,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2022/04/17/%E5%8D%8A%E6%AD%A3%E5%AE%9A%E9%94%A5/" class="article-nav-link">
+      <a href="/2022/12/31/tmux%E5%A4%9F%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            5. 半正定锥
+            tmux够用命令
           
         </div>
       </a>
     
     
-      <a href="/2022/04/17/%E7%90%83%E5%92%8C%E6%A4%AD%E7%90%83/" class="article-nav-link">
+      <a href="/2022/04/17/%E5%8D%8A%E6%AD%A3%E5%AE%9A%E9%94%A5/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">3. 球和椭球</div>
+        <div class="article-nav-title">5. 半正定锥</div>
       </a>
     
   </nav>
