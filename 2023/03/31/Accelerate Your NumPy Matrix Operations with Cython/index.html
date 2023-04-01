@@ -74,8 +74,8 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/12/31/Accelerate%20Your%20NumPy%20Matrix%20Operations%20with%20Cython/" class="article-date">
-  <time datetime="2022-12-31T00:44:10.000Z" itemprop="datePublished">2022-12-31</time>
+      <a href="/2023/03/31/Accelerate%20Your%20NumPy%20Matrix%20Operations%20with%20Cython/" class="article-date">
+  <time datetime="2023-03-31T00:44:10.000Z" itemprop="datePublished">2023-03-31</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/Python/">Python</a>
@@ -86,7 +86,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">775</span>
+            <span class="post-count">874</span>
         </span>
     </span>
 
@@ -95,7 +95,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">4 min</span>
+            <span class="post-count">5 min</span>
         </span>
     </span>
 </div>
@@ -111,7 +111,7 @@
     <div class="article-entry" itemprop="articleBody">
        
   <blockquote>
-<p>受作者水平所限，文中可能存在错误或不当之处，敬请谅解。</p>
+<p>文中可能存在错误之处，欢迎交流。</p>
 </blockquote>
 <p>#python #cython</p>
 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Python is widely used for scientific computing, data analysis, and machine learning tasks due to its ease of use and rich ecosystem. NumPy, a popular library for numerical computations in Python, provides a powerful array object and a variety of functions to operate on these arrays. However, performance can sometimes be a bottleneck when working with large datasets or complex operations.</p>
@@ -123,6 +123,8 @@
 <h3 id="Step-1-Create-a-Cython-file"><a href="#Step-1-Create-a-Cython-file" class="headerlink" title="Step 1: Create a Cython file"></a>Step 1: Create a Cython file</h3><p>Create a Cython file called <code>matrix_mult_cython.pyx</code> with the following code:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># matrix_mult_cython.pyx</span><br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br>cimport numpy <span class="hljs-keyword">as</span> cnp<br><br>cpdef cnp.ndarray[double, ndim=<span class="hljs-number">2</span>] elementwise_multiply(cnp.ndarray[double, ndim=<span class="hljs-number">2</span>] A, cnp.ndarray[double, ndim=<span class="hljs-number">2</span>] B):<br>    cdef <span class="hljs-built_in">int</span> nrows = A.shape[<span class="hljs-number">0</span>]<br>    cdef <span class="hljs-built_in">int</span> ncols = A.shape[<span class="hljs-number">1</span>]<br>    cdef cnp.ndarray[double, ndim=<span class="hljs-number">2</span>] result = np.zeros((nrows, ncols), dtype=np.float64)<br><br>    cdef <span class="hljs-built_in">int</span> i, j<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(nrows):<br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(ncols):<br>            result[i, j] = A[i, j] * B[i, j]<br><br>    <span class="hljs-keyword">return</span> result<br></code></pre></td></tr></table></figure>
 
+<p>Note: In Cython, the <code>cimport</code> statement is used to import C-level declarations from other Cython modules or libraries. It is similar to the regular Python <code>import</code> statement, but it specifically deals with importing C-level functions, types, and other constructs that are not part of the Python runtime.</p>
+<p>In the provided example, the line <code>cimport numpy as cnp</code> is used to import the Cython definitions for the NumPy library. This allows us to interact with NumPy arrays more efficiently, leading to performance improvements. The <code>cnp</code> alias is used in the same way as <code>np</code> for regular Python NumPy imports, but it refers to the C-level NumPy constructs.</p>
 <h3 id="Step-2-Compile-the-Cython-module"><a href="#Step-2-Compile-the-Cython-module" class="headerlink" title="Step 2: Compile the Cython module"></a>Step 2: Compile the Cython module</h3><p>Create a <code>setup.py</code> file to build the Cython module:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># setup.py</span><br><span class="hljs-keyword">from</span> setuptools <span class="hljs-keyword">import</span> setup, Extension<br><span class="hljs-keyword">from</span> Cython.Build <span class="hljs-keyword">import</span> cythonize<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br>ext_modules = [<br>    Extension(<span class="hljs-string">&quot;matrix_mult_cython&quot;</span>, [<span class="hljs-string">&quot;matrix_mult_cython.pyx&quot;</span>],<br>              include_dirs=[np.get_include()])  <span class="hljs-comment"># Add the NumPy header files</span><br>]<br><br>setup(<br>    name=<span class="hljs-string">&#x27;Matrix Multiplication Cython Example&#x27;</span>,<br>    ext_modules=cythonize(ext_modules),<br>    zip_safe=<span class="hljs-literal">False</span>,<br>)<br></code></pre></td></tr></table></figure>
 
@@ -216,7 +218,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/12/31/Accelerate%20Your%20NumPy%20Matrix%20Operations%20with%20Cython/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2023/03/31/Accelerate%20Your%20NumPy%20Matrix%20Operations%20with%20Cython/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -229,19 +231,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2022/12/31/tmux%E5%A4%9F%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            tmux够用命令
-          
-        </div>
-      </a>
     
-    
-      <a href="/2022/04/17/%E5%8D%8A%E6%AD%A3%E5%AE%9A%E9%94%A5/" class="article-nav-link">
+      <a href="/2022/12/31/%E5%9F%BA%E4%BA%8EDjango-Rest%E6%A1%86%E6%9E%B6%E6%9E%84%E5%BB%BAAPI/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">5. 半正定锥</div>
+        <div class="article-nav-title">2. 基于Django Rest框架构建API</div>
       </a>
     
   </nav>
