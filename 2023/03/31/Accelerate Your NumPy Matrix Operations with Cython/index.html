@@ -86,7 +86,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">874</span>
+            <span class="post-count">995</span>
         </span>
     </span>
 
@@ -95,7 +95,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">5 min</span>
+            <span class="post-count">6 min</span>
         </span>
     </span>
 </div>
@@ -130,6 +130,9 @@
 
 <p>Compile the Cython module by running the following command in your terminal:</p>
 <p><code>python setup.py build_ext --inplace</code></p>
+<p>Note: The <code>zip_safe</code> parameter is an option indicating whether the package can be safely installed and run from a zip archive without being extracted to the file system.</p>
+<p>When <code>zip_safe</code> is set to <code>True</code>, it means that the package can be installed and run directly from a zip archive without any issues. However, when set to <code>False</code>, it indicates that the package needs to be extracted to the file system before being executed.</p>
+<p>In the case of Cython-compiled extensions, it is generally recommended to set <code>zip_safe=False</code>. This is because Cython generates compiled C extensions (shared libraries or DLLs) that need to be accessed by the operating system’s dynamic loader, which often cannot read files from a zip archive.</p>
 <h3 id="Step-3-Use-the-Cython-module-in-your-Python-code"><a href="#Step-3-Use-the-Cython-module-in-your-Python-code" class="headerlink" title="Step 3: Use the Cython module in your Python code"></a>Step 3: Use the Cython module in your Python code</h3><p>Now, you can use the compiled Cython module in your Python code:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># main.py</span><br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">from</span> matrix_mult_cython <span class="hljs-keyword">import</span> elementwise_multiply<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>():<br>    A = np.random.rand(<span class="hljs-number">1000</span>, <span class="hljs-number">1000</span>)<br>    B = np.random.rand(<span class="hljs-number">1000</span>, <span class="hljs-number">1000</span>)<br><br>    result = elementwise_multiply(A, B)<br>    <span class="hljs-built_in">print</span>(result)<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>    main()<br></code></pre></td></tr></table></figure>
 
