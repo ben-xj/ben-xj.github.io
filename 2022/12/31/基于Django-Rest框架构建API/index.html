@@ -17,7 +17,7 @@
   <!-- PACE Progress Bar START -->
 
   
-  <title>2. 基于django rest框架构建api | 哈欠星人的独白</title>
+  <title>2. 基于django rest框架构建api | 哈欠星人</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="pythondjango后端框架api" />
@@ -25,17 +25,17 @@
   
   
   
-  <meta name="description" content="1. 什么是API?简单看一下百科的解释：  API之主要目的是提供应用程序与开发人员以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。提供API所定义的功能的软件称作此API的实现。API是一种接口，故而是一种抽象。 应用程序接口（英语：ApplicationProgrammingInterface，简称：API），又称为应用编程接口，就是软件系统不同组成部分衔接的约定。  简单">
+  <meta name="description" content="1. 什么是API?简单看一下百科的解释：  API之主要目的是提供应用程序与开发人员以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。提供API所定义的功能的软件称作此API的实现。API是一种接口，故而是一种抽象。 应用程序接口（英语：ApplicationProgrammingInterface，简称：API），又称为应用编程接口，就是软件系统不同组成部分衔接的约定。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2. 基于Django Rest框架构建API">
 <meta property="og:url" content="http://example.com/2022/12/31/%E5%9F%BA%E4%BA%8EDjango-Rest%E6%A1%86%E6%9E%B6%E6%9E%84%E5%BB%BAAPI/index.html">
-<meta property="og:site_name" content="哈欠星人的独白">
-<meta property="og:description" content="1. 什么是API?简单看一下百科的解释：  API之主要目的是提供应用程序与开发人员以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。提供API所定义的功能的软件称作此API的实现。API是一种接口，故而是一种抽象。 应用程序接口（英语：ApplicationProgrammingInterface，简称：API），又称为应用编程接口，就是软件系统不同组成部分衔接的约定。  简单">
+<meta property="og:site_name" content="哈欠星人">
+<meta property="og:description" content="1. 什么是API?简单看一下百科的解释：  API之主要目的是提供应用程序与开发人员以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。提供API所定义的功能的软件称作此API的实现。API是一种接口，故而是一种抽象。 应用程序接口（英语：ApplicationProgrammingInterface，简称：API），又称为应用编程接口，就是软件系统不同组成部分衔接的约定。">
 <meta property="og:locale">
 <meta property="og:image" content="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/%E7%94%B5%E5%BD%B1%E5%88%97%E8%A1%A8API.png">
 <meta property="og:image" content="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/%E6%9F%90%E4%B8%AA%E7%94%B5%E5%BD%B1%E4%BF%A1%E6%81%AF.png">
 <meta property="article:published_time" content="2022-12-31T09:58:24.000Z">
-<meta property="article:modified_time" content="2023-04-26T12:55:06.000Z">
+<meta property="article:modified_time" content="2023-04-26T14:05:28.000Z">
 <meta property="article:author" content="哈欠星人">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="django">
@@ -44,7 +44,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/%E7%94%B5%E5%BD%B1%E5%88%97%E8%A1%A8API.png">
   
-    <link rel="alternate" href="/atom.xml" title="哈欠星人的独白" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="哈欠星人" type="application/atom+xml">
   
   <link rel="icon" href="/css/images/favicon.ico">
   
@@ -115,7 +115,7 @@ var themeMenus = {};
 
           <h1 class="site-title">
             
-              <a href="/" title="哈欠星人的独白" rel="home"> 哈欠星人的独白 </a>
+              <a href="/" title="哈欠星人" rel="home"> 哈欠星人 </a>
             
           </h1>
 
@@ -212,31 +212,25 @@ var themeMenus = {};
       
         <h1 id="1-什么是API"><a href="#1-什么是API" class="headerlink" title="1. 什么是API?"></a>1. 什么是API?</h1><p>简单看一下百科的解释：</p>
 <blockquote>
-<p>API之主要目的是提供应用程序与开发人员以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。提供API所定义的功能的软件称作此API的实现。API是一种接口，故而是一种抽象。 应用程序接口（英语：ApplicationProgrammingInterface，简称：API），又称为应用编程接口，就是软件系统不同组成部分衔接的约定。</p>
+<p>API之主要目的是提供应用程序与开发人员以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。提供API所定义的功能的软件称作此API的实现。API是一种接口，故而是一种抽象。 应用程序接口（英语：ApplicationProgrammingInterface，简称：API），又称为应用编程接口，就是软件系统不同组成部分衔接的约定。<br><span id="more"></span></p>
 </blockquote>
 <p>简单来说，我们写程序是为了帮用户完成某件事，用户不需要知道我们是怎么完成的。对于用户来说，只需发个指令，譬如，“我想导航到萧山”，那么程序能把路线告诉用户即可。API是什么呢，就是接受用户指令，并返回程序结果的一个工具。</p>
 <h1 id="2-安装djangorestframework包"><a href="#2-安装djangorestframework包" class="headerlink" title="2. 安装djangorestframework包"></a>2. 安装djangorestframework包</h1><p>作为网络开发程序员，我们要为用户提供API 并告诉用户如何使用我们的软件。用于开发API的工具有很多，在Django项目中，一般使用djangorestframework包来开发API。</p>
 <p>djangorestframework包直接使用pip安装即可</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pip install djangorestframework<br></code></pre></td></tr></table></figure>
-
 <h1 id="3-建立Django项目"><a href="#3-建立Django项目" class="headerlink" title="3. 建立Django项目"></a>3. 建立Django项目</h1><p>在本文中，我们通过建立一个电影网站，让用户 获取、修改以及增加新的电影信息，以熟悉Django API的构建。</p>
 <p>可以参考[[基本Django项目构建]]一文建立起项目，简单列举一下相关命令。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">django-admin startproject movie_api<br>cd movie_api<br>python manage.py startapp movie <span class="hljs-comment"># 这里记得在配置文件中加入movie</span><br>python manage.py migrate<br>python manage.py runserver<br></code></pre></td></tr></table></figure>
-
 <p>这样就可以跑起来一个空项目了。</p>
 <p>因为本文只关注API的构建，这里只建立一个数据模型，其他的网页浏览视图、模板就不做了。</p>
 <h2 id="3-1-建立Model"><a href="#3-1-建立Model" class="headerlink" title="3.1 建立Model"></a>3.1 建立Model</h2><p>在<code>movie/models.py</code>中建立电影数据类，</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models<br><br><span class="hljs-comment"># Create your models here.</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Movie</span>(models.Model):<br>    name = models.CharField(max_length=<span class="hljs-number">200</span>)<br>    year = models.IntegerField()<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__str__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span> (<span class="hljs-subst">&#123;self.year&#125;</span>)&#x27;</span><br></code></pre></td></tr></table></figure>
-
 <p>对数据模型更改后，要进行迁移</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">python manage.py makemigrations<br>python manage.py migrate<br></code></pre></td></tr></table></figure>
-
 <p>使用<code>python manage.py shell</code>进行项目的shell添加一些数据</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> movie.models <span class="hljs-keyword">import</span> Movie<br><span class="hljs-meta">&gt;&gt;&gt; </span>Movie.objects.create(name=<span class="hljs-string">&quot;The Shawshank Redemption&quot;</span>, year=<span class="hljs-number">1994</span>)<br>&lt;Movie: The Shawshank Redemption (<span class="hljs-number">1994</span>)&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>Movie.objects.create(name=<span class="hljs-string">&quot;The Godfather&quot;</span>, year=<span class="hljs-number">1972</span>)<br>&lt;Movie: The Godfather (<span class="hljs-number">1972</span>)&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>Movie.objects.create(name=<span class="hljs-string">&quot;The Dark Knight&quot;</span>, year=<span class="hljs-number">2008</span>)<br>&lt;Movie: The Dark Knight (<span class="hljs-number">2008</span>)&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>Movie.objects.create(name=<span class="hljs-string">&#x27;The Godfather: Part II&#x27;</span>, year=<span class="hljs-number">1974</span>)<br>&lt;Movie: The Godfather: Part II (<span class="hljs-number">1974</span>)&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>Movie.objects.create(name=<span class="hljs-string">&#x27;12 Angry Men&#x27;</span>, year=<span class="hljs-number">1957</span>)<br>&lt;Movie: <span class="hljs-number">12</span> Angry Men (<span class="hljs-number">1957</span>)&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>Movie.objects.<span class="hljs-built_in">all</span>()<br>&lt;QuerySet [&lt;Movie: The Shawshank Redemption (<span class="hljs-number">1994</span>)&gt;, &lt;Movie: The Godfather (<span class="hljs-number">1972</span>)&gt;, &lt;Movie: The Dark Knight (<span class="hljs-number">2008</span>)&gt;, &lt;Movie: The Godfather: Part II (<span class="hljs-number">1974</span>)&gt;, &lt;Movie: <span class="hljs-number">12</span> Angry Men (<span class="hljs-number">1957</span>)&gt;]&gt;<br></code></pre></td></tr></table></figure>
-
 <h1 id="4-构建API"><a href="#4-构建API" class="headerlink" title="4. 构建API"></a>4. 构建API</h1><p>首先在<code>movie_api/settings.py</code>文件找到<code>INSTALLED_APPS</code>， 注册rest_framework，现在这个列表应该如下，</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">INSTALLED_APPS = [<br>    ... <span class="hljs-comment"># 其他已有值</span><br>    <span class="hljs-string">&#x27;movie&#x27;</span>,<br>    <span class="hljs-string">&#x27;rest_framework&#x27;</span>,<br>]<br></code></pre></td></tr></table></figure>
-
 <p>为了避免与网站基本内容混淆，可以项目根目录下建立一个专门的api文件夹，并在其中建立一个空的<code>__init__.py</code>文件，表明这是一个包。</p>
 <h2 id="4-1-建立序列化器"><a href="#4-1-建立序列化器" class="headerlink" title="4.1 建立序列化器"></a>4.1 建立序列化器</h2><blockquote>
 <p>我们把变量从内存中变成可存储或传输的过程称之为序列化。——廖雪峰</p>
@@ -244,34 +238,26 @@ var themeMenus = {};
 <p>也就是说，从数据库中把数据读到我们的Model类型的变量中后，还要经过序列化，才能顺利传输到客户端（浏览器），供用户浏览使用。</p>
 <p>在api文件夹下建立<code>serializers.py</code>文件，内容如下</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> rest_framework <span class="hljs-keyword">import</span> serializers<br><span class="hljs-keyword">from</span> movie.models <span class="hljs-keyword">import</span> Movie<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MovieSerializer</span>(serializers.ModelSerializer):<br>    <span class="hljs-keyword">class</span> <span class="hljs-title class_">Meta</span>:<br>        model = Movie<br>        fields= <span class="hljs-string">&#x27;__all__&#x27;</span><br></code></pre></td></tr></table></figure>
-
 <p>这里建立了一个Movie专用的序列化器，其中序列化的数据包括所有字段。</p>
 <h2 id="4-2-建立视图并绑定URL"><a href="#4-2-建立视图并绑定URL" class="headerlink" title="4.2 建立视图并绑定URL"></a>4.2 建立视图并绑定URL</h2><h3 id="4-2-1-获取所有电影"><a href="#4-2-1-获取所有电影" class="headerlink" title="4.2.1 获取所有电影"></a>4.2.1 获取所有电影</h3><p>在api文件夹下建立<code>views.py</code>文件</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> rest_framework.decorators <span class="hljs-keyword">import</span> api_view<br><span class="hljs-keyword">from</span> movie.models <span class="hljs-keyword">import</span> Movie<br><span class="hljs-keyword">from</span> .serializers <span class="hljs-keyword">import</span> MovieSerializer<br><span class="hljs-keyword">from</span> rest_framework.response <span class="hljs-keyword">import</span> Response<br><br><br><span class="hljs-meta">@api_view(<span class="hljs-params">[<span class="hljs-string">&#x27;GET&#x27;</span>]</span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_movies</span>(<span class="hljs-params">request</span>):<br>    movies = Movie.objects.<span class="hljs-built_in">all</span>()<br>    serializer = MovieSerializer(movies, many=<span class="hljs-literal">True</span>)<br>    <span class="hljs-keyword">return</span> Response(serializer.data)<br></code></pre></td></tr></table></figure>
-
 <p>这里通过装饰器来设置请求方法，这里只是获取，用GET即可。</p>
 <p>注意在一个普通的网站中，获取了电影列表后，应该传输给前端的模板，以供渲染，但在API中，我们进行序列化，以供传输。</p>
 <p>然后绑定url，在api文件夹下建立<code>urls.py</code>文件，</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> path<br><span class="hljs-keyword">from</span> . <span class="hljs-keyword">import</span> views<br><br>urlpatterns = [<br>    path(<span class="hljs-string">&#x27;&#x27;</span>, views.get_movies, name=<span class="hljs-string">&#x27;get_movies&#x27;</span>)<br>]<br></code></pre></td></tr></table></figure>
-
 <p>如文章[[基本Django项目构建]]中提到的，还没有被django项目所识别，因此，需要在<code>movie_api/urls.py</code>文件中进行引用，以让项目进行识别。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> path, include<br><br>urlpatterns = [<br>    path(<span class="hljs-string">&#x27;admin/&#x27;</span>, admin.site.urls),<br>    path(<span class="hljs-string">&#x27;movies/&#x27;</span>, include(<span class="hljs-string">&#x27;api.urls&#x27;</span>)),<br>]<br></code></pre></td></tr></table></figure>
-
 <p>这样，运行项目后，我们就可以通过网址<a target="_blank" rel="noopener" href="http://127.0.0.1:8000/movies/">http://127.0.0.1:8000/movies/</a>访问电影列表api了，效果如下：<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/%E7%94%B5%E5%BD%B1%E5%88%97%E8%A1%A8API.png" alt="电影列表API.png"></p>
 <h3 id="4-2-2-新增电影"><a href="#4-2-2-新增电影" class="headerlink" title="4.2.2 新增电影"></a>4.2.2 新增电影</h3><p>新增电影条目可以保持与电影列表的网址相同，只需要在视图中增加一个POST请求方法即可。修改<code>api/views.py</code>中相关函数如下，</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> rest_framework <span class="hljs-keyword">import</span> status<br><br><span class="hljs-meta">@api_view(<span class="hljs-params">[<span class="hljs-string">&#x27;GET&#x27;</span>, <span class="hljs-string">&#x27;POST&#x27;</span>]</span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_movies</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&#x27;GET&#x27;</span>:<br>        movies = Movie.objects.<span class="hljs-built_in">all</span>()<br>        serializer = MovieSerializer(movies, many=<span class="hljs-literal">True</span>)<br>        <span class="hljs-keyword">return</span> Response(serializer.data)<br>    <span class="hljs-keyword">elif</span> request.method == <span class="hljs-string">&#x27;POST&#x27;</span>:<br>        serializer = MovieSerializer(data=request.data)<br>        <span class="hljs-keyword">if</span> serializer.is_valid():<br>            serializer.save()<br>            <span class="hljs-keyword">return</span> Response(serializer.data, status=status.HTTP_201_CREATED)<br>        <span class="hljs-keyword">return</span> Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)<br></code></pre></td></tr></table></figure>
-
 <p>要注意的是，一旦数据有变动，要使用<code>is_valid</code>进行数据的验证并使用<code>save</code>保存，这里包括<strong>类型、长度</strong>等的验证。<br>再次访问网址<a target="_blank" rel="noopener" href="http://127.0.0.1:8000/movies/">http://127.0.0.1:8000/movies/</a>，可以看到下方多出了一个输入框，以增加电影条目。</p>
 <h3 id="4-2-3-获取某个电影的信息"><a href="#4-2-3-获取某个电影的信息" class="headerlink" title="4.2.3 获取某个电影的信息"></a>4.2.3 获取某个电影的信息</h3><p>这里也是获取内容，与[[#4 2 1 获取所有电影]]类似，首先在<code>api/views.py</code>中添加视图函数，</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@api_view(<span class="hljs-params">[<span class="hljs-string">&#x27;PUT&#x27;</span>]</span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_movie_detail</span>(<span class="hljs-params">request, <span class="hljs-built_in">id</span></span>):<br>    movie = Movie.objects.get(pk=<span class="hljs-built_in">id</span>)<br>    serializer = MovieSerializer(movie)<br>    <span class="hljs-keyword">return</span> Response(serializer.data)<br></code></pre></td></tr></table></figure>
-
 <p>然后在<code>api/urls.py</code>中绑定网址，</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">urlpatterns = [<br>    path(<span class="hljs-string">&#x27;&lt;int:id&gt;&#x27;</span>, views.get_movie_detail, name=<span class="hljs-string">&#x27;get_movie_detail&#x27;</span>),<br>]<br></code></pre></td></tr></table></figure>
-
 <p>即可通过<a target="_blank" rel="noopener" href="http://127.0.0.1:8000/movies/1">http://127.0.0.1:8000/movies/1</a> 访问id为1的电影信息了。</p>
 <h3 id="4-2-4-修改或删除某个电影的信息"><a href="#4-2-4-修改或删除某个电影的信息" class="headerlink" title="4.2.4 修改或删除某个电影的信息"></a>4.2.4 修改或删除某个电影的信息</h3><p>修改或删除也是针对某个电影，所以网址与[[#4 2 3 获取某个电影的信息]]可以相同，不过请求方法需要设置为PUT和DELETE，修改相应的视图函数如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@api_view(<span class="hljs-params">[<span class="hljs-string">&#x27;GET&#x27;</span>, <span class="hljs-string">&#x27;PUT&#x27;</span>, <span class="hljs-string">&#x27;DELETE&#x27;</span>]</span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_movie_detail</span>(<span class="hljs-params">request, <span class="hljs-built_in">id</span></span>):<br>    movie = Movie.objects.get(pk=<span class="hljs-built_in">id</span>)<br>    <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&#x27;GET&#x27;</span>:<br>        serializer = MovieSerializer(movie)<br>        <span class="hljs-keyword">return</span> Response(serializer.data)<br>    <span class="hljs-keyword">elif</span> request.method == <span class="hljs-string">&#x27;PUT&#x27;</span>:<br>        serializer = MovieSerializer(movie, data=request.data)<br>        <span class="hljs-keyword">if</span> serializer.is_valid():<br>            serializer.save()<br>            <span class="hljs-keyword">return</span> Response(serializer.data)<br>        <span class="hljs-keyword">return</span> Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)<br>    <span class="hljs-keyword">elif</span> request.method == <span class="hljs-string">&#x27;DELETE&#x27;</span>:<br>        movie.delete()<br>        <span class="hljs-keyword">return</span> Response(status=status.HTTP_204_NO_CONTENT)<br></code></pre></td></tr></table></figure>
-
 <p>这里增加了对请求方法PUT和DELETE的支持，在函数体中，针对不同的请求类型，有不同的处理。</p>
 <p>修改后页面效果如下，可以进行内容的修改和条目的删除。<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/%E6%9F%90%E4%B8%AA%E7%94%B5%E5%BD%B1%E4%BF%A1%E6%81%AF.png" alt="某个电影信息.png"></p>
 <h1 id="5-回顾"><a href="#5-回顾" class="headerlink" title="5. 回顾"></a>5. 回顾</h1><p>简单回顾一下，在一个普通的网站项目基础上，首先建立了专门的API文件夹，在其中首先建立序列化器以进行数据转化传输，然后建立了各类视图，并通过不同请求方法进行数据的增、删、改、查（即CRUD操作）API的构建。</p>
@@ -359,7 +345,7 @@ var themeMenus = {};
 
   <div class="clearfix container">
       <div class="site-info">
-	      &copy; 2023 哈欠星人的独白 All Rights Reserved.
+	      &copy; 2023 哈欠星人 All Rights Reserved.
           
             <span id="busuanzi_container_site_uv">
               本站访客数<span id="busuanzi_value_site_uv"></span>人次  

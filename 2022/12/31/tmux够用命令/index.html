@@ -17,7 +17,7 @@
   <!-- PACE Progress Bar START -->
 
   
-  <title>tmux够用命令 | 哈欠星人的独白</title>
+  <title>tmux够用命令 | 哈欠星人</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="shelltmux" />
@@ -25,12 +25,12 @@
   
   
   
-  <meta name="description" content="#tmux #shell 1. Session 会话可以理解为一个连接，tmux其实是提供了一个终端服务，这个服务可以允许我们创建多个终端会话。 1.1 创建匿名和命名的会话12tmux newtmux new -s &lt;session-name&gt; 创建后会自动进入该会话的窗口（下一节详细说明窗口）。 1.2 离开会话1ctrl+b d 即离开当前的会话，回到系统的终端窗口。tmux会话">
+  <meta name="description" content="Tmux is a terminal multiplexer for Unix-like systems. It allows users to create and manage multiple terminal sessions within a single terminal window or console.  Tmux provides many features that are">
 <meta property="og:type" content="article">
 <meta property="og:title" content="tmux够用命令">
 <meta property="og:url" content="http://example.com/2022/12/31/tmux%E5%A4%9F%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
-<meta property="og:site_name" content="哈欠星人的独白">
-<meta property="og:description" content="#tmux #shell 1. Session 会话可以理解为一个连接，tmux其实是提供了一个终端服务，这个服务可以允许我们创建多个终端会话。 1.1 创建匿名和命名的会话12tmux newtmux new -s &lt;session-name&gt; 创建后会自动进入该会话的窗口（下一节详细说明窗口）。 1.2 离开会话1ctrl+b d 即离开当前的会话，回到系统的终端窗口。tmux会话">
+<meta property="og:site_name" content="哈欠星人">
+<meta property="og:description" content="Tmux is a terminal multiplexer for Unix-like systems. It allows users to create and manage multiple terminal sessions within a single terminal window or console.  Tmux provides many features that are">
 <meta property="og:locale">
 <meta property="og:image" content="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/tmux-session.png">
 <meta property="og:image" content="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/tmux-ls.png">
@@ -39,14 +39,14 @@
 <meta property="og:image" content="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/tmux-v-split.png">
 <meta property="og:image" content="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/tmux-c-split.png">
 <meta property="article:published_time" content="2022-12-31T00:44:10.000Z">
-<meta property="article:modified_time" content="2023-04-26T12:54:50.000Z">
+<meta property="article:modified_time" content="2023-04-26T14:04:50.000Z">
 <meta property="article:author" content="哈欠星人">
 <meta property="article:tag" content="shell">
 <meta property="article:tag" content="tmux">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/tmux-session.png">
   
-    <link rel="alternate" href="/atom.xml" title="哈欠星人的独白" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="哈欠星人" type="application/atom+xml">
   
   <link rel="icon" href="/css/images/favicon.ico">
   
@@ -117,7 +117,7 @@ var themeMenus = {};
 
           <h1 class="site-title">
             
-              <a href="/" title="哈欠星人的独白" rel="home"> 哈欠星人的独白 </a>
+              <a href="/" title="哈欠星人" rel="home"> 哈欠星人 </a>
             
           </h1>
 
@@ -212,39 +212,29 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#tmux #shell</p>
+        <p>Tmux is a terminal multiplexer for Unix-like systems. It allows users to create and manage multiple terminal sessions within a single terminal window or console. </p>
+<p>Tmux provides many features that are useful for working in a command-line environment. For example, it allows users to detach and reattach sessions, which means that users can start a session, disconnect from it and then reconnect to it later. This feature is particularly useful for long-running tasks that continue even after the user has logged out or disconnected from the network.<br><span id="more"></span></p>
 <h2 id="1-Session-会话"><a href="#1-Session-会话" class="headerlink" title="1. Session 会话"></a>1. Session 会话</h2><p>可以理解为一个连接，tmux其实是提供了一个终端服务，这个服务可以允许我们创建多个终端会话。</p>
 <h3 id="1-1-创建匿名和命名的会话"><a href="#1-1-创建匿名和命名的会话" class="headerlink" title="1.1 创建匿名和命名的会话"></a>1.1 创建匿名和命名的会话</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">tmux new<br>tmux new -s &lt;session-name&gt;<br></code></pre></td></tr></table></figure>
-<p>创建后会自动进入该会话的窗口（下一节详细说明窗口）。<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/tmux-session.png"></p>
+<p>创建后会自动进入该会话的窗口（下一节详细说明窗口）。<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/tmux-session.png" alt=""></p>
 <h3 id="1-2-离开会话"><a href="#1-2-离开会话" class="headerlink" title="1.2 离开会话"></a>1.2 离开会话</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">ctrl+b d<br></code></pre></td></tr></table></figure>
 <p>即离开当前的会话，回到系统的终端窗口。tmux会话的一大优点是不会随着终端gui的关闭而停止，会话仍保持后台运行，后续可通过<code>attach</code>命令重新进入。</p>
-<h3 id="1-3-查看会话列表及进入会话"><a href="#1-3-查看会话列表及进入会话" class="headerlink" title="1.3 查看会话列表及进入会话"></a>1.3 查看会话列表及进入会话</h3><p>我们可以同时运行多个会话，互不干扰，查看会话列表的命令为</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">tmux ls<br></code></pre></td></tr></table></figure>
-<p><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/tmux-ls.png"><br>第一列就是会话的名字，进入指定会话命令为</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">tmux attach -t &lt;session-name&gt;<br></code></pre></td></tr></table></figure>
-<p>这里<code>-t</code>表示target。</p>
+<h3 id="1-3-查看会话列表及进入会话"><a href="#1-3-查看会话列表及进入会话" class="headerlink" title="1.3 查看会话列表及进入会话"></a>1.3 查看会话列表及进入会话</h3><p>我们可以同时运行多个会话，互不干扰，查看会话列表的命令为<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">tmux ls<br></code></pre></td></tr></table></figure><br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/tmux-ls.png" alt=""><br>第一列就是会话的名字，进入指定会话命令为<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">tmux attach -t &lt;session-name&gt;<br></code></pre></td></tr></table></figure><br>这里<code>-t</code>表示target。</p>
 <h3 id="1-4-退出会话（删除）"><a href="#1-4-退出会话（删除）" class="headerlink" title="1.4 退出会话（删除）"></a>1.4 退出会话（删除）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plaintext"># 会话内<br>exit<br># 会话外/内<br>tmux kill-session -t &lt;session-name&gt;<br></code></pre></td></tr></table></figure>
 <p>这是彻底退出会话，不会保留后台。</p>
 <h3 id="1-5-重命名会话"><a href="#1-5-重命名会话" class="headerlink" title="1.5 重命名会话"></a>1.5 重命名会话</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">tmux rename-session -t &lt;session-name&gt; &lt;new-name&gt;<br></code></pre></td></tr></table></figure>
-
 <h2 id="2-Window-窗口"><a href="#2-Window-窗口" class="headerlink" title="2. Window 窗口"></a>2. Window 窗口</h2><p>每次进入会话看到的都是<strong>一个</strong>会话窗口，而实际上tmux允许我们在一个session开启多个窗口。</p>
 <h3 id="2-1-新窗口"><a href="#2-1-新窗口" class="headerlink" title="2.1 新窗口"></a>2.1 新窗口</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">ctrl+b c<br></code></pre></td></tr></table></figure>
-<p>这个动作开启了一个新窗口，并自动进入新窗口。可以通过下方状态栏观察。<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/tmux-new-window.png"></p>
-<h3 id="2-2-窗口跳转"><a href="#2-2-窗口跳转" class="headerlink" title="2.2 窗口跳转"></a>2.2 窗口跳转</h3><p>那如果我想跳回去之前的窗口，可以通过命令</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">ctrl+b &lt;window-name&gt;<br></code></pre></td></tr></table></figure>
-
-<h3 id="2-3-窗口重命名"><a href="#2-3-窗口重命名" class="headerlink" title="2.3 窗口重命名"></a>2.3 窗口重命名</h3><p>这时候我们发现，这些窗口名都是数字，开多了自己都不知道往哪找想要的窗口了，那么，可以把窗口改个容易识别的名字，这样就知道每个窗口在做什么啦。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">ctrl+b ,<br></code></pre></td></tr></table></figure>
-
-<h3 id="2-4-关闭窗口"><a href="#2-4-关闭窗口" class="headerlink" title="2.4 关闭窗口"></a>2.4 关闭窗口</h3><p>最后，当不再使用某个窗口，可以关掉</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">ctrl+d或exit<br></code></pre></td></tr></table></figure>
-
+<p>这个动作开启了一个新窗口，并自动进入新窗口。可以通过下方状态栏观察。<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/tmux-new-window.png" alt=""></p>
+<h3 id="2-2-窗口跳转"><a href="#2-2-窗口跳转" class="headerlink" title="2.2 窗口跳转"></a>2.2 窗口跳转</h3><p>那如果我想跳回去之前的窗口，可以通过命令<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">ctrl+b &lt;window-name&gt;<br></code></pre></td></tr></table></figure></p>
+<h3 id="2-3-窗口重命名"><a href="#2-3-窗口重命名" class="headerlink" title="2.3 窗口重命名"></a>2.3 窗口重命名</h3><p>这时候我们发现，这些窗口名都是数字，开多了自己都不知道往哪找想要的窗口了，那么，可以把窗口改个容易识别的名字，这样就知道每个窗口在做什么啦。<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">ctrl+b ,<br></code></pre></td></tr></table></figure></p>
+<h3 id="2-4-关闭窗口"><a href="#2-4-关闭窗口" class="headerlink" title="2.4 关闭窗口"></a>2.4 关闭窗口</h3><p>最后，当不再使用某个窗口，可以关掉<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">ctrl+d或exit<br></code></pre></td></tr></table></figure></p>
 <h2 id="3-Pane-面板"><a href="#3-Pane-面板" class="headerlink" title="3. Pane 面板"></a>3. Pane 面板</h2><p>最后的最后，如果你的屏幕足够大，一个窗口只能同时跑一个命令不是很浪费？tmux提供了多面板支持，可以把当前窗口一分为2、3、4….</p>
 <h3 id="3-1-水平划分"><a href="#3-1-水平划分" class="headerlink" title="3.1 水平划分"></a>3.1 水平划分</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">ctrl+b %<br></code></pre></td></tr></table></figure>
-<p>效果如下<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/tmux-h-split.png"></p>
+<p>效果如下<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/tmux-h-split.png" alt=""></p>
 <h3 id="3-2-垂直划分"><a href="#3-2-垂直划分" class="headerlink" title="3.2 垂直划分"></a>3.2 垂直划分</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">ctrl+b &quot;<br></code></pre></td></tr></table></figure>
-<p>效果如下<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/tmux-v-split.png"></p>
-<p>当然，水平和垂直划分可以随意组合<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/tmux-c-split.png"></p>
+<p>效果如下<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/tmux-v-split.png" alt=""></p>
+<p>当然，水平和垂直划分可以随意组合<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/tmux-c-split.png" alt=""></p>
 <h3 id="3-3-pane间切换"><a href="#3-3-pane间切换" class="headerlink" title="3.3 pane间切换"></a>3.3 pane间切换</h3><p>这么多面板，怎么跳到指定的那一个，当然不是用鼠标点，我们还是用<code>ctrl+b</code>命令，结合上下左右方向键就可以切换了。</p>
 <h3 id="3-4-关闭pane"><a href="#3-4-关闭pane" class="headerlink" title="3.4 关闭pane"></a>3.4 关闭pane</h3><p>如果觉得太凌乱，就关掉几个pane吧，命令和关窗口一样。</p>
 <p>以上。</p>
@@ -331,7 +321,7 @@ var themeMenus = {};
 
   <div class="clearfix container">
       <div class="site-info">
-	      &copy; 2023 哈欠星人的独白 All Rights Reserved.
+	      &copy; 2023 哈欠星人 All Rights Reserved.
           
             <span id="busuanzi_container_site_uv">
               本站访客数<span id="busuanzi_value_site_uv"></span>人次  

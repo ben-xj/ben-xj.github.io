@@ -17,7 +17,7 @@
   <!-- PACE Progress Bar START -->
 
   
-  <title>批量爬取大学课件 | 哈欠星人的独白</title>
+  <title>批量爬取大学课件 | 哈欠星人</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="python爬虫" />
@@ -29,19 +29,19 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="批量爬取大学课件">
 <meta property="og:url" content="http://example.com/2022/04/16/%E6%89%B9%E9%87%8F%E7%88%AC%E5%8F%96%E5%A4%A7%E5%AD%A6%E8%AF%BE%E4%BB%B6/index.html">
-<meta property="og:site_name" content="哈欠星人的独白">
+<meta property="og:site_name" content="哈欠星人">
 <meta property="og:description" content="用Python爬虫批量国外大学课件">
 <meta property="og:locale">
 <meta property="og:image" content="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E4%BB%B6%E9%A1%B5.png">
 <meta property="article:published_time" content="2022-04-16T01:36:22.000Z">
-<meta property="article:modified_time" content="2023-04-26T12:55:16.000Z">
+<meta property="article:modified_time" content="2023-04-26T14:06:14.000Z">
 <meta property="article:author" content="哈欠星人">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="爬虫">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E4%BB%B6%E9%A1%B5.png">
   
-    <link rel="alternate" href="/atom.xml" title="哈欠星人的独白" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="哈欠星人" type="application/atom+xml">
   
   <link rel="icon" href="/css/images/favicon.ico">
   
@@ -112,7 +112,7 @@ var themeMenus = {};
 
           <h1 class="site-title">
             
-              <a href="/" title="哈欠星人的独白" rel="home"> 哈欠星人的独白 </a>
+              <a href="/" title="哈欠星人" rel="home"> 哈欠星人 </a>
             
           </h1>
 
@@ -208,12 +208,10 @@ var themeMenus = {};
     <div class="article-entry" itemprop="articleBody">
       
         <p>国外很多大学的课件放在一个专门的页面上，如下图所示，那么很容易通过一个爬虫批量下载下来。<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E4%BB%B6%E9%A1%B5.png" alt="大学课件页.png"></p>
-<p>思路就是识别页面中以pdf结尾的链接，然后进行下载。</p>
+<p>思路就是识别页面中以pdf结尾的链接，然后进行下载。<br><span id="more"></span></p>
 <h1 id="单线程版本"><a href="#单线程版本" class="headerlink" title="单线程版本"></a>单线程版本</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup<br><br>url = <span class="hljs-string">&#x27;https://inst.eecs.berkeley.edu/~ee127/fa19/Lectures/&#x27;</span><br>page = requests.get(url).content<br><br>soup = BeautifulSoup(page, <span class="hljs-string">&#x27;html.parser&#x27;</span>)<br><br>links = soup.find_all(<span class="hljs-string">&#x27;a&#x27;</span>)<br><span class="hljs-keyword">for</span> link <span class="hljs-keyword">in</span> links:<br>	href = link.get(<span class="hljs-string">&#x27;href&#x27;</span>)<br>	<span class="hljs-keyword">if</span> href.endswith(<span class="hljs-string">&#x27;.pdf&#x27;</span>):<br>		file_url = url + href<br>		<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(href, <span class="hljs-string">&#x27;wb&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>			f.write(requests.get(file_url).content)<br></code></pre></td></tr></table></figure>
 <p>下载25个文件，费时180秒左右。</p>
-<h1 id="多线程版本"><a href="#多线程版本" class="headerlink" title="多线程版本"></a>多线程版本</h1><p>对于这种国外网站，常常下载速度较慢，这种IO密集型的任务使用多线程就非常有必要了。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> threading <span class="hljs-keyword">import</span> Thread<br><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">download</span>(<span class="hljs-params">url, href</span>):<br>	r = requests.get(url + href)<br>	<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(href, <span class="hljs-string">&#x27;wb&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>		f.write(r.content)<br><br>url = <span class="hljs-string">&#x27;https://inst.eecs.berkeley.edu/~ee127/fa19/Lectures/&#x27;</span><br>page = requests.get(url).content<br><br>soup = BeautifulSoup(page, <span class="hljs-string">&#x27;html.parser&#x27;</span>)<br>links = soup.find_all(<span class="hljs-string">&#x27;a&#x27;</span>)<br>threads = []<br><span class="hljs-keyword">for</span> link <span class="hljs-keyword">in</span> links:<br>	href = link.get(<span class="hljs-string">&#x27;href&#x27;</span>)<br>	<span class="hljs-keyword">if</span> href.endswith(<span class="hljs-string">&#x27;.pdf&#x27;</span>):<br>		t = Thread(target=download, args=(url, href))<br>		threads.append(t)<br>		t.start()<br><br><span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> threads:<br>	t.join()<br></code></pre></td></tr></table></figure>
-<p>这时，下载同样的文件，只需12秒左右，效果还是很明显的。</p>
+<h1 id="多线程版本"><a href="#多线程版本" class="headerlink" title="多线程版本"></a>多线程版本</h1><p>对于这种国外网站，常常下载速度较慢，这种IO密集型的任务使用多线程就非常有必要了。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> threading <span class="hljs-keyword">import</span> Thread<br><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">download</span>(<span class="hljs-params">url, href</span>):<br>	r = requests.get(url + href)<br>	<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(href, <span class="hljs-string">&#x27;wb&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>		f.write(r.content)<br><br>url = <span class="hljs-string">&#x27;https://inst.eecs.berkeley.edu/~ee127/fa19/Lectures/&#x27;</span><br>page = requests.get(url).content<br><br>soup = BeautifulSoup(page, <span class="hljs-string">&#x27;html.parser&#x27;</span>)<br>links = soup.find_all(<span class="hljs-string">&#x27;a&#x27;</span>)<br>threads = []<br><span class="hljs-keyword">for</span> link <span class="hljs-keyword">in</span> links:<br>	href = link.get(<span class="hljs-string">&#x27;href&#x27;</span>)<br>	<span class="hljs-keyword">if</span> href.endswith(<span class="hljs-string">&#x27;.pdf&#x27;</span>):<br>		t = Thread(target=download, args=(url, href))<br>		threads.append(t)<br>		t.start()<br><br><span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> threads:<br>	t.join()<br></code></pre></td></tr></table></figure><br>这时，下载同样的文件，只需12秒左右，效果还是很明显的。</p>
 
       
     </div>
@@ -297,7 +295,7 @@ var themeMenus = {};
 
   <div class="clearfix container">
       <div class="site-info">
-	      &copy; 2023 哈欠星人的独白 All Rights Reserved.
+	      &copy; 2023 哈欠星人 All Rights Reserved.
           
             <span id="busuanzi_container_site_uv">
               本站访客数<span id="busuanzi_value_site_uv"></span>人次  
