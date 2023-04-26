@@ -1,968 +1,1260 @@
 <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
 
+  <!-- PACE Progress Bar START -->
+  
+    
+<script src="https://raw.githubusercontent.com/HubSpot/pace/v1.0.2/pace.min.js"></script>
 
-<html lang="zh-Hans">
+    
+<link rel="stylesheet" href="https://github.com/HubSpot/pace/raw/master/themes/orange/pace-theme-flash.css">
+
+  
   
 
-    <head>
-      <meta charset="utf-8" />
-       
-      <meta name="keywords" content="代码,博客,思考,优化" />
-       
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1"
-      />
-      <title> 哈欠星人的独白</title>
-  <meta name="generator" content="hexo-theme-ayer">
-      
-      <link rel="shortcut icon" href="/favicon.ico" />
-       
-<link rel="stylesheet" href="/dist/main.css">
+  <!-- PACE Progress Bar START -->
 
-      
-<link rel="stylesheet" href="/css/fonts/remixicon.css">
+  
+  <title>哈欠星人的独白</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta property="og:type" content="website">
+<meta property="og:title" content="哈欠星人的独白">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="哈欠星人的独白">
+<meta property="og:locale">
+<meta property="article:author" content="哈欠星人">
+<meta property="article:tag" content="代码,博客,思考,优化">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="哈欠星人的独白" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  
+<link rel="stylesheet" href="/css/style.css">
 
-      
-<link rel="stylesheet" href="/css/custom.css">
- 
-      <script src="https://cdn.s2taticfile.org/pace/1.2.4/pace.min.js"></script>
-      
-       
 
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
-ga('create', '[object Object]', 'auto');
-ga('send', 'pageview');
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+  
+
+  <!-- Custom CSS -->
+  
+<link rel="stylesheet" href="/css/my.css">
+
+  <!-- Google Adsense -->
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0123456789ABCDEF",
+          enable_page_level_ads: true
+      });
+  </script>
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<script>
+var themeMenus = {};
+
+  themeMenus["/"] = "Home"; 
+
+  themeMenus["/archives"] = "Archives"; 
+
+  themeMenus["/categories"] = "Categories"; 
+
+  themeMenus["/tags"] = "Tags"; 
+
+  themeMenus["/about"] = "About"; 
 
 </script>
 
 
- 
-
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
-      />
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
-
-      <!-- mermaid -->
-      
-      <style>
-        .swal2-styled.swal2-confirm {
-          font-size: 1.6rem;
-        }
-      </style>
-    </head>
-  </html>
-</html>
+  <body>
 
 
-<body>
-  <div id="app">
-    
-      
-    <main class="content on">
-      
-<section class="cover">
-    
-  <div class="cover-frame">
-    <div class="bg-box">
-      <img src="/images/cover5-cut.jpg" alt="image frame" />
-    </div>
-    <div class="cover-inner text-center text-white">
-      <h1><a href="/">哈欠星人的独白</a></h1>
-      <div id="subtitle-box">
-        
-          <span id="subtitle">想要的都拥有，得不到的都释怀</span>
-        
+  <header id="allheader" class="site-header" role="banner">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="哈欠星人的独白" rel="home"> 哈欠星人的独白 </a>
+            
+          </h1>
+
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories">Categories</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">Tags</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">About</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
       </div>
-      <div>
-        
+  </div>
+</header>
+
+
+  <div id="originBgDiv" style="background: #fff; width: 100%;">
+
+      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
+        <img id="originBg" width="100%" alt="" src="">
       </div>
-    </div>
+
   </div>
-  <div class="cover-learn-more">
-    <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
-  </div>
-</section>
+
+  <script>
+  function setAboutIMG(){
+      var imgUrls = "css/images/pose.jpg,https://source.unsplash.com/collection/954550/1920x1080".split(",");
+      var random = Math.floor((Math.random() * imgUrls.length ));
+      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+        document.getElementById("originBg").src=imgUrls[random];
+      } else {
+        document.getElementById("originBg").src='/' + imgUrls[random];
+      }
+  }
+  bgDiv=document.getElementById("originBgDiv");
+  if(location.pathname.match('about')){
+    setAboutIMG();
+    bgDiv.style.display='block';
+  }else{
+    bgDiv.style.display='none';
+  }
+  </script>
 
 
 
-
-<!-- Subtitle -->
-
-<div id="main">
-  <section class="outer">
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main">
   
+    <article id="post-pulp不同求解器设置参数"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
   
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2023/04/26/pulp%E4%B8%8D%E5%90%8C%E6%B1%82%E8%A7%A3%E5%99%A8%E8%AE%BE%E7%BD%AE%E5%8F%82%E6%95%B0/">pulp不同求解器设置参数</a>
+    </h1>
   
 
-<div class="notice" style="margin-top:50px">
-    <i class="ri-heart-fill"></i>
-    <div class="notice-content" id="broad"></div>
-</div>
-<script type="text/javascript">
-    fetch('https://v1.hitokoto.cn')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("broad").innerHTML = data.hitokoto;
-        })
-        .catch(console.error)
-</script>
-
-<style>
-    .notice {
-        padding: 20px;
-        border: 1px dashed #e6e6e6;
-        color: #969696;
-        position: relative;
-        display: inline-block;
-        width: 100%;
-        background: #fbfbfb50;
-        border-radius: 10px;
-    }
-
-    .notice i {
-        float: left;
-        color: #999;
-        font-size: 16px;
-        padding-right: 10px;
-        vertical-align: middle;
-        margin-top: -2px;
-    }
-
-    .notice-content {
-        display: initial;
-        vertical-align: middle;
-    }
-</style>
-  
-  <article class="articles">
+      </header>
     
-    
-    
-    
-    <article
-  id="post-Accelerate Your NumPy Matrix Operations with Cython"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/03/31/Accelerate%20Your%20NumPy%20Matrix%20Operations%20with%20Cython/"
-    >Accelerate Your NumPy Matrix Operations with Cython</a> 
-</h2>
- 
-
-      
-    </header>
-     
     <div class="article-meta">
-      <a href="/2023/03/31/Accelerate%20Your%20NumPy%20Matrix%20Operations%20with%20Cython/" class="article-date">
-  <time datetime="2023-03-31T00:44:10.000Z" itemprop="datePublished">2023-03-31</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-   
-    </div>
-       
+      
+	Posted on <a href="/2023/04/26/pulp%E4%B8%8D%E5%90%8C%E6%B1%82%E8%A7%A3%E5%99%A8%E8%AE%BE%E7%BD%AE%E5%8F%82%E6%95%B0/" class="article-date">
+	  <time datetime="2023-04-26T12:23:27.000Z" itemprop="datePublished">April 26, 2023</time>
+	</a>
 
-    <!-- copyright -->
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> pulp <span class="hljs-keyword">import</span> *<br><br><span class="hljs-comment"># Use CBC solver</span><br>prob.solve(PULP_CBC_CMD(msg=<span class="hljs-literal">True</span>, timeLimit=<span class="hljs-number">1</span>, options=[<span class="hljs-string">&quot;startalg&quot;</span>,<br>                                                        <span class="hljs-string">&quot;barrier&quot;</span>]))<br><br><span class="hljs-comment"># Use cplex solver</span><br>prob.solve(<br>    CPLEX_CMD(msg=<span class="hljs-literal">True</span>,<br>              timeLimit=<span class="hljs-number">1</span>,<br>            <span class="hljs-comment">#   interactive cmd</span><br>              options=[<span class="hljs-string">&quot;set emphasis mip 3&quot;</span>, <span class="hljs-string">&quot;set barrier algorithm 3&quot;</span>]))<br><br><span class="hljs-comment"># Use gurobi solver</span><br>prob.solve(<br>    GUROBI_CMD(msg=<span class="hljs-literal">True</span>,<br>               timeLimit=<span class="hljs-number">1</span>,<br>               threads=<span class="hljs-number">4</span>,<br>               options=[(<span class="hljs-string">&quot;Method&quot;</span>, <span class="hljs-number">2</span>), (<span class="hljs-string">&quot;MIPGap&quot;</span>, <span class="hljs-number">0.2</span>)]))<br><br><span class="hljs-comment"># Use scip solver, latest version of pulp only</span><br><span class="hljs-comment"># support single thread only</span><br>prob.solve(SCIP_CMD(msg=<span class="hljs-literal">True</span>, timeLimit=<span class="hljs-number">1</span>, options=[<span class="hljs-string">&quot;branching/clamp=0.4&quot;</span>]))<br></code></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/%E4%BC%98%E5%8C%96/">优化</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mip/" rel="tag">mip</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pulp/" rel="tag">pulp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/solver/" rel="tag">solver</a></li></ul>
+
+      
+            
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
     
-    <footer class="article-footer">
-       
+
+  
+    <article id="post-Accelerate Your NumPy Matrix Operations with Cython"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2023/03/31/Accelerate%20Your%20NumPy%20Matrix%20Operations%20with%20Cython/">Accelerate Your NumPy Matrix Operations with Cython</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2023/03/31/Accelerate%20Your%20NumPy%20Matrix%20Operations%20with%20Cython/" class="article-date">
+	  <time datetime="2023-03-31T00:44:10.000Z" itemprop="datePublished">March 31, 2023</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#python #cython</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Python is widely used for scientific computing, data analysis, and machine learning tasks due to its ease of use and rich ecosystem. NumPy, a popular library for numerical computations in Python, provides a powerful array object and a variety of functions to operate on these arrays. However, performance can sometimes be a bottleneck when working with large datasets or complex operations.</p>
+<p>Cython, a superset of the Python language, allows you to write Python code with optional C-like syntax and static types, which can then be compiled to C and executed as a native extension. This can lead to significant performance improvements compared to pure Python code.</p>
+<p>In this blog post, we will demonstrate how to use Cython with NumPy to optimize matrix operations, and compare the performance of pure Python and Cython-accelerated implementations.</p>
+<h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><p>To follow along with the examples in this post, make sure you have both Cython and NumPy installed:</p>
+<p><code>pip install cython numpy</code></p>
+<h2 id="Example-Element-wise-Matrix-Multiplication"><a href="#Example-Element-wise-Matrix-Multiplication" class="headerlink" title="Example: Element-wise Matrix Multiplication"></a>Example: Element-wise Matrix Multiplication</h2><p>Let’s start by implementing element-wise matrix multiplication using Cython with NumPy.</p>
+<h3 id="Step-1-Create-a-Cython-file"><a href="#Step-1-Create-a-Cython-file" class="headerlink" title="Step 1: Create a Cython file"></a>Step 1: Create a Cython file</h3><p>Create a Cython file called <code>matrix_mult_cython.pyx</code> with the following code:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># matrix_mult_cython.pyx</span><br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br>cimport numpy <span class="hljs-keyword">as</span> cnp<br><br>cpdef cnp.ndarray[double, ndim=<span class="hljs-number">2</span>] elementwise_multiply(cnp.ndarray[double, ndim=<span class="hljs-number">2</span>] A, cnp.ndarray[double, ndim=<span class="hljs-number">2</span>] B):<br>    cdef <span class="hljs-built_in">int</span> nrows = A.shape[<span class="hljs-number">0</span>]<br>    cdef <span class="hljs-built_in">int</span> ncols = A.shape[<span class="hljs-number">1</span>]<br>    cdef cnp.ndarray[double, ndim=<span class="hljs-number">2</span>] result = np.zeros((nrows, ncols), dtype=np.float64)<br><br>    cdef <span class="hljs-built_in">int</span> i, j<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(nrows):<br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(ncols):<br>            result[i, j] = A[i, j] * B[i, j]<br><br>    <span class="hljs-keyword">return</span> result<br></code></pre></td></tr></table></figure>
+
+<p>Note: In Cython, the <code>cimport</code> statement is used to import C-level declarations from other Cython modules or libraries. It is similar to the regular Python <code>import</code> statement, but it specifically deals with importing C-level functions, types, and other constructs that are not part of the Python runtime.</p>
+<p>In the provided example, the line <code>cimport numpy as cnp</code> is used to import the Cython definitions for the NumPy library. This allows us to interact with NumPy arrays more efficiently, leading to performance improvements. The <code>cnp</code> alias is used in the same way as <code>np</code> for regular Python NumPy imports, but it refers to the C-level NumPy constructs.</p>
+<h3 id="Step-2-Compile-the-Cython-module"><a href="#Step-2-Compile-the-Cython-module" class="headerlink" title="Step 2: Compile the Cython module"></a>Step 2: Compile the Cython module</h3><p>Create a <code>setup.py</code> file to build the Cython module:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># setup.py</span><br><span class="hljs-keyword">from</span> setuptools <span class="hljs-keyword">import</span> setup, Extension<br><span class="hljs-keyword">from</span> Cython.Build <span class="hljs-keyword">import</span> cythonize<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br>ext_modules = [<br>    Extension(<span class="hljs-string">&quot;matrix_mult_cython&quot;</span>, [<span class="hljs-string">&quot;matrix_mult_cython.pyx&quot;</span>],<br>              include_dirs=[np.get_include()])  <span class="hljs-comment"># Add the NumPy header files</span><br>]<br><br>setup(<br>    name=<span class="hljs-string">&#x27;Matrix Multiplication Cython Example&#x27;</span>,<br>    ext_modules=cythonize(ext_modules),<br>    zip_safe=<span class="hljs-literal">False</span>,<br>)<br></code></pre></td></tr></table></figure>
+
+<p>Compile the Cython module by running the following command in your terminal:</p>
+<p><code>python setup.py build_ext --inplace</code></p>
+<p>Note: The <code>zip_safe</code> parameter is an option indicating whether the package can be safely installed and run from a zip archive without being extracted to the file system.</p>
+<p>When <code>zip_safe</code> is set to <code>True</code>, it means that the package can be installed and run directly from a zip archive without any issues. However, when set to <code>False</code>, it indicates that the package needs to be extracted to the file system before being executed.</p>
+<p>In the case of Cython-compiled extensions, it is generally recommended to set <code>zip_safe=False</code>. This is because Cython generates compiled C extensions (shared libraries or DLLs) that need to be accessed by the operating system’s dynamic loader, which often cannot read files from a zip archive.</p>
+<h3 id="Step-3-Use-the-Cython-module-in-your-Python-code"><a href="#Step-3-Use-the-Cython-module-in-your-Python-code" class="headerlink" title="Step 3: Use the Cython module in your Python code"></a>Step 3: Use the Cython module in your Python code</h3><p>Now, you can use the compiled Cython module in your Python code:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># main.py</span><br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">from</span> matrix_mult_cython <span class="hljs-keyword">import</span> elementwise_multiply<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>():<br>    A = np.random.rand(<span class="hljs-number">1000</span>, <span class="hljs-number">1000</span>)<br>    B = np.random.rand(<span class="hljs-number">1000</span>, <span class="hljs-number">1000</span>)<br><br>    result = elementwise_multiply(A, B)<br>    <span class="hljs-built_in">print</span>(result)<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>    main()<br></code></pre></td></tr></table></figure>
+
+<p>Run your Python code:</p>
+<p><code>python main.py</code></p>
+<h2 id="Performance-Comparison"><a href="#Performance-Comparison" class="headerlink" title="Performance Comparison"></a>Performance Comparison</h2><p>To compare the performance before and after using Cython, we can implement the same element-wise multiplication using pure Python with NumPy and then measure the execution time for both the pure Python and Cython-accelerated implementations.</p>
+<h3 id="Pure-Python-Implementation"><a href="#Pure-Python-Implementation" class="headerlink" title="Pure Python Implementation"></a>Pure Python Implementation</h3><p>Add a pure Python implementation of element-wise multiplication in <code>main.py</code>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">elementwise_multiply_python</span>(<span class="hljs-params">A, B</span>):<br>    <span class="hljs-keyword">assert</span> A.shape == B.shape, <span class="hljs-string">&quot;Both matrices must have the same shape.&quot;</span><br><br>    nrows, ncols = A.shape<br>    result = np.zeros((nrows, ncols), dtype=np.float64)<br><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(nrows):<br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(ncols):<br>            result[i, j] = A[i, j] * B[i, j]<br><br>    <span class="hljs-keyword">return</span> result<br></code></pre></td></tr></table></figure>
+
+<h3 id="Timing-the-Implementations"><a href="#Timing-the-Implementations" class="headerlink" title="Timing the Implementations"></a>Timing the Implementations</h3><p>Add timing code to <code>main.py</code> to measure the execution time of both the pure Python and Cython-accelerated implementations:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> time<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>():<br>    A = np.random.rand(<span class="hljs-number">1000</span>, <span class="hljs-number">1000</span>)<br>    B = np.random.rand(<span class="hljs-number">1000</span>, <span class="hljs-number">1000</span>)<br><br>    <span class="hljs-comment"># Time the pure Python implementation</span><br>    start_python = time.time()<br>    result_python = elementwise_multiply_python(A, B)<br>    end_python = time.time()<br>    elapsed_python = end_python - start_python<br><br>    <span class="hljs-comment"># Time the Cython-accelerated implementation</span><br>    start_cython = time.time()<br>    result_cython = elementwise_multiply(A, B)<br>    end_cython = time.time()<br>    elapsed_cython = end_cython - start_cython<br><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Pure Python: <span class="hljs-subst">&#123;elapsed_python:<span class="hljs-number">.5</span>f&#125;</span> seconds&quot;</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Cython-accelerated: <span class="hljs-subst">&#123;elapsed_cython:<span class="hljs-number">.5</span>f&#125;</span> seconds&quot;</span>)<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>    main()<br></code></pre></td></tr></table></figure>
+
+<p>Run the Python code:</p>
+<p><code>python main.py</code></p>
+<p>You should see the execution time of both the pure Python implementation and the Cython-accelerated implementation. Typically, the Cython-accelerated implementation should be significantly faster, as it leverages C-level array access and efficient looping. This is the result on my machine:</p>
+<p><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/cython_perf.png"></p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>In this blog post, we demonstrated how to use Cython with NumPy to optimize matrix operations, specifically element-wise matrix multiplication. We also compared the performance of pure Python and Cython-accelerated implementations, showing that Cython can provide significant performance improvements.</p>
+<p>Cython is a powerful tool for optimizing Python code that relies on numerical computations, especially when used in conjunction with libraries like NumPy. By taking advantage of C-level array access and efficient looping, you can achieve substantial speedups in your scientific computing, data analysis, and machine learning tasks.</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+
+      
+  <span class="ico-tags"></span>
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cython/" rel="tag">cython</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
 
+      
+            
+      
     </footer>
   </div>
-
-   
-    
+  
 </article>
 
+<!-- Table of Contents -->
+
     
-    <article
-  id="post-基于Django-Rest框架构建API"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
+
+  
+    <article id="post-基于Django-Rest框架构建API"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/12/31/%E5%9F%BA%E4%BA%8EDjango-Rest%E6%A1%86%E6%9E%B6%E6%9E%84%E5%BB%BAAPI/"
-    >2. 基于Django Rest框架构建API</a> 
-</h2>
- 
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/12/31/%E5%9F%BA%E4%BA%8EDjango-Rest%E6%A1%86%E6%9E%B6%E6%9E%84%E5%BB%BAAPI/">2. 基于Django Rest框架构建API</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2022/12/31/%E5%9F%BA%E4%BA%8EDjango-Rest%E6%A1%86%E6%9E%B6%E6%9E%84%E5%BB%BAAPI/" class="article-date">
+	  <time datetime="2022-12-31T09:58:24.000Z" itemprop="datePublished">December 31, 2022</time>
+	</a>
 
       
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/12/31/%E5%9F%BA%E4%BA%8EDjango-Rest%E6%A1%86%E6%9E%B6%E6%9E%84%E5%BB%BAAPI/" class="article-date">
-  <time datetime="2022-12-31T09:58:24.000Z" itemprop="datePublished">2022-12-31</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-   
     </div>
-       
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-什么是API"><a href="#1-什么是API" class="headerlink" title="1. 什么是API?"></a>1. 什么是API?</h1><p>简单看一下百科的解释：</p>
+<blockquote>
+<p>API之主要目的是提供应用程序与开发人员以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。提供API所定义的功能的软件称作此API的实现。API是一种接口，故而是一种抽象。 应用程序接口（英语：ApplicationProgrammingInterface，简称：API），又称为应用编程接口，就是软件系统不同组成部分衔接的约定。</p>
+</blockquote>
+<p>简单来说，我们写程序是为了帮用户完成某件事，用户不需要知道我们是怎么完成的。对于用户来说，只需发个指令，譬如，“我想导航到萧山”，那么程序能把路线告诉用户即可。API是什么呢，就是接受用户指令，并返回程序结果的一个工具。</p>
+<h1 id="2-安装djangorestframework包"><a href="#2-安装djangorestframework包" class="headerlink" title="2. 安装djangorestframework包"></a>2. 安装djangorestframework包</h1><p>作为网络开发程序员，我们要为用户提供API 并告诉用户如何使用我们的软件。用于开发API的工具有很多，在Django项目中，一般使用djangorestframework包来开发API。</p>
+<p>djangorestframework包直接使用pip安装即可</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pip install djangorestframework<br></code></pre></td></tr></table></figure>
 
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
+<h1 id="3-建立Django项目"><a href="#3-建立Django项目" class="headerlink" title="3. 建立Django项目"></a>3. 建立Django项目</h1><p>在本文中，我们通过建立一个电影网站，让用户 获取、修改以及增加新的电影信息，以熟悉Django API的构建。</p>
+<p>可以参考[[基本Django项目构建]]一文建立起项目，简单列举一下相关命令。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">django-admin startproject movie_api<br>cd movie_api<br>python manage.py startapp movie <span class="hljs-comment"># 这里记得在配置文件中加入movie</span><br>python manage.py migrate<br>python manage.py runserver<br></code></pre></td></tr></table></figure>
+
+<p>这样就可以跑起来一个空项目了。</p>
+<p>因为本文只关注API的构建，这里只建立一个数据模型，其他的网页浏览视图、模板就不做了。</p>
+<h2 id="3-1-建立Model"><a href="#3-1-建立Model" class="headerlink" title="3.1 建立Model"></a>3.1 建立Model</h2><p>在<code>movie/models.py</code>中建立电影数据类，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models<br><br><span class="hljs-comment"># Create your models here.</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Movie</span>(models.Model):<br>    name = models.CharField(max_length=<span class="hljs-number">200</span>)<br>    year = models.IntegerField()<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__str__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span> (<span class="hljs-subst">&#123;self.year&#125;</span>)&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>对数据模型更改后，要进行迁移</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">python manage.py makemigrations<br>python manage.py migrate<br></code></pre></td></tr></table></figure>
+
+<p>使用<code>python manage.py shell</code>进行项目的shell添加一些数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> movie.models <span class="hljs-keyword">import</span> Movie<br><span class="hljs-meta">&gt;&gt;&gt; </span>Movie.objects.create(name=<span class="hljs-string">&quot;The Shawshank Redemption&quot;</span>, year=<span class="hljs-number">1994</span>)<br>&lt;Movie: The Shawshank Redemption (<span class="hljs-number">1994</span>)&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>Movie.objects.create(name=<span class="hljs-string">&quot;The Godfather&quot;</span>, year=<span class="hljs-number">1972</span>)<br>&lt;Movie: The Godfather (<span class="hljs-number">1972</span>)&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>Movie.objects.create(name=<span class="hljs-string">&quot;The Dark Knight&quot;</span>, year=<span class="hljs-number">2008</span>)<br>&lt;Movie: The Dark Knight (<span class="hljs-number">2008</span>)&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>Movie.objects.create(name=<span class="hljs-string">&#x27;The Godfather: Part II&#x27;</span>, year=<span class="hljs-number">1974</span>)<br>&lt;Movie: The Godfather: Part II (<span class="hljs-number">1974</span>)&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>Movie.objects.create(name=<span class="hljs-string">&#x27;12 Angry Men&#x27;</span>, year=<span class="hljs-number">1957</span>)<br>&lt;Movie: <span class="hljs-number">12</span> Angry Men (<span class="hljs-number">1957</span>)&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>Movie.objects.<span class="hljs-built_in">all</span>()<br>&lt;QuerySet [&lt;Movie: The Shawshank Redemption (<span class="hljs-number">1994</span>)&gt;, &lt;Movie: The Godfather (<span class="hljs-number">1972</span>)&gt;, &lt;Movie: The Dark Knight (<span class="hljs-number">2008</span>)&gt;, &lt;Movie: The Godfather: Part II (<span class="hljs-number">1974</span>)&gt;, &lt;Movie: <span class="hljs-number">12</span> Angry Men (<span class="hljs-number">1957</span>)&gt;]&gt;<br></code></pre></td></tr></table></figure>
+
+<h1 id="4-构建API"><a href="#4-构建API" class="headerlink" title="4. 构建API"></a>4. 构建API</h1><p>首先在<code>movie_api/settings.py</code>文件找到<code>INSTALLED_APPS</code>， 注册rest_framework，现在这个列表应该如下，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">INSTALLED_APPS = [<br>    ... <span class="hljs-comment"># 其他已有值</span><br>    <span class="hljs-string">&#x27;movie&#x27;</span>,<br>    <span class="hljs-string">&#x27;rest_framework&#x27;</span>,<br>]<br></code></pre></td></tr></table></figure>
+
+<p>为了避免与网站基本内容混淆，可以项目根目录下建立一个专门的api文件夹，并在其中建立一个空的<code>__init__.py</code>文件，表明这是一个包。</p>
+<h2 id="4-1-建立序列化器"><a href="#4-1-建立序列化器" class="headerlink" title="4.1 建立序列化器"></a>4.1 建立序列化器</h2><blockquote>
+<p>我们把变量从内存中变成可存储或传输的过程称之为序列化。——廖雪峰</p>
+</blockquote>
+<p>也就是说，从数据库中把数据读到我们的Model类型的变量中后，还要经过序列化，才能顺利传输到客户端（浏览器），供用户浏览使用。</p>
+<p>在api文件夹下建立<code>serializers.py</code>文件，内容如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> rest_framework <span class="hljs-keyword">import</span> serializers<br><span class="hljs-keyword">from</span> movie.models <span class="hljs-keyword">import</span> Movie<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MovieSerializer</span>(serializers.ModelSerializer):<br>    <span class="hljs-keyword">class</span> <span class="hljs-title class_">Meta</span>:<br>        model = Movie<br>        fields= <span class="hljs-string">&#x27;__all__&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>这里建立了一个Movie专用的序列化器，其中序列化的数据包括所有字段。</p>
+<h2 id="4-2-建立视图并绑定URL"><a href="#4-2-建立视图并绑定URL" class="headerlink" title="4.2 建立视图并绑定URL"></a>4.2 建立视图并绑定URL</h2><h3 id="4-2-1-获取所有电影"><a href="#4-2-1-获取所有电影" class="headerlink" title="4.2.1 获取所有电影"></a>4.2.1 获取所有电影</h3><p>在api文件夹下建立<code>views.py</code>文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> rest_framework.decorators <span class="hljs-keyword">import</span> api_view<br><span class="hljs-keyword">from</span> movie.models <span class="hljs-keyword">import</span> Movie<br><span class="hljs-keyword">from</span> .serializers <span class="hljs-keyword">import</span> MovieSerializer<br><span class="hljs-keyword">from</span> rest_framework.response <span class="hljs-keyword">import</span> Response<br><br><br><span class="hljs-meta">@api_view(<span class="hljs-params">[<span class="hljs-string">&#x27;GET&#x27;</span>]</span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_movies</span>(<span class="hljs-params">request</span>):<br>    movies = Movie.objects.<span class="hljs-built_in">all</span>()<br>    serializer = MovieSerializer(movies, many=<span class="hljs-literal">True</span>)<br>    <span class="hljs-keyword">return</span> Response(serializer.data)<br></code></pre></td></tr></table></figure>
+
+<p>这里通过装饰器来设置请求方法，这里只是获取，用GET即可。</p>
+<p>注意在一个普通的网站中，获取了电影列表后，应该传输给前端的模板，以供渲染，但在API中，我们进行序列化，以供传输。</p>
+<p>然后绑定url，在api文件夹下建立<code>urls.py</code>文件，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> path<br><span class="hljs-keyword">from</span> . <span class="hljs-keyword">import</span> views<br><br>urlpatterns = [<br>    path(<span class="hljs-string">&#x27;&#x27;</span>, views.get_movies, name=<span class="hljs-string">&#x27;get_movies&#x27;</span>)<br>]<br></code></pre></td></tr></table></figure>
+
+<p>如文章[[基本Django项目构建]]中提到的，还没有被django项目所识别，因此，需要在<code>movie_api/urls.py</code>文件中进行引用，以让项目进行识别。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> path, include<br><br>urlpatterns = [<br>    path(<span class="hljs-string">&#x27;admin/&#x27;</span>, admin.site.urls),<br>    path(<span class="hljs-string">&#x27;movies/&#x27;</span>, include(<span class="hljs-string">&#x27;api.urls&#x27;</span>)),<br>]<br></code></pre></td></tr></table></figure>
+
+<p>这样，运行项目后，我们就可以通过网址<a target="_blank" rel="noopener" href="http://127.0.0.1:8000/movies/">http://127.0.0.1:8000/movies/</a>访问电影列表api了，效果如下：<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/%E7%94%B5%E5%BD%B1%E5%88%97%E8%A1%A8API.png" alt="电影列表API.png"></p>
+<h3 id="4-2-2-新增电影"><a href="#4-2-2-新增电影" class="headerlink" title="4.2.2 新增电影"></a>4.2.2 新增电影</h3><p>新增电影条目可以保持与电影列表的网址相同，只需要在视图中增加一个POST请求方法即可。修改<code>api/views.py</code>中相关函数如下，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> rest_framework <span class="hljs-keyword">import</span> status<br><br><span class="hljs-meta">@api_view(<span class="hljs-params">[<span class="hljs-string">&#x27;GET&#x27;</span>, <span class="hljs-string">&#x27;POST&#x27;</span>]</span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_movies</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&#x27;GET&#x27;</span>:<br>        movies = Movie.objects.<span class="hljs-built_in">all</span>()<br>        serializer = MovieSerializer(movies, many=<span class="hljs-literal">True</span>)<br>        <span class="hljs-keyword">return</span> Response(serializer.data)<br>    <span class="hljs-keyword">elif</span> request.method == <span class="hljs-string">&#x27;POST&#x27;</span>:<br>        serializer = MovieSerializer(data=request.data)<br>        <span class="hljs-keyword">if</span> serializer.is_valid():<br>            serializer.save()<br>            <span class="hljs-keyword">return</span> Response(serializer.data, status=status.HTTP_201_CREATED)<br>        <span class="hljs-keyword">return</span> Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)<br></code></pre></td></tr></table></figure>
+
+<p>要注意的是，一旦数据有变动，要使用<code>is_valid</code>进行数据的验证并使用<code>save</code>保存，这里包括<strong>类型、长度</strong>等的验证。<br>再次访问网址<a target="_blank" rel="noopener" href="http://127.0.0.1:8000/movies/">http://127.0.0.1:8000/movies/</a>，可以看到下方多出了一个输入框，以增加电影条目。</p>
+<h3 id="4-2-3-获取某个电影的信息"><a href="#4-2-3-获取某个电影的信息" class="headerlink" title="4.2.3 获取某个电影的信息"></a>4.2.3 获取某个电影的信息</h3><p>这里也是获取内容，与[[#4 2 1 获取所有电影]]类似，首先在<code>api/views.py</code>中添加视图函数，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@api_view(<span class="hljs-params">[<span class="hljs-string">&#x27;PUT&#x27;</span>]</span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_movie_detail</span>(<span class="hljs-params">request, <span class="hljs-built_in">id</span></span>):<br>    movie = Movie.objects.get(pk=<span class="hljs-built_in">id</span>)<br>    serializer = MovieSerializer(movie)<br>    <span class="hljs-keyword">return</span> Response(serializer.data)<br></code></pre></td></tr></table></figure>
+
+<p>然后在<code>api/urls.py</code>中绑定网址，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">urlpatterns = [<br>    path(<span class="hljs-string">&#x27;&lt;int:id&gt;&#x27;</span>, views.get_movie_detail, name=<span class="hljs-string">&#x27;get_movie_detail&#x27;</span>),<br>]<br></code></pre></td></tr></table></figure>
+
+<p>即可通过<a target="_blank" rel="noopener" href="http://127.0.0.1:8000/movies/1">http://127.0.0.1:8000/movies/1</a> 访问id为1的电影信息了。</p>
+<h3 id="4-2-4-修改或删除某个电影的信息"><a href="#4-2-4-修改或删除某个电影的信息" class="headerlink" title="4.2.4 修改或删除某个电影的信息"></a>4.2.4 修改或删除某个电影的信息</h3><p>修改或删除也是针对某个电影，所以网址与[[#4 2 3 获取某个电影的信息]]可以相同，不过请求方法需要设置为PUT和DELETE，修改相应的视图函数如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@api_view(<span class="hljs-params">[<span class="hljs-string">&#x27;GET&#x27;</span>, <span class="hljs-string">&#x27;PUT&#x27;</span>, <span class="hljs-string">&#x27;DELETE&#x27;</span>]</span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_movie_detail</span>(<span class="hljs-params">request, <span class="hljs-built_in">id</span></span>):<br>    movie = Movie.objects.get(pk=<span class="hljs-built_in">id</span>)<br>    <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&#x27;GET&#x27;</span>:<br>        serializer = MovieSerializer(movie)<br>        <span class="hljs-keyword">return</span> Response(serializer.data)<br>    <span class="hljs-keyword">elif</span> request.method == <span class="hljs-string">&#x27;PUT&#x27;</span>:<br>        serializer = MovieSerializer(movie, data=request.data)<br>        <span class="hljs-keyword">if</span> serializer.is_valid():<br>            serializer.save()<br>            <span class="hljs-keyword">return</span> Response(serializer.data)<br>        <span class="hljs-keyword">return</span> Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)<br>    <span class="hljs-keyword">elif</span> request.method == <span class="hljs-string">&#x27;DELETE&#x27;</span>:<br>        movie.delete()<br>        <span class="hljs-keyword">return</span> Response(status=status.HTTP_204_NO_CONTENT)<br></code></pre></td></tr></table></figure>
+
+<p>这里增加了对请求方法PUT和DELETE的支持，在函数体中，针对不同的请求类型，有不同的处理。</p>
+<p>修改后页面效果如下，可以进行内容的修改和条目的删除。<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/%E6%9F%90%E4%B8%AA%E7%94%B5%E5%BD%B1%E4%BF%A1%E6%81%AF.png" alt="某个电影信息.png"></p>
+<h1 id="5-回顾"><a href="#5-回顾" class="headerlink" title="5. 回顾"></a>5. 回顾</h1><p>简单回顾一下，在一个普通的网站项目基础上，首先建立了专门的API文件夹，在其中首先建立序列化器以进行数据转化传输，然后建立了各类视图，并通过不同请求方法进行数据的增、删、改、查（即CRUD操作）API的构建。</p>
+<p>可以看到，API的视图函数与一般网站视图函数的主要区别在于，API的视图函数是从数据库获取数据后进行序列化再传输，而一般网站视图函数则是获取数据后传递给前端模板以供展示。</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+
+      
+  <span class="ico-tags"></span>
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/api/" rel="tag">api</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6/" rel="tag">后端框架</a></li></ul>
 
+      
+            
+      
     </footer>
   </div>
-
-   
-    
+  
 </article>
 
+<!-- Table of Contents -->
+
     
-    <article
-  id="post-基本Django项目构建"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
+
+  
+    <article id="post-基本Django项目构建"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/12/31/%E5%9F%BA%E6%9C%ACDjango%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/"
-    >1. 基本Django项目构建</a> 
-</h2>
- 
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/12/31/%E5%9F%BA%E6%9C%ACDjango%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/">1. 基本Django项目构建</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2022/12/31/%E5%9F%BA%E6%9C%ACDjango%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/" class="article-date">
+	  <time datetime="2022-12-31T09:53:37.000Z" itemprop="datePublished">December 31, 2022</time>
+	</a>
 
       
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/12/31/%E5%9F%BA%E6%9C%ACDjango%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/" class="article-date">
-  <time datetime="2022-12-31T09:53:37.000Z" itemprop="datePublished">2022-12-31</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-   
     </div>
-       
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-创建django项目"><a href="#1-创建django项目" class="headerlink" title="1. 创建django项目"></a>1. 创建django项目</h1><p>可通过如下命令创建名为<code>myproject</code>的django项目，</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">django-admin startproject myproject<br>cd myproject<br>python manage.py migrate<br></code></pre></td></tr></table></figure>
+<h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><ol>
+<li><code>python manage.py migrate</code>意思是把数据模型（Python中定义的Model）和数据库同步。</li>
+<li><code>python manage.py makemigrations</code>是当模型的相关代码发生变动时，对变动进行提交保存，后接<code>migrate</code></li>
+</ol>
+<h1 id="2-创建app"><a href="#2-创建app" class="headerlink" title="2. 创建app"></a>2. 创建app</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">python manage.py startapp base # 这里base就是app的名字<br></code></pre></td></tr></table></figure>
+<p>创建完成后要注册app，在<code>setting.py</code>中找到<code>INSTALLED_APPS</code>，加入app名</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">INSTALLED_APPS = [<br>    <span class="hljs-string">&#x27;base&#x27;</span>,<br>    ...<br>]<br></code></pre></td></tr></table></figure>
 
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
+<p>一个django项目的结构如下<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/django%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84.png" alt="django项目结构.png"></p>
+<h1 id="3-创建数据模型（Model）"><a href="#3-创建数据模型（Model）" class="headerlink" title="3. 创建数据模型（Model）"></a>3. 创建数据模型（Model）</h1><p>在<code>models.py</code>中，建立数据模型，类似于<code>pojo</code>，即一个对象包含哪些字段，这也被称为<code>Schema</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models<br><br><span class="hljs-comment"># Create your models here.</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Item</span>(models.Model):<br>	name = models.CharField(max_length=<span class="hljs-number">200</span>)<br>	created = models.DateTimeField(auto_now_add=<span class="hljs-literal">True</span>)<br></code></pre></td></tr></table></figure>
+<p>如上所述，数据模型变动后，要进行迁移</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">python manage.py makemigrations<br>python manage.py migrate<br></code></pre></td></tr></table></figure>
+<p><code>makemigrations</code>后，即建立了数据模型和数据库的联系，可以通过<code>python manage.py sqlmigrate base 0001</code>生成sql语句，但这只是供查看确认，并不执行，<code>migrate</code>才是执行。</p>
+<h2 id="临时加入数据"><a href="#临时加入数据" class="headerlink" title="临时加入数据"></a>临时加入数据</h2><p>可以另外开一个shell进行一些操作，比如添加数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">python manage.py shell<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>这条命令相比直接运行<code>python</code>，可以导入该django项目的环境变量。</p>
+</blockquote>
+<p>在shell中添加数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> base.models <span class="hljs-keyword">import</span> Item<br><span class="hljs-meta">&gt;&gt;&gt; </span>Item.objects.create(name=<span class="hljs-string">&#x27;item1&#x27;</span>)<br>&lt;Item: Item <span class="hljs-built_in">object</span> (<span class="hljs-number">1</span>)&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>Item.objects.create(name=<span class="hljs-string">&#x27;item2&#x27;</span>)<br>&lt;Item: Item <span class="hljs-built_in">object</span> (<span class="hljs-number">2</span>)&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>Item.objects.create(name=<span class="hljs-string">&#x27;item3&#x27;</span>)<br>&lt;Item: Item <span class="hljs-built_in">object</span> (<span class="hljs-number">3</span>)&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>items = Item.objects.<span class="hljs-built_in">all</span>()<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">print</span>(items)<br>&lt;QuerySet [&lt;Item: Item <span class="hljs-built_in">object</span> (<span class="hljs-number">1</span>)&gt;, &lt;Item: Item <span class="hljs-built_in">object</span> (<span class="hljs-number">2</span>)&gt;, &lt;Item: Item <span class="hljs-built_in">object</span> (<span class="hljs-number">3</span>)&gt;]&gt;<br><span class="hljs-comment"># 也可以这样</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>item = Item(name=<span class="hljs-string">&#x27;item4&#x27;</span>)<br><span class="hljs-meta">&gt;&gt;&gt; </span>item.save()<br></code></pre></td></tr></table></figure>
+
+
+<h1 id="4-创建后端逻辑（View）"><a href="#4-创建后端逻辑（View）" class="headerlink" title="4. 创建后端逻辑（View）"></a>4. 创建后端逻辑（View）</h1><p>在<code>views.py</code>文件中完成</p>
+<p>比如最简单的，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">home</span>(<span class="hljs-params">request</span>):<br>	<span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&quot;home page&quot;</span>)<br></code></pre></td></tr></table></figure>
+<p>这样后续执行该逻辑时，网页上就显示了<code>home page</code>这行字。</p>
+<p>当然，更一般的，后端会提供一些<strong>数据处理</strong>，并显示在定义好的<strong>前端模板</strong>上，这样就要和前端模板绑定。比如现在要把所有的物品显示在前端页面上，那么后端就要从数据库拉取所有的items，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_items</span>(<span class="hljs-params">request</span>):<br>	items = Item.objects.<span class="hljs-built_in">all</span>()<br>	<span class="hljs-keyword">return</span> render(request, <span class="hljs-string">&#x27;items.html&#x27;</span>, &#123;<span class="hljs-string">&#x27;items&#x27;</span>: items&#125;)<br></code></pre></td></tr></table></figure>
+<p>这样就可以把items数据传递给<code>items.html</code>这个前端模板。</p>
+<h1 id="5-创建前端模板（templates）"><a href="#5-创建前端模板（templates）" class="headerlink" title="5. 创建前端模板（templates）"></a>5. 创建前端模板（templates）</h1><p>在<code>base</code>文件夹下创建<code>templates</code>文件夹，再在<code>templates</code>文件夹下创建<code>base</code>文件夹，并在其中新建<code>items.html</code>文件，即<code>base/templates/base/items.html</code>，这样设置后，在django项目中，我们可以通过<code>base/items.html</code>定位到这个模板。</p>
+<blockquote>
+<p>Django框架中存在<strong>模板寻找器</strong>，可搜索每个app的特定文件夹。</p>
+</blockquote>
+<p>文件内容如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;IE=edge&quot;</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Items<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>		&#123;% for item in items %&#125;<br>		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>&#123;&#123;item.name&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>		&#123;% endfor %&#125;<br>	<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>大意就是把各个物品的名字显示成一个无序列表。</p>
+<h1 id="6-绑定网址"><a href="#6-绑定网址" class="headerlink" title="6. 绑定网址"></a>6. 绑定网址</h1><p>以上已经完成了后端与数据库、前端与后端的数据传递，那么用户如何访问这样一个网页呢？就需要在<code>urls.py</code>中绑定好网址和后端。</p>
+<p>在base文件夹下新建<code>urls.py</code>文件，内容如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> . <span class="hljs-keyword">import</span> views <br><span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> path<br><br>urlpatterns = [<br>	path(<span class="hljs-string">&quot;items/&quot;</span>, views.get_items),<br>	path(<span class="hljs-string">&quot;&quot;</span>, views.home)<br>]<br></code></pre></td></tr></table></figure>
+
+<p>但这个url目前只在base这个app下，并没有被django项目所识别，因此，需要在<code>myproject/urls.py</code>文件中进行引用，以让项目进行识别。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> include <span class="hljs-comment"># 这是新增的行</span><br><br>urlpatterns = [<br>    path(<span class="hljs-string">&#x27;admin/&#x27;</span>, admin.site.urls),<br>    path(<span class="hljs-string">&#x27;base/&#x27;</span>, include(<span class="hljs-string">&#x27;base.urls&#x27;</span>))  <span class="hljs-comment"># 这是新增的行</span><br>]<br></code></pre></td></tr></table></figure>
+
+<h1 id="7-运行"><a href="#7-运行" class="headerlink" title="7. 运行"></a>7. 运行</h1><p>最后，执行<code>python manage.py runserver</code>即可运行网站，打开<a target="_blank" rel="noopener" href="http://127.0.0.1:8000/base/items/">http://127.0.0.1:8000/base/items/</a> 就显示了物品列表如下。<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/%E5%9F%BA%E6%9C%ACDjango%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%9C.png" alt="基本Django项目结果.png"></p>
+<h1 id="8-参考"><a href="#8-参考" class="headerlink" title="8. 参考"></a>8. 参考</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=EuBQU_miReM">Django Crash Course - Introduction + Python Web Development Tutorial</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=cJveiktaOSQ&t=304s">Django REST Framework Oversimplified</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+
+      
+  <span class="ico-tags"></span>
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/api/" rel="tag">api</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6/" rel="tag">后端框架</a></li></ul>
 
+      
+            
+      
     </footer>
   </div>
-
-   
-    
+  
 </article>
 
+<!-- Table of Contents -->
+
     
-    <article
-  id="post-tmux够用命令"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
+
+  
+    <article id="post-tmux够用命令"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/12/31/tmux%E5%A4%9F%E7%94%A8%E5%91%BD%E4%BB%A4/"
-    >tmux够用命令</a> 
-</h2>
- 
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/12/31/tmux%E5%A4%9F%E7%94%A8%E5%91%BD%E4%BB%A4/">tmux够用命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2022/12/31/tmux%E5%A4%9F%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-date">
+	  <time datetime="2022-12-31T00:44:10.000Z" itemprop="datePublished">December 31, 2022</time>
+	</a>
 
       
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/12/31/tmux%E5%A4%9F%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-date">
-  <time datetime="2022-12-31T00:44:10.000Z" itemprop="datePublished">2022-12-31</time>
-</a> 
-  <div class="article-category">
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#tmux #shell</p>
+<h2 id="1-Session-会话"><a href="#1-Session-会话" class="headerlink" title="1. Session 会话"></a>1. Session 会话</h2><p>可以理解为一个连接，tmux其实是提供了一个终端服务，这个服务可以允许我们创建多个终端会话。</p>
+<h3 id="1-1-创建匿名和命名的会话"><a href="#1-1-创建匿名和命名的会话" class="headerlink" title="1.1 创建匿名和命名的会话"></a>1.1 创建匿名和命名的会话</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">tmux new<br>tmux new -s &lt;session-name&gt;<br></code></pre></td></tr></table></figure>
+<p>创建后会自动进入该会话的窗口（下一节详细说明窗口）。<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/tmux-session.png"></p>
+<h3 id="1-2-离开会话"><a href="#1-2-离开会话" class="headerlink" title="1.2 离开会话"></a>1.2 离开会话</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">ctrl+b d<br></code></pre></td></tr></table></figure>
+<p>即离开当前的会话，回到系统的终端窗口。tmux会话的一大优点是不会随着终端gui的关闭而停止，会话仍保持后台运行，后续可通过<code>attach</code>命令重新进入。</p>
+<h3 id="1-3-查看会话列表及进入会话"><a href="#1-3-查看会话列表及进入会话" class="headerlink" title="1.3 查看会话列表及进入会话"></a>1.3 查看会话列表及进入会话</h3><p>我们可以同时运行多个会话，互不干扰，查看会话列表的命令为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">tmux ls<br></code></pre></td></tr></table></figure>
+<p><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/tmux-ls.png"><br>第一列就是会话的名字，进入指定会话命令为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">tmux attach -t &lt;session-name&gt;<br></code></pre></td></tr></table></figure>
+<p>这里<code>-t</code>表示target。</p>
+<h3 id="1-4-退出会话（删除）"><a href="#1-4-退出会话（删除）" class="headerlink" title="1.4 退出会话（删除）"></a>1.4 退出会话（删除）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plaintext"># 会话内<br>exit<br># 会话外/内<br>tmux kill-session -t &lt;session-name&gt;<br></code></pre></td></tr></table></figure>
+<p>这是彻底退出会话，不会保留后台。</p>
+<h3 id="1-5-重命名会话"><a href="#1-5-重命名会话" class="headerlink" title="1.5 重命名会话"></a>1.5 重命名会话</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">tmux rename-session -t &lt;session-name&gt; &lt;new-name&gt;<br></code></pre></td></tr></table></figure>
+
+<h2 id="2-Window-窗口"><a href="#2-Window-窗口" class="headerlink" title="2. Window 窗口"></a>2. Window 窗口</h2><p>每次进入会话看到的都是<strong>一个</strong>会话窗口，而实际上tmux允许我们在一个session开启多个窗口。</p>
+<h3 id="2-1-新窗口"><a href="#2-1-新窗口" class="headerlink" title="2.1 新窗口"></a>2.1 新窗口</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">ctrl+b c<br></code></pre></td></tr></table></figure>
+<p>这个动作开启了一个新窗口，并自动进入新窗口。可以通过下方状态栏观察。<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/tmux-new-window.png"></p>
+<h3 id="2-2-窗口跳转"><a href="#2-2-窗口跳转" class="headerlink" title="2.2 窗口跳转"></a>2.2 窗口跳转</h3><p>那如果我想跳回去之前的窗口，可以通过命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">ctrl+b &lt;window-name&gt;<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-3-窗口重命名"><a href="#2-3-窗口重命名" class="headerlink" title="2.3 窗口重命名"></a>2.3 窗口重命名</h3><p>这时候我们发现，这些窗口名都是数字，开多了自己都不知道往哪找想要的窗口了，那么，可以把窗口改个容易识别的名字，这样就知道每个窗口在做什么啦。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">ctrl+b ,<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-4-关闭窗口"><a href="#2-4-关闭窗口" class="headerlink" title="2.4 关闭窗口"></a>2.4 关闭窗口</h3><p>最后，当不再使用某个窗口，可以关掉</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">ctrl+d或exit<br></code></pre></td></tr></table></figure>
+
+<h2 id="3-Pane-面板"><a href="#3-Pane-面板" class="headerlink" title="3. Pane 面板"></a>3. Pane 面板</h2><p>最后的最后，如果你的屏幕足够大，一个窗口只能同时跑一个命令不是很浪费？tmux提供了多面板支持，可以把当前窗口一分为2、3、4….</p>
+<h3 id="3-1-水平划分"><a href="#3-1-水平划分" class="headerlink" title="3.1 水平划分"></a>3.1 水平划分</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">ctrl+b %<br></code></pre></td></tr></table></figure>
+<p>效果如下<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/tmux-h-split.png"></p>
+<h3 id="3-2-垂直划分"><a href="#3-2-垂直划分" class="headerlink" title="3.2 垂直划分"></a>3.2 垂直划分</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">ctrl+b &quot;<br></code></pre></td></tr></table></figure>
+<p>效果如下<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/tmux-v-split.png"></p>
+<p>当然，水平和垂直划分可以随意组合<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/tmux-c-split.png"></p>
+<h3 id="3-3-pane间切换"><a href="#3-3-pane间切换" class="headerlink" title="3.3 pane间切换"></a>3.3 pane间切换</h3><p>这么多面板，怎么跳到指定的那一个，当然不是用鼠标点，我们还是用<code>ctrl+b</code>命令，结合上下左右方向键就可以切换了。</p>
+<h3 id="3-4-关闭pane"><a href="#3-4-关闭pane" class="headerlink" title="3.4 关闭pane"></a>3.4 关闭pane</h3><p>如果觉得太凌乱，就关掉几个pane吧，命令和关窗口一样。</p>
+<p>以上。</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
     <a class="article-category-link" href="/categories/Shell%E5%B7%A5%E5%85%B7/">Shell工具</a>
-  </div>
-   
-    </div>
-       
 
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
+      
+  <span class="ico-tags"></span>
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tmux/" rel="tag">tmux</a></li></ul>
 
+      
+            
+      
     </footer>
   </div>
-
-   
-    
+  
 </article>
 
+<!-- Table of Contents -->
+
     
-    <article
-  id="post-半正定锥"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
+
+  
+    <article id="post-半正定锥"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/04/17/%E5%8D%8A%E6%AD%A3%E5%AE%9A%E9%94%A5/"
-    >5. 半正定锥</a> 
-</h2>
- 
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/04/17/%E5%8D%8A%E6%AD%A3%E5%AE%9A%E9%94%A5/">5. 半正定锥</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2022/04/17/%E5%8D%8A%E6%AD%A3%E5%AE%9A%E9%94%A5/" class="article-date">
+	  <time datetime="2022-04-17T12:19:23.000Z" itemprop="datePublished">April 17, 2022</time>
+	</a>
 
       
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/04/17/%E5%8D%8A%E6%AD%A3%E5%AE%9A%E9%94%A5/" class="article-date">
-  <time datetime="2022-04-17T12:19:23.000Z" itemprop="datePublished">2022-04-17</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%B8%AD%E7%A7%91%E5%A4%A7%E5%87%B8%E4%BC%98%E5%8C%96%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">中科大凸优化课程笔记</a>
-  </div>
-   
     </div>
-       
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-几个符号"><a href="#1-几个符号" class="headerlink" title="1. 几个符号"></a>1. 几个符号</h1><h2 id="1-1-对称方阵的集合"><a href="#1-1-对称方阵的集合" class="headerlink" title="1.1 对称方阵的集合"></a>1.1 对称方阵的集合</h2><p>$$<br>\mathbf{S}^{n}&#x3D; \{ X \in \mathbf{R}^{n \times n} \mid X&#x3D;X^{T} \}<br>$$<br>S for symmetric</p>
+<h2 id="1-2-对称半正定方阵的集合"><a href="#1-2-对称半正定方阵的集合" class="headerlink" title="1.2 对称半正定方阵的集合"></a>1.2 对称半正定方阵的集合</h2><p>$$<br>\mathbf{S}^{n}_{+}&#x3D; \{X \in \mathbf{S}^{n} \mid X \succeq 0 \}<br>$$<br>$\succeq$表示矩阵的特征值$\ge 0$</p>
+<h2 id="1-3-对称正定方阵的集合"><a href="#1-3-对称正定方阵的集合" class="headerlink" title="1.3 对称正定方阵的集合"></a>1.3 对称正定方阵的集合</h2><p>$$<br>\mathbf{S}^{n}_{++}&#x3D; \{X \in \mathbf{S}^{n} \mid X \succ 0 \}<br>$$</p>
+<h2 id="1-4-证明对称半正定方阵为凸锥"><a href="#1-4-证明对称半正定方阵为凸锥" class="headerlink" title="1.4 证明对称半正定方阵为凸锥"></a>1.4 证明对称半正定方阵为凸锥</h2><p>半正定矩阵有：<br>$$<br>x^TAx \ge 0<br>$$<br>代入凸锥的定义即可证<br>$$x^{T}\left(\theta_{1} A+\theta_{2} B\right) x&#x3D;\theta_{1} x^{T} A x+\theta_{2} x^{T} B x \geq 0$$</p>
+<h2 id="1-5-对比"><a href="#1-5-对比" class="headerlink" title="1.5 对比"></a>1.5 对比</h2><ul>
+<li>$\mathbf{S}^{n}$、$\mathbf{S}^{n}_+$是凸锥（当然也是凸集）；</li>
+<li>$\mathbf{S}^{n}_{++}$是凸集，不是凸锥，因为不包含0点。</li>
+</ul>
 
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/%E4%B8%AD%E7%A7%91%E5%A4%A7%E5%87%B8%E4%BC%98%E5%8C%96%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">中科大凸优化课程笔记</a>
+
+      
+  <span class="ico-tags"></span>
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%87%B8%E4%BC%98%E5%8C%96/" rel="tag">凸优化</a></li></ul>
 
+      
+            
+      
     </footer>
   </div>
-
-   
-    
+  
 </article>
 
+<!-- Table of Contents -->
+
     
-    <article
-  id="post-多面体和单纯形"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
+
+  
+    <article id="post-多面体和单纯形"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/04/17/%E5%A4%9A%E9%9D%A2%E4%BD%93%E5%92%8C%E5%8D%95%E7%BA%AF%E5%BD%A2/"
-    >4. 多面体和单纯形</a> 
-</h2>
- 
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/04/17/%E5%A4%9A%E9%9D%A2%E4%BD%93%E5%92%8C%E5%8D%95%E7%BA%AF%E5%BD%A2/">4. 多面体和单纯形</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2022/04/17/%E5%A4%9A%E9%9D%A2%E4%BD%93%E5%92%8C%E5%8D%95%E7%BA%AF%E5%BD%A2/" class="article-date">
+	  <time datetime="2022-04-17T12:16:41.000Z" itemprop="datePublished">April 17, 2022</time>
+	</a>
 
       
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/04/17/%E5%A4%9A%E9%9D%A2%E4%BD%93%E5%92%8C%E5%8D%95%E7%BA%AF%E5%BD%A2/" class="article-date">
-  <time datetime="2022-04-17T12:16:41.000Z" itemprop="datePublished">2022-04-17</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%B8%AD%E7%A7%91%E5%A4%A7%E5%87%B8%E4%BC%98%E5%8C%96%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">中科大凸优化课程笔记</a>
-  </div>
-   
     </div>
-       
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-多面体-Polyhedron"><a href="#1-多面体-Polyhedron" class="headerlink" title="1. 多面体(Polyhedron)"></a>1. 多面体(Polyhedron)</h1><p>多面体是一系列<strong>线性</strong>等式和不等式的解集。<br>$$\mathcal{P}&#x3D;\{x \mid a_{j}^{T} x \leq b_{j}, j&#x3D;1, \ldots, m, c_{j}^{T} x&#x3D;d_{j}, j&#x3D;1, \ldots, p\}$$<br>向量形式为<br>$$<br>\mathcal{P}&#x3D; \{x \mid A x \preceq b, C x&#x3D;d \}$$<br>从定义可以看出，多面体就是超平面和半空间的交集。</p>
+<p>有界的多面体称为Polytope。</p>
+<h1 id="2-单纯形-Simplex"><a href="#2-单纯形-Simplex" class="headerlink" title="2. 单纯形(Simplex)"></a>2. 单纯形(Simplex)</h1><h2 id="2-1-定义"><a href="#2-1-定义" class="headerlink" title="2.1 定义"></a>2.1 定义</h2><p>假设$k+1$个点$v_0, \ldots, v_k \in R^n$<strong>仿射独立</strong>，即$v_1-v_0, \ldots, v_k-v_0$线性不相关，则与这$k+1$个点相关的单纯形 即为这些点的凸包：<br>$$<br>\begin{align}<br>C &amp; &#x3D; \operatorname{conv}\{v_{0}, \ldots, v_{k}\} \<br>&amp; &#x3D; \{\theta_{0} v_{0}+\cdots+\theta_{k} v_{k} \mid \theta \succeq 0, \mathbf{1}^{T} \theta &#x3D; 1\}<br>\end{align}<br>$$</p>
+<h2 id="2-2-例子"><a href="#2-2-例子" class="headerlink" title="2.2 例子"></a>2.2 例子</h2><p>以二维空间为例</p>
+<ul>
+<li>若给两个不同的点，则构成的单纯形为一条线段</li>
+<li>若给三个不同的点，则构成的单纯形为一个三角形</li>
+<li>若给四个以上不同的点，则不可能仿射独立，不能构成单纯形</li>
+</ul>
+<h2 id="2-3-证明单纯形是多面体"><a href="#2-3-证明单纯形是多面体" class="headerlink" title="2.3 证明单纯形是多面体"></a>2.3 证明单纯形是多面体</h2><p>思路：</p>
+<ul>
+<li>把单纯形中的点表示成多面体的形式</li>
+<li>线性不相关-&gt;满秩</li>
+</ul>
+<p>设单纯形为$C$，则$C$中的点可表示为<br>$$x&#x3D;\theta_{0} v_{0}+\theta_{1} v_{1}+\cdots+\theta_{k} v_{k}$$<br>其中$\theta \succeq 0, \mathbf{1}^{T} \theta &#x3D; 1$，要注意的是$\theta$是可变的，决定了$x$的取值。<br>对上式进行变换，得<br>$$<br>\begin{align}<br>x &amp;&#x3D; v_{0}+\theta_{1} (v_{1}-v_{0})+\cdots+\theta_{k} (v_{k}-v_{0})\<br>&amp;&#x3D;v_0 +By<br>\end{align}<br>$$<br>其中<br>$$<br>\begin{align}<br>B &amp; &#x3D; \left[\begin{array}{lll}<br>v_{1}-v_{0} &amp; \cdots &amp; v_{k}-v_{0}<br>\end{array}\right] \in \mathbf{R}^{n \times k}\<br>y &amp; &#x3D; \left(\theta_{1}, \ldots, \theta_{k}\right)<br>\end{align}$$<br>注意这里的$y$不是$\theta$，少了一个元素。$y \succeq 0,\mathbf{1}^{T} y \le 1$。显然可以用$y$的约束条件来得到对$x$的约束，那么下一步要做的就是把$y$独立出来。</p>
+<p>由于$B$中各向量线性无关，则$rank(B)&#x3D;k$，因此，存在非奇异矩阵$A&#x3D;(A_1, A_2) \in R^{n \times n}$使得，<br>$$<br>A B&#x3D;\left[\begin{array}{l}<br>A_{1} \<br>A_{2}<br>\end{array}\right] B&#x3D;\left[\begin{array}{l}<br>I \<br>0<br>\end{array}\right]<br>$$<br>在$x$的表达式左边乘上矩阵$A$，可得<br>$$<br>A_{1} x&#x3D;A_{1} v_{0}+y, \quad A_{2} x&#x3D;A_{2} v_{0}$$<br>代入$y$的约束，可得<br>$$A_{2} x&#x3D;A_{2} v_{0}, \quad A_{1} x \succeq A_{1} v_{0}, \quad \mathbf{1}^{T} A_{1} x \leq 1+\mathbf{1}^{T} A_{1} v_{0}$$<br>符合多面体的定义，证毕。</p>
 
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/%E4%B8%AD%E7%A7%91%E5%A4%A7%E5%87%B8%E4%BC%98%E5%8C%96%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">中科大凸优化课程笔记</a>
+
+      
+  <span class="ico-tags"></span>
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%87%B8%E4%BC%98%E5%8C%96/" rel="tag">凸优化</a></li></ul>
 
+      
+            
+      
     </footer>
   </div>
-
-   
-    
+  
 </article>
 
+<!-- Table of Contents -->
+
     
-    <article
-  id="post-球和椭球"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
+
+  
+    <article id="post-球和椭球"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/04/17/%E7%90%83%E5%92%8C%E6%A4%AD%E7%90%83/"
-    >3. 球和椭球</a> 
-</h2>
- 
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/04/17/%E7%90%83%E5%92%8C%E6%A4%AD%E7%90%83/">3. 球和椭球</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2022/04/17/%E7%90%83%E5%92%8C%E6%A4%AD%E7%90%83/" class="article-date">
+	  <time datetime="2022-04-17T05:49:31.000Z" itemprop="datePublished">April 17, 2022</time>
+	</a>
 
       
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/04/17/%E7%90%83%E5%92%8C%E6%A4%AD%E7%90%83/" class="article-date">
-  <time datetime="2022-04-17T05:49:31.000Z" itemprop="datePublished">2022-04-17</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%B8%AD%E7%A7%91%E5%A4%A7%E5%87%B8%E4%BC%98%E5%8C%96%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">中科大凸优化课程笔记</a>
-  </div>
-   
     </div>
-       
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-球-Ball"><a href="#1-球-Ball" class="headerlink" title="1. 球(Ball)"></a>1. 球(Ball)</h1><h2 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1.1 定义"></a>1.1 定义</h2><p>球有两种形式的定义</p>
+<h3 id="1-1-1-定义一"><a href="#1-1-1-定义一" class="headerlink" title="1.1.1 定义一"></a>1.1.1 定义一</h3><p>$$<br>\begin{align}<br>B\left(x_{c}, r\right) &amp; &#x3D; \{x \mid\left|x-x_{c}\right|<em>{2} \leq r\}\&amp; &#x3D; \{x \mid\left(x-x</em>{c}\right)^{T}\left(x-x_{c}\right) \leq r^{2}\}<br>\end{align}<br>$$<br>其中$x_c$为球心，$r$为半径。</p>
+<h3 id="1-1-2-定义二"><a href="#1-1-2-定义二" class="headerlink" title="1.1.2 定义二"></a>1.1.2 定义二</h3><p>$$B\left(x_{c}, r\right)&#x3D;\{x_{c}+r u \mid|u|_{2} \leq 1\}$$<br>从直观上看，我们都知道球一定是个凸集。下面分别通过两种定义进行证明：</p>
+<h2 id="1-2-球为凸集的证明"><a href="#1-2-球为凸集的证明" class="headerlink" title="1.2 球为凸集的证明"></a>1.2 球为凸集的证明</h2><h3 id="1-2-1-利用定义一证明"><a href="#1-2-1-利用定义一证明" class="headerlink" title="1.2.1 利用定义一证明"></a>1.2.1 利用定义一证明</h3><p>$$<br>\begin{aligned}<br>|\theta x_{1}+(1-\theta) x_{2}-x_{c}|<em>{2} &amp;&#x3D;|\theta (x</em>{1}-x_{c} )+(1-\theta) (x_{2}-x_{c} ) |<em>{2} \<br>&amp; \leq \theta |x</em>{1}-x_{c} |<em>{2}+(1-\theta) |x</em>{2}-x_{c} |_{2} \<br>&amp; \leq r .<br>\end{aligned}<br>$$<br>这里关键就是用到了<strong>三角不等式</strong></p>
+<h3 id="1-2-2-利用定义二证明"><a href="#1-2-2-利用定义二证明" class="headerlink" title="1.2.2 利用定义二证明"></a>1.2.2 利用定义二证明</h3><p>$$<br>\theta(x_c+ru_1)+(1-\theta)(x_c+ru_2)&#x3D;x_c+r\left(\theta u_1+(1-\theta)u_2\right)<br>$$<br>那么只需要保证<br>$$<br>|\theta u_1+(1-\theta)u_2|_{2} \le 1<br>$$<br>同样用三角不等式容易证明。</p>
+<h1 id="2-椭球-Ellipsoid"><a href="#2-椭球-Ellipsoid" class="headerlink" title="2. 椭球(Ellipsoid)"></a>2. 椭球(Ellipsoid)</h1><h2 id="2-1-定义"><a href="#2-1-定义" class="headerlink" title="2.1 定义"></a>2.1 定义</h2><p>同样，也有两种定义形式</p>
+<h3 id="2-1-1-定义一"><a href="#2-1-1-定义一" class="headerlink" title="2.1.1 定义一"></a>2.1.1 定义一</h3><p>$$<br>\mathcal{E}&#x3D;\{x \mid\left(x-x_{c}\right)^{T} P^{-1}\left(x-x_{c}\right) \leq 1\}<br>$$<br>其中$P&#x3D;P^{T} \succ 0$，即对称且正定。椭球的半轴就是矩阵$P$的特征值的方根。</p>
+<p>特别地，当$P&#x3D;r^2 I$，该点集为一个半径为$r$的球。</p>
+<h3 id="2-1-2-定义二"><a href="#2-1-2-定义二" class="headerlink" title="2.1.2 定义二"></a>2.1.2 定义二</h3><p>$$<br>\mathcal{E}&#x3D;\{x_{c}+A u \mid|u|_{2} \leq 1\}<br>$$<br>这里$A&#x3D;P^{1&#x2F;2}$。</p>
 
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/%E4%B8%AD%E7%A7%91%E5%A4%A7%E5%87%B8%E4%BC%98%E5%8C%96%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">中科大凸优化课程笔记</a>
+
+      
+  <span class="ico-tags"></span>
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%87%B8%E4%BC%98%E5%8C%96/" rel="tag">凸优化</a></li></ul>
 
+      
+            
+      
     </footer>
   </div>
-
-   
-    
+  
 </article>
 
+<!-- Table of Contents -->
+
     
-    <article
-  id="post-超平面和半空间"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
+
+  
+    <article id="post-超平面和半空间"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/04/17/%E8%B6%85%E5%B9%B3%E9%9D%A2%E5%92%8C%E5%8D%8A%E7%A9%BA%E9%97%B4/"
-    >2. 超平面和半空间</a> 
-</h2>
- 
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/04/17/%E8%B6%85%E5%B9%B3%E9%9D%A2%E5%92%8C%E5%8D%8A%E7%A9%BA%E9%97%B4/">2. 超平面和半空间</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2022/04/17/%E8%B6%85%E5%B9%B3%E9%9D%A2%E5%92%8C%E5%8D%8A%E7%A9%BA%E9%97%B4/" class="article-date">
+	  <time datetime="2022-04-17T05:47:34.000Z" itemprop="datePublished">April 17, 2022</time>
+	</a>
 
       
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/04/17/%E8%B6%85%E5%B9%B3%E9%9D%A2%E5%92%8C%E5%8D%8A%E7%A9%BA%E9%97%B4/" class="article-date">
-  <time datetime="2022-04-17T05:47:34.000Z" itemprop="datePublished">2022-04-17</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%B8%AD%E7%A7%91%E5%A4%A7%E5%87%B8%E4%BC%98%E5%8C%96%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">中科大凸优化课程笔记</a>
-  </div>
-   
     </div>
-       
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-超平面-hyperplane"><a href="#1-超平面-hyperplane" class="headerlink" title="1. 超平面(hyperplane)"></a>1. 超平面(hyperplane)</h1><p>形如$\{x \mid a^Tx=b \}(a \ne 0)$的就是超平面<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/%E8%B6%85%E5%B9%B3%E9%9D%A2.png" alt="超平面.png"></p>
+<p>可以看成是一系列点的集合，这些点与向量$a$的内积为一个固定的常数。而$b$则是该超平面相对于原点的偏移量，原定义可以写作</p>
+<script type="math/tex; mode=display">
+\{ x \mid a^T(x-x_0)=0 \}</script><p>其中$x_0$为超平面上一点。</p>
+<h1 id="2-半空间-halfspace"><a href="#2-半空间-halfspace" class="headerlink" title="2. 半空间(halfspace)"></a>2. 半空间(halfspace)</h1><p>超平面可以把$R^n$分割为两个半空间，形如$\{x \mid a^Tx \le b \}(a \ne 0)$的就是半空间<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/%E5%8D%8A%E7%A9%BA%E9%97%B4.png" alt="半空间.png"><br>用定义可证，半空间也是一个凸集（[[1. 仿射集-凸集-凸锥#凸集 convex set]]）</p>
+<h1 id="3-子空间-subspace"><a href="#3-子空间-subspace" class="headerlink" title="3. 子空间(subspace)"></a>3. 子空间(subspace)</h1><p>要区分子空间和半空间。<br>所谓子空间，或者空间，即存在以下性质的点集合：对于$x_1, x_2 \in V$，有</p>
+<script type="math/tex; mode=display">\alpha x_1 + \beta x_2 \in V, \quad \alpha,\beta \in R</script>
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/%E4%B8%AD%E7%A7%91%E5%A4%A7%E5%87%B8%E4%BC%98%E5%8C%96%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">中科大凸优化课程笔记</a>
 
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
+      
+  <span class="ico-tags"></span>
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%87%B8%E4%BC%98%E5%8C%96/" rel="tag">凸优化</a></li></ul>
 
+      
+            
+      
     </footer>
   </div>
-
-   
-    
+  
 </article>
 
+<!-- Table of Contents -->
+
     
-    <article
-  id="post-批量爬取大学课件"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
+
+  
+    <article id="post-批量爬取大学课件"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/04/16/%E6%89%B9%E9%87%8F%E7%88%AC%E5%8F%96%E5%A4%A7%E5%AD%A6%E8%AF%BE%E4%BB%B6/"
-    >批量爬取大学课件</a> 
-</h2>
- 
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/04/16/%E6%89%B9%E9%87%8F%E7%88%AC%E5%8F%96%E5%A4%A7%E5%AD%A6%E8%AF%BE%E4%BB%B6/">批量爬取大学课件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2022/04/16/%E6%89%B9%E9%87%8F%E7%88%AC%E5%8F%96%E5%A4%A7%E5%AD%A6%E8%AF%BE%E4%BB%B6/" class="article-date">
+	  <time datetime="2022-04-16T01:36:22.000Z" itemprop="datePublished">April 16, 2022</time>
+	</a>
 
       
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/04/16/%E6%89%B9%E9%87%8F%E7%88%AC%E5%8F%96%E5%A4%A7%E5%AD%A6%E8%AF%BE%E4%BB%B6/" class="article-date">
-  <time datetime="2022-04-16T01:36:22.000Z" itemprop="datePublished">2022-04-16</time>
-</a> 
-  <div class="article-category">
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>国外很多大学的课件放在一个专门的页面上，如下图所示，那么很容易通过一个爬虫批量下载下来。<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E4%BB%B6%E9%A1%B5.png" alt="大学课件页.png"></p>
+<p>思路就是识别页面中以pdf结尾的链接，然后进行下载。</p>
+<h1 id="单线程版本"><a href="#单线程版本" class="headerlink" title="单线程版本"></a>单线程版本</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup<br><br>url = <span class="hljs-string">&#x27;https://inst.eecs.berkeley.edu/~ee127/fa19/Lectures/&#x27;</span><br>page = requests.get(url).content<br><br>soup = BeautifulSoup(page, <span class="hljs-string">&#x27;html.parser&#x27;</span>)<br><br>links = soup.find_all(<span class="hljs-string">&#x27;a&#x27;</span>)<br><span class="hljs-keyword">for</span> link <span class="hljs-keyword">in</span> links:<br>	href = link.get(<span class="hljs-string">&#x27;href&#x27;</span>)<br>	<span class="hljs-keyword">if</span> href.endswith(<span class="hljs-string">&#x27;.pdf&#x27;</span>):<br>		file_url = url + href<br>		<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(href, <span class="hljs-string">&#x27;wb&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>			f.write(requests.get(file_url).content)<br></code></pre></td></tr></table></figure>
+<p>下载25个文件，费时180秒左右。</p>
+<h1 id="多线程版本"><a href="#多线程版本" class="headerlink" title="多线程版本"></a>多线程版本</h1><p>对于这种国外网站，常常下载速度较慢，这种IO密集型的任务使用多线程就非常有必要了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> threading <span class="hljs-keyword">import</span> Thread<br><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">download</span>(<span class="hljs-params">url, href</span>):<br>	r = requests.get(url + href)<br>	<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(href, <span class="hljs-string">&#x27;wb&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>		f.write(r.content)<br><br>url = <span class="hljs-string">&#x27;https://inst.eecs.berkeley.edu/~ee127/fa19/Lectures/&#x27;</span><br>page = requests.get(url).content<br><br>soup = BeautifulSoup(page, <span class="hljs-string">&#x27;html.parser&#x27;</span>)<br>links = soup.find_all(<span class="hljs-string">&#x27;a&#x27;</span>)<br>threads = []<br><span class="hljs-keyword">for</span> link <span class="hljs-keyword">in</span> links:<br>	href = link.get(<span class="hljs-string">&#x27;href&#x27;</span>)<br>	<span class="hljs-keyword">if</span> href.endswith(<span class="hljs-string">&#x27;.pdf&#x27;</span>):<br>		t = Thread(target=download, args=(url, href))<br>		threads.append(t)<br>		t.start()<br><br><span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> threads:<br>	t.join()<br></code></pre></td></tr></table></figure>
+<p>这时，下载同样的文件，只需12秒左右，效果还是很明显的。</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
     <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-   
-    </div>
-       
 
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
+      
+  <span class="ico-tags"></span>
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li></ul>
 
-    </footer>
-  </div>
-
-   
-    
-</article>
-
-    
-    <article
-  id="post-仿射集 凸集 凸锥"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/04/16/%E4%BB%BF%E5%B0%84%E9%9B%86%20%E5%87%B8%E9%9B%86%20%E5%87%B8%E9%94%A5/"
-    >1. 仿射集、凸集、凸锥</a> 
-</h2>
- 
-
       
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/04/16/%E4%BB%BF%E5%B0%84%E9%9B%86%20%E5%87%B8%E9%9B%86%20%E5%87%B8%E9%94%A5/" class="article-date">
-  <time datetime="2022-04-16T00:44:10.000Z" itemprop="datePublished">2022-04-16</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%B8%AD%E7%A7%91%E5%A4%A7%E5%87%B8%E4%BC%98%E5%8C%96%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">中科大凸优化课程笔记</a>
-  </div>
-   
-    </div>
-       
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%87%B8%E4%BC%98%E5%8C%96/" rel="tag">凸优化</a></li></ul>
-
+            
+      
     </footer>
   </div>
-
-   
-    
+  
 </article>
 
+<!-- Table of Contents -->
+
     
-  </article>
-  
 
   
+
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next</a>
+  </nav>
+
 </section>
-</div>
-
-      <footer class="footer">
-  <div class="outer">
-    <ul>
-      <li>
-        Copyrights &copy;
-        2022-2023
-        <i class="ri-heart-fill heart_icon"></i> 哈欠星人
-      </li>
-    </ul>
-    <ul>
-      <li>
-        
-      </li>
-    </ul>
-    <ul>
-      <li>
-        
-        
-        <span>
-  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
-  <span class="division">|</span>
-  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
-</span>
-        
-      </li>
-    </ul>
-    <ul>
-      
-    </ul>
-    <ul>
-      
-    </ul>
-    <ul>
-      <li>
-        <!-- cnzz统计 -->
-        
-      </li>
-    </ul>
-  </div>
-</footer>    
-    </main>
-    <div class="float_btns">
-      <div class="totop" id="totop">
-  <i class="ri-arrow-up-line"></i>
-</div>
-
-<div class="todark" id="todark">
-  <i class="ri-moon-line"></i>
-</div>
-
-    </div>
-    <aside class="sidebar on">
-      <button class="navbar-toggle"></button>
-<nav class="navbar">
+          <aside id="sidebar">
   
-  <div class="logo">
-    <a href="/"><img src="/images/ayer-side.svg" alt="哈欠星人的独白"></a>
-  </div>
+    <div class="widget-wrap" style="margin: 20px 0;">
+	<div id="search-form-wrap">
+
+    <form class="search-form">
+        <label style="width: 75%;">
+            <span class="screen-reader-text">Search for:</span>
+            <input type="search" class="search-field" style="height: 42px;" placeholder=" Search…" value="" name="s" title="Search for:">
+        </label>
+        <input type="submit" class="search-form-submit" value="Search">
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+</div>
   
-  <ul class="nav nav-main">
     
-    <li class="nav-item">
-      <a class="nav-item-link" href="/">主页</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/archives">归档</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/categories">分类</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/tags">标签</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/friends">友链</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/about">关于我</a>
-    </li>
-    
-  </ul>
-</nav>
-<nav class="navbar navbar-bottom">
-  <ul class="nav">
-    <li class="nav-item">
-      
-      <a class="nav-item-link nav-item-search"  title="Search">
-        <i class="ri-search-line"></i>
-      </a>
-      
-      
-    </li>
-  </ul>
-</nav>
-<div class="search-form-wrap">
-  <div class="local-search local-search-plugin">
-  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
-  <div id="local-search-result" class="local-search-result"></div>
-</div>
-</div>
-    </aside>
-    <div id="mask"></div>
+  <div class="widget-wrap">
+    <h3 class="widget-title">Connect With Us</h3>
+    <div class="widget widget_athemes_social_icons">
 
-<!-- #reward -->
-<div id="reward">
-  <span class="close"><i class="ri-close-line"></i></span>
-  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
-  <div class="reward-box">
-    
-    <div class="reward-item">
-      <img class="reward-img" src="/images/alipay.jpeg">
-      <span class="reward-type">支付宝</span>
+    	<ul class="clearfix widget-social-icons">   
+    	
+          
+     			  <li><a target="_blank" rel="noopener" href="https://github.com/ben-xj" title="Github"><i class="fa fa-github" aria-hidden="true"></i></a></li> 
+          
+   		
+          
+            <li><a href="mailto:3290701522@qq.com?subject=请联系我&body=我能帮你什么" title="email"><i class="fa fa-envelope" aria-hidden="true"></i></a></li> 
+          
+   		
+   		</ul>
+
+
+   		<!--
+   		<ul class="clearfix widget-social-icons">   		
+   		<li class="widget-si-twitter"><a target="_blank" rel="noopener" href="http://twitter.com" title="Twitter"><i class="ico-twitter"></i></a></li> 
+		<li class="widget-si-facebook"><a target="_blank" rel="noopener" href="http://facebook.com" title="Facebook"><i class="ico-facebook"></i></a></li>
+			<li class="widget-si-gplus"><a target="_blank" rel="noopener" href="http://plus.google.com" title="Google+"><i class="ico-gplus"></i></a></li>
+			<li class="widget-si-pinterest"><a target="_blank" rel="noopener" href="http://pinterest.com" title="Pinterest"><i class="ico-pinterest"></i></a></li>
+			<li class="widget-si-flickr"><a target="_blank" rel="noopener" href="http://flickr.com" title="Flickr"><i class="ico-flickr"></i></a></li>
+			<li class="widget-si-instagram"><a target="_blank" rel="noopener" href="http://instagram.com" title="Instagram"><i class="ico-instagram"></i></a></li>
+		</ul> -->
+
     </div>
-    
-    
-    <div class="reward-item">
-      <img class="reward-img" src="/images/wechat.jpeg">
-      <span class="reward-type">微信</span>
-    </div>
-    
   </div>
-</div>
+
+
+  
     
-<script src="/js/jquery-3.6.0.min.js"></script>
- 
-<script src="/js/lazyload.min.js"></script>
+  <div class="widget_athemes_tabs">
+    <ul id="widget-tab" class="clearfix widget-tab-nav">
+      <li class="active"><a>Recent Posts</a></li>
+    </ul>
+    <div class="widget">
+      <ul>
+        
+          <li class="clearfix">
 
-<!-- Tocbot -->
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
 
-<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
-<link
-  rel="stylesheet"
-  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
-/>
-<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
-
-<script src="/dist/main.js"></script>
-
-<!-- ImageViewer -->
- <!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                <!--  Controls are self-explanatory. Order can be changed. -->
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
+              <h6 style="margin: 0;"><a href="/2023/04/26/pulp%E4%B8%8D%E5%90%8C%E6%B1%82%E8%A7%A3%E5%99%A8%E8%AE%BE%E7%BD%AE%E5%8F%82%E6%95%B0/">pulp不同求解器设置参数</a></h6>
+              <span>April 26, 2023</span>
             </div>
 
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
+              <h6 style="margin: 0;"><a href="/2023/03/31/Accelerate%20Your%20NumPy%20Matrix%20Operations%20with%20Cython/">Accelerate Your NumPy Matrix Operations with Cython</a></h6>
+              <span>March 31, 2023</span>
             </div>
 
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
+          </li>
+        
+          <li class="clearfix">
 
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
 
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
+              <h6 style="margin: 0;"><a href="/2022/12/31/%E5%9F%BA%E4%BA%8EDjango-Rest%E6%A1%86%E6%9E%B6%E6%9E%84%E5%BB%BAAPI/">2. 基于Django Rest框架构建API</a></h6>
+              <span>December 31, 2022</span>
             </div>
 
-        </div>
+          </li>
+        
+          <li class="clearfix">
 
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
+              <h6 style="margin: 0;"><a href="/2022/12/31/%E5%9F%BA%E6%9C%ACDjango%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/">1. 基本Django项目构建</a></h6>
+              <span>December 31, 2022</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
+              <h6 style="margin: 0;"><a href="/2022/12/31/tmux%E5%A4%9F%E7%94%A8%E5%91%BD%E4%BB%A4/">tmux够用命令</a></h6>
+              <span>December 31, 2022</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
+              <h6 style="margin: 0;"><a href="/2022/04/17/%E5%8D%8A%E6%AD%A3%E5%AE%9A%E9%94%A5/">5. 半正定锥</a></h6>
+              <span>April 17, 2022</span>
+            </div>
+
+          </li>
+        
+      </ul>
     </div>
+  </div>
 
-</div>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Shell%E5%B7%A5%E5%85%B7/">Shell工具</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E7%A7%91%E5%A4%A7%E5%87%B8%E4%BC%98%E5%8C%96%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">中科大凸优化课程笔记</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BC%98%E5%8C%96/">优化</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
 
-<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
-<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
-<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/api/" rel="tag">api</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cython/" rel="tag">cython</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/" rel="tag">django</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mip/" rel="tag">mip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pulp/" rel="tag">pulp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/solver/" rel="tag">solver</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tmux/" rel="tag">tmux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%B8%E4%BC%98%E5%8C%96/" rel="tag">凸优化</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6/" rel="tag">后端框架</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/api/" style="font-size: 15px;">api</a> <a href="/tags/cython/" style="font-size: 10px;">cython</a> <a href="/tags/django/" style="font-size: 15px;">django</a> <a href="/tags/mip/" style="font-size: 10px;">mip</a> <a href="/tags/pulp/" style="font-size: 10px;">pulp</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/solver/" style="font-size: 10px;">solver</a> <a href="/tags/tmux/" style="font-size: 10px;">tmux</a> <a href="/tags/%E5%87%B8%E4%BC%98%E5%8C%96/" style="font-size: 20px;">凸优化</a> <a href="/tags/%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6/" style="font-size: 15px;">后端框架</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2023 哈欠星人的独白 All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
 
 <script>
-    function viewer_init() {
-        let pswpElement = document.querySelectorAll('.pswp')[0];
-        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+    var contentdiv = document.getElementById("content");
 
-        $imgArr.forEach(($em, i) => {
-            $em.onclick = () => {
-                // slider展开状态
-                // todo: 这样不好，后面改成状态
-                if (document.querySelector('.left-col.show')) return
-                let items = []
-                $imgArr.forEach(($em2, i2) => {
-                    let img = $em2.getAttribute('data-idx', i2)
-                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
-                    let title = $em2.getAttribute('alt')
-                    // 获得原图尺寸
-                    const image = new Image()
-                    image.src = src
-                    items.push({
-                        src: src,
-                        w: image.width || $em2.width,
-                        h: image.height || $em2.height,
-                        title: title
-                    })
-                })
-                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
-                    index: parseInt(i)
-                });
-                gallery.init()
-            }
-        })
-    }
-    viewer_init()
-</script> 
-<!-- MathJax -->
- <script type="text/x-mathjax-config">
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+
+<!-- Custome JS -->
+
+<script src="/js/my.js"></script>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
   MathJax.Hub.Config({
-      tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-  });
-
-  MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for(i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-  });
-</script>
-
-<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
-<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
-<script>
-  var ayerConfig = {
-    mathjax: true,
-  };
-</script>
-
-<!-- Katex -->
-
-<!-- busuanzi  -->
- 
-<script src="/js/busuanzi-2.3.pure.min.js"></script>
- 
-<!-- ClickLove -->
-
-<!-- ClickBoom1 -->
-
-<!-- ClickBoom2 -->
-
-<!-- CodeCopy -->
- 
-<link rel="stylesheet" href="/css/clipboard.css">
- <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
-<script>
-  function wait(callback, seconds) {
-    var timelag = null;
-    timelag = window.setTimeout(callback, seconds);
-  }
-  !function (e, t, a) {
-    var initCopyCode = function(){
-      var copyHtml = '';
-      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
-      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
-      copyHtml += '</button>';
-      $(".highlight .code pre").before(copyHtml);
-      $(".article pre code").before(copyHtml);
-      var clipboard = new ClipboardJS('.btn-copy', {
-        target: function(trigger) {
-          return trigger.nextElementSibling;
-        }
-      });
-      clipboard.on('success', function(e) {
-        let $btn = $(e.trigger);
-        $btn.addClass('copied');
-        let $icon = $($btn.find('i'));
-        $icon.removeClass('ri-file-copy-2-line');
-        $icon.addClass('ri-checkbox-circle-line');
-        let $span = $($btn.find('span'));
-        $span[0].innerText = 'COPIED';
-        
-        wait(function () { // 等待两秒钟后恢复
-          $icon.removeClass('ri-checkbox-circle-line');
-          $icon.addClass('ri-file-copy-2-line');
-          $span[0].innerText = 'COPY';
-        }, 2000);
-      });
-      clipboard.on('error', function(e) {
-        e.clearSelection();
-        let $btn = $(e.trigger);
-        $btn.addClass('copy-failed');
-        let $icon = $($btn.find('i'));
-        $icon.removeClass('ri-file-copy-2-line');
-        $icon.addClass('ri-time-line');
-        let $span = $($btn.find('span'));
-        $span[0].innerText = 'COPY FAILED';
-        
-        wait(function () { // 等待两秒钟后恢复
-          $icon.removeClass('ri-time-line');
-          $icon.addClass('ri-file-copy-2-line');
-          $span[0].innerText = 'COPY';
-        }, 2000);
-      });
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
     }
-    initCopyCode();
-  }(window, document);
-</script>
- 
-<!-- CanvasBackground -->
-
-<script>
-  if (window.mermaid) {
-    mermaid.initialize({ theme: "forest" });
-  }
+  });
 </script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
 
-    
-    
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="https://dnqof95d40fo6.cloudfront.net/atw7f8.js">
+	</script>
+
+
+
+
+
 
   </div>
-</body>
 
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+
+</body>
 </html>
