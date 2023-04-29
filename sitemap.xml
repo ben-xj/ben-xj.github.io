@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ben-xj.github.io/2023/04/29/pybind11%20basic/</loc>
+    
+    <lastmod>2023-04-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://ben-xj.github.io/2022/04/17/%E7%90%83%E5%92%8C%E6%A4%AD%E7%90%83/</loc>
     
     <lastmod>2023-04-29</lastmod>
@@ -224,6 +233,20 @@
   
   <url>
     <loc>https://ben-xj.github.io/tags/%E7%88%AC%E8%99%AB/</loc>
+    <lastmod>2023-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ben-xj.github.io/tags/cpp/</loc>
+    <lastmod>2023-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ben-xj.github.io/tags/pybind11/</loc>
     <lastmod>2023-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

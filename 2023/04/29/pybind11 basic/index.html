@@ -1,0 +1,199 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>From C++ to Python: How to Use Pybind11 for Cross-Language Interoperability | 哈欠星人</title><meta name="author" content="哈欠星人"><meta name="copyright" content="哈欠星人"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Introduction Pybind11 is a lightweight header-only library that allows you to expose C++ functions and classes to Python. It simplifies the process of creating Python bindings for C++ code and allows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="From C++ to Python: How to Use Pybind11 for Cross-Language Interoperability">
+<meta property="og:url" content="https://ben-xj.github.io/2023/04/29/pybind11%20basic/index.html">
+<meta property="og:site_name" content="哈欠星人">
+<meta property="og:description" content="Introduction Pybind11 is a lightweight header-only library that allows you to expose C++ functions and classes to Python. It simplifies the process of creating Python bindings for C++ code and allows">
+<meta property="og:locale">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-04-29T12:44:10.000Z">
+<meta property="article:modified_time" content="2023-04-29T13:13:42.000Z">
+<meta property="article:author" content="哈欠星人">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="cpp">
+<meta property="article:tag" content="pybind11">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://ben-xj.github.io/2023/04/29/pybind11%20basic/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'From C++ to Python: How to Use Pybind11 for Cross-Language Interoperability',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-04-29 21:13:42'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="哈欠星人"><span class="site-name">哈欠星人</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">From C++ to Python: How to Use Pybind11 for Cross-Language Interoperability</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-04-29T12:44:10.000Z" title="Created 2023-04-29 20:44:10">2023-04-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-04-29T13:13:42.000Z" title="Updated 2023-04-29 21:13:42">2023-04-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/">Python</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="From C++ to Python: How to Use Pybind11 for Cross-Language Interoperability"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Introduction">Introduction</h2>
+<p>Pybind11 is a lightweight header-only library that allows you to expose C++ functions and classes to Python. It simplifies the process of creating Python bindings for C++ code and allows seamless interoperability between C++ and Python. In this article, we will discuss how to use Pybind11 to use C++ functions and classes in Python with a runnable example code.</p>
+<span id="more"></span>
+<h2 id="Prerequisites">Prerequisites</h2>
+<p>To follow along with this article, you should have:</p>
+<ul>
+<li>Basic knowledge of C++ and Python</li>
+<li>Basic knowledge of Python’s C API</li>
+</ul>
+<h2 id="Installation">Installation</h2>
+<p>Pybind11 can be installed via pip by running the following command:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pybind11</span><br></pre></td></tr></table></figure>
+<p>If you prefer to install Pybind11 manually, you can download it from GitHub and build it using CMake.</p>
+<h2 id="Example">Example</h2>
+<p>Let’s say we have a simple C++ class called <code>Calculator</code> that has two member functions <code>add</code> and <code>subtract</code>:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Calculator</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Calculator</span>() &#123;&#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">add</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x + y;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">subtract</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x - y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>We would like to create a Python wrapper for this class so that we can use it in Python. Here’s how we can do this using Pybind11:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pybind11/pybind11.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pybind11/stl.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Calculator</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Calculator</span>() &#123;&#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">add</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x + y;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">subtract</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x - y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">PYBIND11_MODULE</span>(calculator, m) &#123;</span><br><span class="line">    pybind11::<span class="built_in">class_</span>&lt;Calculator&gt;(m, <span class="string">&quot;Calculator&quot;</span>)</span><br><span class="line">        .<span class="built_in">def</span>(pybind11::init&lt;&gt;())</span><br><span class="line">        .<span class="built_in">def</span>(<span class="string">&quot;add&quot;</span>, &amp;Calculator::add)</span><br><span class="line">        .<span class="built_in">def</span>(<span class="string">&quot;subtract&quot;</span>, &amp;Calculator::subtract);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Explanation">Explanation</h2>
+<p>Let’s break down this code. We start by including the <code>pybind11</code> header file. Then, we define our <code>Calculator</code> class as before.</p>
+<p>Next, we use the <code>PYBIND11_MODULE</code> macro to create a Python module called <code>calculator</code>. This macro takes two arguments: the name of the module and an instance of <code>pybind11::module</code> class that represents the module. In this case, we define the module as <code>m</code>.</p>
+<p>We then use the <code>pybind11::class_</code> template to define the <code>Calculator</code> class as a Python class. The first argument to <code>pybind11::class_</code> is the Python name of the class (<code>&quot;Calculator&quot;</code>). The second argument is the C++ class that we want to expose (<code>Calculator</code>). We then define the <code>add</code> and <code>subtract</code> member functions using the <code>.def</code> method.</p>
+<p>Finally, we need to build this module into a shared library so that we can load it into Python. We can do this using CMake:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.0)</span><br><span class="line"></span><br><span class="line">project(calculator)</span><br><span class="line"></span><br><span class="line">find_package(pybind11 REQUIRED)</span><br><span class="line"></span><br><span class="line">pybind11_add_module(calculator calculator.cpp)</span><br></pre></td></tr></table></figure>
+<p>This will build a shared library called <code>calculator.so</code> (on Linux) or <code>calculator.pyd</code> (on Windows).</p>
+<p>We can now load this module into Python and use it like any other Python module:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> calculator</span><br><span class="line"></span><br><span class="line">c = calculator.Calculator()</span><br><span class="line"><span class="built_in">print</span>(c.add(<span class="number">1</span>, <span class="number">2</span>))      <span class="comment"># Output: 3</span></span><br><span class="line"><span class="built_in">print</span>(c.subtract(<span class="number">2</span>, <span class="number">1</span>)) <span class="comment"># Output: 1</span></span><br></pre></td></tr></table></figure>
+<h2 id="Conclusion">Conclusion</h2>
+<p>In this article, we have learned how to use Pybind11 to create Python bindings for C++ classes and functions. Pybind11 simplifies the process of creating Python bindings and allows seamless interoperability between C++ and Python. By following the example code provided in this article, you should be able to start creating your own Python bindings for your C++ code.</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://ben-xj.github.io">哈欠星人</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://ben-xj.github.io/2023/04/29/pybind11%20basic/">https://ben-xj.github.io/2023/04/29/pybind11%20basic/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/python/">python</a><a class="post-meta__tags" href="/tags/cpp/">cpp</a><a class="post-meta__tags" href="/tags/pybind11/">pybind11</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/04/26/pulp%E4%B8%8D%E5%90%8C%E6%B1%82%E8%A7%A3%E5%99%A8%E8%AE%BE%E7%BD%AE%E5%8F%82%E6%95%B0/" title="pulp不同求解器设置参数"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">pulp不同求解器设置参数</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2023/03/31/Accelerate%20Your%20NumPy%20Matrix%20Operations%20with%20Cython/" title="Accelerate Your NumPy Matrix Operations with Cython"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-31</div><div class="title">Accelerate Your NumPy Matrix Operations with Cython</div></div></a></div><div><a href="/2023/04/26/pulp%E4%B8%8D%E5%90%8C%E6%B1%82%E8%A7%A3%E5%99%A8%E8%AE%BE%E7%BD%AE%E5%8F%82%E6%95%B0/" title="pulp不同求解器设置参数"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-26</div><div class="title">pulp不同求解器设置参数</div></div></a></div><div><a href="/2022/12/31/%E5%9F%BA%E4%BA%8EDjango-Rest%E6%A1%86%E6%9E%B6%E6%9E%84%E5%BB%BAAPI/" title="2. 基于Django Rest框架构建API"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-31</div><div class="title">2. 基于Django Rest框架构建API</div></div></a></div><div><a href="/2022/12/31/%E5%9F%BA%E6%9C%ACDjango%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/" title="1. 基本Django项目构建"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-31</div><div class="title">1. 基本Django项目构建</div></div></a></div><div><a href="/2022/04/16/%E6%89%B9%E9%87%8F%E7%88%AC%E5%8F%96%E5%A4%A7%E5%AD%A6%E8%AF%BE%E4%BB%B6/" title="批量爬取大学课件"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-16</div><div class="title">批量爬取大学课件</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">哈欠星人</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ben-xj"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">You can contact me via Email 3290701522@qq.com~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prerequisites"><span class="toc-text">Prerequisites</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Installation"><span class="toc-text">Installation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example"><span class="toc-text">Example</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Explanation"><span class="toc-text">Explanation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/29/pybind11%20basic/" title="From C++ to Python: How to Use Pybind11 for Cross-Language Interoperability">From C++ to Python: How to Use Pybind11 for Cross-Language Interoperability</a><time datetime="2023-04-29T12:44:10.000Z" title="Created 2023-04-29 20:44:10">2023-04-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/26/pulp%E4%B8%8D%E5%90%8C%E6%B1%82%E8%A7%A3%E5%99%A8%E8%AE%BE%E7%BD%AE%E5%8F%82%E6%95%B0/" title="pulp不同求解器设置参数">pulp不同求解器设置参数</a><time datetime="2023-04-26T12:23:27.000Z" title="Created 2023-04-26 20:23:27">2023-04-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/31/Accelerate%20Your%20NumPy%20Matrix%20Operations%20with%20Cython/" title="Accelerate Your NumPy Matrix Operations with Cython">Accelerate Your NumPy Matrix Operations with Cython</a><time datetime="2023-03-31T00:44:10.000Z" title="Created 2023-03-31 08:44:10">2023-03-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/12/31/%E5%9F%BA%E4%BA%8EDjango-Rest%E6%A1%86%E6%9E%B6%E6%9E%84%E5%BB%BAAPI/" title="2. 基于Django Rest框架构建API">2. 基于Django Rest框架构建API</a><time datetime="2022-12-31T09:58:24.000Z" title="Created 2022-12-31 17:58:24">2022-12-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/12/31/%E5%9F%BA%E6%9C%ACDjango%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/" title="1. 基本Django项目构建">1. 基本Django项目构建</a><time datetime="2022-12-31T09:53:37.000Z" title="Created 2022-12-31 17:53:37">2022-12-31</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 哈欠星人</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
