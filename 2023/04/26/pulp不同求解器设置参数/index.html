@@ -1,426 +1,174 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-
-  <!-- PACE Progress Bar START -->
-  
-    
-<script src="https://raw.githubusercontent.com/HubSpot/pace/v1.0.2/pace.min.js"></script>
-
-    
-<link rel="stylesheet" href="https://github.com/HubSpot/pace/raw/master/themes/orange/pace-theme-flash.css">
-
-  
-  
-
-  <!-- PACE Progress Bar START -->
-
-  
-  <title>pulp不同求解器设置参数 | 哈欠星人</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
-  <meta name="keywords" content="pythonpulpsolvermip" />
-  
-  
-  
-  
-  <meta name="description" content="Pulp provides an easy-to-use syntax and interface for formulating and solving LP problems, including support for a wide range of problem types and solvers. It is widely used in operations research, su">
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>pulp不同求解器设置参数 | 哈欠星人</title><meta name="author" content="哈欠星人"><meta name="copyright" content="哈欠星人"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Pulp provides an easy-to-use syntax and interface for formulating and solving LP problems, including support for a wide range of problem types and solvers. It is widely used in operations research, su">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pulp不同求解器设置参数">
 <meta property="og:url" content="http://example.com/2023/04/26/pulp%E4%B8%8D%E5%90%8C%E6%B1%82%E8%A7%A3%E5%99%A8%E8%AE%BE%E7%BD%AE%E5%8F%82%E6%95%B0/index.html">
 <meta property="og:site_name" content="哈欠星人">
 <meta property="og:description" content="Pulp provides an easy-to-use syntax and interface for formulating and solving LP problems, including support for a wide range of problem types and solvers. It is widely used in operations research, su">
 <meta property="og:locale">
-<meta property="og:image" content="https://docs.pulpproject.org/en/pulpproject.org_images/pulp_logo_big.pnghttps://docs.pulpproject.org/en/pulpproject.org_images/pulp_logo_big.png">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
 <meta property="article:published_time" content="2023-04-26T12:23:27.000Z">
-<meta property="article:modified_time" content="2023-04-26T13:53:40.000Z">
+<meta property="article:modified_time" content="2023-04-28T14:55:12.000Z">
 <meta property="article:author" content="哈欠星人">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="pulp">
 <meta property="article:tag" content="solver">
 <meta property="article:tag" content="mip">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://docs.pulpproject.org/en/pulpproject.org_images/pulp_logo_big.pnghttps://docs.pulpproject.org/en/pulpproject.org_images/pulp_logo_big.png">
-  
-    <link rel="alternate" href="/atom.xml" title="哈欠星人" type="application/atom+xml">
-  
-  <link rel="icon" href="/css/images/favicon.ico">
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
-  <link href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-  <style type="text/css">
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
-    
-  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
-  
-<link rel="stylesheet" href="/css/style.css">
-
-
-  
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-
-
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" >
-  <link rel="stylesheet" href="/css/hiero.css" >
-  <link rel="stylesheet" href="/css/glyphs.css" >
-  
-
-  <!-- Custom CSS -->
-  
-<link rel="stylesheet" href="/css/my.css">
-
-  <!-- Google Adsense -->
-  
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-      (adsbygoogle = window.adsbygoogle || []).push({
-          google_ad_client: "ca-pub-0123456789ABCDEF",
-          enable_page_level_ads: true
-      });
-  </script>
-  
-<meta name="generator" content="Hexo 6.3.0"></head>
-
-<script>
-var themeMenus = {};
-
-  themeMenus["/"] = "Home"; 
-
-  themeMenus["/archives"] = "Archives"; 
-
-  themeMenus["/categories"] = "Categories"; 
-
-  themeMenus["/tags"] = "Tags"; 
-
-  themeMenus["/about"] = "About"; 
-
-</script>
-
-
-  <body data-spy="scroll" data-target="#toc" data-offset="50">
-
-
-  <header id="allheader" class="site-header" role="banner">
-  <div class="clearfix container">
-      <div class="site-branding">
-
-          <h1 class="site-title">
-            
-              <a href="/" title="哈欠星人" rel="home"> 哈欠星人 </a>
-            
-          </h1>
-
-          
-            
-          <nav id="main-navigation" class="main-navigation" role="navigation">
-            <a class="nav-open">Menu</a>
-            <a class="nav-close">Close</a>
-            <div class="clearfix sf-menu">
-
-              <ul id="main-nav" class="nmenu sf-js-enabled">
-                    
-                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">Home</a> </li>
-                    
-                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
-                    
-                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories">Categories</a> </li>
-                    
-                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">Tags</a> </li>
-                    
-                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">About</a> </li>
-                    
-              </ul>
-            </div>
-          </nav>
-
-
-      </div>
-  </div>
-</header>
-
-
-  <div id="originBgDiv" style="background: #fff; width: 100%;">
-
-      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
-        <img id="originBg" width="100%" alt="" src="">
-      </div>
-
-  </div>
-
-  <script>
-  function setAboutIMG(){
-      var imgUrls = "css/images/pose.jpg,https://source.unsplash.com/collection/954550/1920x1080".split(",");
-      var random = Math.floor((Math.random() * imgUrls.length ));
-      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
-        document.getElementById("originBg").src=imgUrls[random];
-      } else {
-        document.getElementById("originBg").src='/' + imgUrls[random];
-      }
-  }
-  bgDiv=document.getElementById("originBgDiv");
-  if(location.pathname.match('about')){
-    setAboutIMG();
-    bgDiv.style.display='block';
-  }else{
-    bgDiv.style.display='none';
-  }
-  </script>
-
-
-
-  <div id="container">
-    <div id="wrap">
-            
-      <div id="content" class="outer">
-        
-          <section id="main" style="float:none;"><article id="post-pulp不同求解器设置参数" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" class="article-title" itemprop="name">
-      pulp不同求解器设置参数
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	Posted on <a href="/2023/04/26/pulp%E4%B8%8D%E5%90%8C%E6%B1%82%E8%A7%A3%E5%99%A8%E8%AE%BE%E7%BD%AE%E5%8F%82%E6%95%B0/" class="article-date">
-	  <time datetime="2023-04-26T12:23:27.000Z" itemprop="datePublished">April 26, 2023</time>
-	</a>
-
-      
-	<span id="busuanzi_container_page_pv">
-	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
-	</span>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Pulp provides an easy-to-use syntax and interface for formulating and solving LP problems, including support for a wide range of problem types and solvers. It is widely used in operations research, supply chain management, logistics, and other industries for making optimization decisions.</p>
-<p><img src="https://docs.pulpproject.org/en/pulpproject.org_images/pulp_logo_big.pnghttps://docs.pulpproject.org/en/pulpproject.org_images/pulp_logo_big.png" alt=""></p>
-<span id="more"></span>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> pulp <span class="hljs-keyword">import</span> *<br><br><span class="hljs-comment"># Use CBC solver</span><br>prob.solve(PULP_CBC_CMD(msg=<span class="hljs-literal">True</span>, timeLimit=<span class="hljs-number">1</span>, options=[<span class="hljs-string">&quot;startalg&quot;</span>,<br>                                                        <span class="hljs-string">&quot;barrier&quot;</span>]))<br><br><span class="hljs-comment"># Use cplex solver</span><br>prob.solve(<br>    CPLEX_CMD(msg=<span class="hljs-literal">True</span>,<br>              timeLimit=<span class="hljs-number">1</span>,<br>            <span class="hljs-comment">#   interactive cmd</span><br>              options=[<span class="hljs-string">&quot;set emphasis mip 3&quot;</span>, <span class="hljs-string">&quot;set barrier algorithm 3&quot;</span>]))<br><br><span class="hljs-comment"># Use gurobi solver</span><br>prob.solve(<br>    GUROBI_CMD(msg=<span class="hljs-literal">True</span>,<br>               timeLimit=<span class="hljs-number">1</span>,<br>               threads=<span class="hljs-number">4</span>,<br>               options=[(<span class="hljs-string">&quot;Method&quot;</span>, <span class="hljs-number">2</span>), (<span class="hljs-string">&quot;MIPGap&quot;</span>, <span class="hljs-number">0.2</span>)]))<br><br><span class="hljs-comment"># Use scip solver, latest version of pulp only</span><br><span class="hljs-comment"># support single thread only</span><br>prob.solve(SCIP_CMD(msg=<span class="hljs-literal">True</span>, timeLimit=<span class="hljs-number">1</span>, options=[<span class="hljs-string">&quot;branching/clamp=0.4&quot;</span>]))<br></code></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/%E4%BC%98%E5%8C%96/">优化</a>
-
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mip/" rel="tag">mip</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pulp/" rel="tag">pulp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/solver/" rel="tag">solver</a></li></ul>
-
-      
-            
-      
-        
-	<div id="comment">
-		<!-- 来必力City版安装代码 -->
-		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
-		<script type="text/javascript">
-		   (function(d, s) {
-		       var j, e = d.getElementsByTagName(s)[0];
-
-		       if (typeof LivereTower === 'function') { return; }
-
-		       j = d.createElement(s);
-		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-		       j.async = true;
-
-		       e.parentNode.insertBefore(j, e);
-		   })(document, 'script');
-		</script>
-		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-		</div>
-		<!-- City版安装代码已完成 -->
-	</div>
-
-
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-  
-    <a href="/2023/03/31/Accelerate%20Your%20NumPy%20Matrix%20Operations%20with%20Cython/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Accelerate Your NumPy Matrix Operations with Cython</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-<!-- Table of Contents -->
-
-  <aside id="sidebar">
-    <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
-    <strong class="toc-title">Contents</strong>
-    
-      <ol class="nav">None</ol>
-    
-    </div>
-  </aside>
-</section>
-        
-      </div>
-      <footer id="footer" class="site-footer">
-  
-
-  <div class="clearfix container">
-      <div class="site-info">
-	      &copy; 2023 哈欠星人 All Rights Reserved.
-          
-            <span id="busuanzi_container_site_uv">
-              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
-              本站总访问量<span id="busuanzi_value_site_pv"></span>次
-            </span>
-          
-      </div>
-      <div class="site-credit">
-        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
-      </div>
-  </div>
-</footer>
-
-
-<!-- min height -->
-
-<script>
-    var contentdiv = document.getElementById("content");
-
-    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
-</script>
-
-<!-- Custome JS -->
-
-<script src="/js/my.js"></script>
-
-    </div>
-    <!-- <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/categories" class="mobile-nav-link">Categories</a>
-  
-    <a href="/tags" class="mobile-nav-link">Tags</a>
-  
-    <a href="/about" class="mobile-nav-link">About</a>
-  
-</nav> -->
-    
-
-<!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/04/26/pulp%E4%B8%8D%E5%90%8C%E6%B1%82%E8%A7%A3%E5%99%A8%E8%AE%BE%E7%BD%AE%E5%8F%82%E6%95%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
     }
-  });
-</script>
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'pulp不同求解器设置参数',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-04-28 22:55:12'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
       }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-
+    }
   
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
-
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
   
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/scripts.js"></script>
-
-
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-<script src="/js/main.js"></script>
-
-
-
-
-
-
-
-
-  <div style="display: none;">
-    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
-  </div>
-
-
-
-	<script async src="https://dnqof95d40fo6.cloudfront.net/atw7f8.js">
-	</script>
-
-
-
-
-
-
-  </div>
-
-  <a id="rocket" href="#top" class=""></a>
-  <script type="text/javascript" src="/js/totop.js" async=""></script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
         }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
-
-</body>
-</html>
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="哈欠星人"><span class="site-name">哈欠星人</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">pulp不同求解器设置参数</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-04-26T12:23:27.000Z" title="Created 2023-04-26 20:23:27">2023-04-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-04-28T14:55:12.000Z" title="Updated 2023-04-28 22:55:12">2023-04-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BC%98%E5%8C%96/">优化</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="pulp不同求解器设置参数"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>Pulp provides an easy-to-use syntax and interface for formulating and solving LP problems, including support for a wide range of problem types and solvers. It is widely used in operations research, supply chain management, logistics, and other industries for making optimization decisions.</p>
+<span id="more"></span>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pulp <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># Use CBC solver</span></span><br><span class="line">prob.solve(PULP_CBC_CMD(msg=<span class="literal">True</span>, timeLimit=<span class="number">1</span>, options=[<span class="string">&quot;startalg&quot;</span>,</span><br><span class="line">                                                        <span class="string">&quot;barrier&quot;</span>]))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Use cplex solver</span></span><br><span class="line">prob.solve(</span><br><span class="line">    CPLEX_CMD(msg=<span class="literal">True</span>,</span><br><span class="line">              timeLimit=<span class="number">1</span>,</span><br><span class="line">            <span class="comment">#   interactive cmd</span></span><br><span class="line">              options=[<span class="string">&quot;set emphasis mip 3&quot;</span>, <span class="string">&quot;set barrier algorithm 3&quot;</span>]))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Use gurobi solver</span></span><br><span class="line">prob.solve(</span><br><span class="line">    GUROBI_CMD(msg=<span class="literal">True</span>,</span><br><span class="line">               timeLimit=<span class="number">1</span>,</span><br><span class="line">               threads=<span class="number">4</span>,</span><br><span class="line">               options=[(<span class="string">&quot;Method&quot;</span>, <span class="number">2</span>), (<span class="string">&quot;MIPGap&quot;</span>, <span class="number">0.2</span>)]))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Use scip solver, latest version of pulp only</span></span><br><span class="line"><span class="comment"># support single thread only</span></span><br><span class="line">prob.solve(SCIP_CMD(msg=<span class="literal">True</span>, timeLimit=<span class="number">1</span>, options=[<span class="string">&quot;branching/clamp=0.4&quot;</span>]))</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">哈欠星人</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/04/26/pulp%E4%B8%8D%E5%90%8C%E6%B1%82%E8%A7%A3%E5%99%A8%E8%AE%BE%E7%BD%AE%E5%8F%82%E6%95%B0/">http://example.com/2023/04/26/pulp%E4%B8%8D%E5%90%8C%E6%B1%82%E8%A7%A3%E5%99%A8%E8%AE%BE%E7%BD%AE%E5%8F%82%E6%95%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/python/">python</a><a class="post-meta__tags" href="/tags/pulp/">pulp</a><a class="post-meta__tags" href="/tags/solver/">solver</a><a class="post-meta__tags" href="/tags/mip/">mip</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/03/31/Accelerate%20Your%20NumPy%20Matrix%20Operations%20with%20Cython/" title="Accelerate Your NumPy Matrix Operations with Cython"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Accelerate Your NumPy Matrix Operations with Cython</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2023/03/31/Accelerate%20Your%20NumPy%20Matrix%20Operations%20with%20Cython/" title="Accelerate Your NumPy Matrix Operations with Cython"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-31</div><div class="title">Accelerate Your NumPy Matrix Operations with Cython</div></div></a></div><div><a href="/2022/12/31/%E5%9F%BA%E4%BA%8EDjango-Rest%E6%A1%86%E6%9E%B6%E6%9E%84%E5%BB%BAAPI/" title="2. 基于Django Rest框架构建API"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-31</div><div class="title">2. 基于Django Rest框架构建API</div></div></a></div><div><a href="/2022/12/31/%E5%9F%BA%E6%9C%ACDjango%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/" title="1. 基本Django项目构建"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-31</div><div class="title">1. 基本Django项目构建</div></div></a></div><div><a href="/2022/04/16/%E6%89%B9%E9%87%8F%E7%88%AC%E5%8F%96%E5%A4%A7%E5%AD%A6%E8%AF%BE%E4%BB%B6/" title="批量爬取大学课件"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-16</div><div class="title">批量爬取大学课件</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">哈欠星人</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ben-xj"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">You can contact me via Email 3290701522@qq.com~</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/26/pulp%E4%B8%8D%E5%90%8C%E6%B1%82%E8%A7%A3%E5%99%A8%E8%AE%BE%E7%BD%AE%E5%8F%82%E6%95%B0/" title="pulp不同求解器设置参数">pulp不同求解器设置参数</a><time datetime="2023-04-26T12:23:27.000Z" title="Created 2023-04-26 20:23:27">2023-04-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/31/Accelerate%20Your%20NumPy%20Matrix%20Operations%20with%20Cython/" title="Accelerate Your NumPy Matrix Operations with Cython">Accelerate Your NumPy Matrix Operations with Cython</a><time datetime="2023-03-31T00:44:10.000Z" title="Created 2023-03-31 08:44:10">2023-03-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/12/31/%E5%9F%BA%E4%BA%8EDjango-Rest%E6%A1%86%E6%9E%B6%E6%9E%84%E5%BB%BAAPI/" title="2. 基于Django Rest框架构建API">2. 基于Django Rest框架构建API</a><time datetime="2022-12-31T09:58:24.000Z" title="Created 2022-12-31 17:58:24">2022-12-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/12/31/%E5%9F%BA%E6%9C%ACDjango%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/" title="1. 基本Django项目构建">1. 基本Django项目构建</a><time datetime="2022-12-31T09:53:37.000Z" title="Created 2022-12-31 17:53:37">2022-12-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/12/31/tmux%E5%A4%9F%E7%94%A8%E5%91%BD%E4%BB%A4/" title="tmux够用命令">tmux够用命令</a><time datetime="2022-12-31T00:44:10.000Z" title="Created 2022-12-31 08:44:10">2022-12-31</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 哈欠星人</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

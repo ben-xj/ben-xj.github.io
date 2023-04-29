@@ -1,462 +1,229 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-
-  <!-- PACE Progress Bar START -->
-  
-    
-<script src="https://raw.githubusercontent.com/HubSpot/pace/v1.0.2/pace.min.js"></script>
-
-    
-<link rel="stylesheet" href="https://github.com/HubSpot/pace/raw/master/themes/orange/pace-theme-flash.css">
-
-  
-  
-
-  <!-- PACE Progress Bar START -->
-
-  
-  <title>1. 基本django项目构建 | 哈欠星人</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
-  <meta name="keywords" content="pythondjango后端框架api" />
-  
-  
-  
-  
-  <meta name="description" content="1. 创建django项目可通过如下命令创建名为myproject的django项目，">
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>1. 基本Django项目构建 | 哈欠星人</title><meta name="author" content="哈欠星人"><meta name="copyright" content="哈欠星人"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1. 创建django项目 可通过如下命令创建名为myproject的django项目，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1. 基本Django项目构建">
 <meta property="og:url" content="http://example.com/2022/12/31/%E5%9F%BA%E6%9C%ACDjango%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/index.html">
 <meta property="og:site_name" content="哈欠星人">
-<meta property="og:description" content="1. 创建django项目可通过如下命令创建名为myproject的django项目，">
+<meta property="og:description" content="1. 创建django项目 可通过如下命令创建名为myproject的django项目，">
 <meta property="og:locale">
-<meta property="og:image" content="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/django%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84.png">
-<meta property="og:image" content="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/%E5%9F%BA%E6%9C%ACDjango%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%9C.png">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
 <meta property="article:published_time" content="2022-12-31T09:53:37.000Z">
-<meta property="article:modified_time" content="2023-04-26T14:05:40.000Z">
+<meta property="article:modified_time" content="2023-04-29T11:38:24.000Z">
 <meta property="article:author" content="哈欠星人">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="django">
 <meta property="article:tag" content="后端框架">
 <meta property="article:tag" content="api">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/django%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84.png">
-  
-    <link rel="alternate" href="/atom.xml" title="哈欠星人" type="application/atom+xml">
-  
-  <link rel="icon" href="/css/images/favicon.ico">
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
-  <link href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-  <style type="text/css">
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
-    
-  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
-  
-<link rel="stylesheet" href="/css/style.css">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/12/31/%E5%9F%BA%E6%9C%ACDjango%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '1. 基本Django项目构建',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-04-29 19:38:24'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
-  
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
 
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
 
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" >
-  <link rel="stylesheet" href="/css/hiero.css" >
-  <link rel="stylesheet" href="/css/glyphs.css" >
-  
-
-  <!-- Custom CSS -->
-  
-<link rel="stylesheet" href="/css/my.css">
-
-  <!-- Google Adsense -->
-  
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-      (adsbygoogle = window.adsbygoogle || []).push({
-          google_ad_client: "ca-pub-0123456789ABCDEF",
-          enable_page_level_ads: true
-      });
-  </script>
-  
-<meta name="generator" content="Hexo 6.3.0"></head>
-
-<script>
-var themeMenus = {};
-
-  themeMenus["/"] = "Home"; 
-
-  themeMenus["/archives"] = "Archives"; 
-
-  themeMenus["/categories"] = "Categories"; 
-
-  themeMenus["/tags"] = "Tags"; 
-
-  themeMenus["/about"] = "About"; 
-
-</script>
-
-
-  <body data-spy="scroll" data-target="#toc" data-offset="50">
-
-
-  <header id="allheader" class="site-header" role="banner">
-  <div class="clearfix container">
-      <div class="site-branding">
-
-          <h1 class="site-title">
-            
-              <a href="/" title="哈欠星人" rel="home"> 哈欠星人 </a>
-            
-          </h1>
-
-          
-            
-          <nav id="main-navigation" class="main-navigation" role="navigation">
-            <a class="nav-open">Menu</a>
-            <a class="nav-close">Close</a>
-            <div class="clearfix sf-menu">
-
-              <ul id="main-nav" class="nmenu sf-js-enabled">
-                    
-                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">Home</a> </li>
-                    
-                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
-                    
-                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories">Categories</a> </li>
-                    
-                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">Tags</a> </li>
-                    
-                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">About</a> </li>
-                    
-              </ul>
-            </div>
-          </nav>
-
-
-      </div>
-  </div>
-</header>
-
-
-  <div id="originBgDiv" style="background: #fff; width: 100%;">
-
-      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
-        <img id="originBg" width="100%" alt="" src="">
-      </div>
-
-  </div>
-
-  <script>
-  function setAboutIMG(){
-      var imgUrls = "css/images/pose.jpg,https://source.unsplash.com/collection/954550/1920x1080".split(",");
-      var random = Math.floor((Math.random() * imgUrls.length ));
-      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
-        document.getElementById("originBg").src=imgUrls[random];
-      } else {
-        document.getElementById("originBg").src='/' + imgUrls[random];
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
       }
-  }
-  bgDiv=document.getElementById("originBgDiv");
-  if(location.pathname.match('about')){
-    setAboutIMG();
-    bgDiv.style.display='block';
-  }else{
-    bgDiv.style.display='none';
-  }
-  </script>
-
-
-
-  <div id="container">
-    <div id="wrap">
-            
-      <div id="content" class="outer">
-        
-          <section id="main" style="float:none;"><article id="post-基本Django项目构建" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
+    }
   
-    <h1 class="thumb" class="article-title" itemprop="name">
-      1. 基本Django项目构建
-    </h1>
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
   
-
-      </header>
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-    <div class="article-meta">
-      
-	Posted on <a href="/2022/12/31/%E5%9F%BA%E6%9C%ACDjango%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/" class="article-date">
-	  <time datetime="2022-12-31T09:53:37.000Z" itemprop="datePublished">December 31, 2022</time>
-	</a>
-
-      
-	<span id="busuanzi_container_page_pv">
-	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
-	</span>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-创建django项目"><a href="#1-创建django项目" class="headerlink" title="1. 创建django项目"></a>1. 创建django项目</h1><p>可通过如下命令创建名为<code>myproject</code>的django项目，<span id="more"></span><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">django-admin startproject myproject<br>cd myproject<br>python manage.py migrate<br></code></pre></td></tr></table></figure></p>
-<h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><ol>
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="哈欠星人"><span class="site-name">哈欠星人</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">1. 基本Django项目构建</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-12-31T09:53:37.000Z" title="Created 2022-12-31 17:53:37">2022-12-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-04-29T11:38:24.000Z" title="Updated 2023-04-29 19:38:24">2023-04-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/">Python</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="1. 基本Django项目构建"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>1. 创建django项目</h1>
+<p>可通过如下命令创建名为<code>myproject</code>的django项目，<span id="more"></span></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">django-admin startproject myproject</span><br><span class="line">cd myproject</span><br><span class="line">python manage.py migrate</span><br></pre></td></tr></table></figure>
+<h2 id="备注">备注</h2>
+<ol>
 <li><code>python manage.py migrate</code>意思是把数据模型（Python中定义的Model）和数据库同步。</li>
 <li><code>python manage.py makemigrations</code>是当模型的相关代码发生变动时，对变动进行提交保存，后接<code>migrate</code></li>
 </ol>
-<h1 id="2-创建app"><a href="#2-创建app" class="headerlink" title="2. 创建app"></a>2. 创建app</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">python manage.py startapp base # 这里base就是app的名字<br></code></pre></td></tr></table></figure>
-<p>创建完成后要注册app，在<code>setting.py</code>中找到<code>INSTALLED_APPS</code>，加入app名<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">INSTALLED_APPS = [<br>    <span class="hljs-string">&#x27;base&#x27;</span>,<br>    ...<br>]<br></code></pre></td></tr></table></figure></p>
-<p>一个django项目的结构如下<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/django%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84.png" alt="django项目结构.png"></p>
-<h1 id="3-创建数据模型（Model）"><a href="#3-创建数据模型（Model）" class="headerlink" title="3. 创建数据模型（Model）"></a>3. 创建数据模型（Model）</h1><p>在<code>models.py</code>中，建立数据模型，类似于<code>pojo</code>，即一个对象包含哪些字段，这也被称为<code>Schema</code>。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models<br><br><span class="hljs-comment"># Create your models here.</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Item</span>(models.Model):<br>	name = models.CharField(max_length=<span class="hljs-number">200</span>)<br>	created = models.DateTimeField(auto_now_add=<span class="hljs-literal">True</span>)<br></code></pre></td></tr></table></figure><br>如上所述，数据模型变动后，要进行迁移<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">python manage.py makemigrations<br>python manage.py migrate<br></code></pre></td></tr></table></figure><br><code>makemigrations</code>后，即建立了数据模型和数据库的联系，可以通过<code>python manage.py sqlmigrate base 0001</code>生成sql语句，但这只是供查看确认，并不执行，<code>migrate</code>才是执行。</p>
-<h2 id="临时加入数据"><a href="#临时加入数据" class="headerlink" title="临时加入数据"></a>临时加入数据</h2><p>可以另外开一个shell进行一些操作，比如添加数据<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">python manage.py shell<br></code></pre></td></tr></table></figure></p>
+<h1>2. 创建app</h1>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py startapp base # 这里base就是app的名字</span><br></pre></td></tr></table></figure>
+<p>创建完成后要注册app，在<code>setting.py</code>中找到<code>INSTALLED_APPS</code>，加入app名</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = [</span><br><span class="line">    <span class="string">&#x27;base&#x27;</span>,</span><br><span class="line">    ...</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>一个django项目的结构如下<br>
+<img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/django%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84.png" alt="django项目结构.png"></p>
+<h1>3. 创建数据模型（Model）</h1>
+<p>在<code>models.py</code>中，建立数据模型，类似于<code>pojo</code>，即一个对象包含哪些字段，这也被称为<code>Schema</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create your models here.</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Item</span>(models.Model):</span><br><span class="line">	name = models.CharField(max_length=<span class="number">200</span>)</span><br><span class="line">	created = models.DateTimeField(auto_now_add=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<p>如上所述，数据模型变动后，要进行迁移</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python manage.py makemigrations</span><br><span class="line">python manage.py migrate</span><br></pre></td></tr></table></figure>
+<p><code>makemigrations</code>后，即建立了数据模型和数据库的联系，可以通过<code>python manage.py sqlmigrate base 0001</code>生成sql语句，但这只是供查看确认，并不执行，<code>migrate</code>才是执行。</p>
+<h2 id="临时加入数据">临时加入数据</h2>
+<p>可以另外开一个shell进行一些操作，比如添加数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py shell</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>这条命令相比直接运行<code>python</code>，可以导入该django项目的环境变量。</p>
 </blockquote>
-<p>在shell中添加数据<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> base.models <span class="hljs-keyword">import</span> Item<br><span class="hljs-meta">&gt;&gt;&gt; </span>Item.objects.create(name=<span class="hljs-string">&#x27;item1&#x27;</span>)<br>&lt;Item: Item <span class="hljs-built_in">object</span> (<span class="hljs-number">1</span>)&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>Item.objects.create(name=<span class="hljs-string">&#x27;item2&#x27;</span>)<br>&lt;Item: Item <span class="hljs-built_in">object</span> (<span class="hljs-number">2</span>)&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>Item.objects.create(name=<span class="hljs-string">&#x27;item3&#x27;</span>)<br>&lt;Item: Item <span class="hljs-built_in">object</span> (<span class="hljs-number">3</span>)&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>items = Item.objects.<span class="hljs-built_in">all</span>()<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">print</span>(items)<br>&lt;QuerySet [&lt;Item: Item <span class="hljs-built_in">object</span> (<span class="hljs-number">1</span>)&gt;, &lt;Item: Item <span class="hljs-built_in">object</span> (<span class="hljs-number">2</span>)&gt;, &lt;Item: Item <span class="hljs-built_in">object</span> (<span class="hljs-number">3</span>)&gt;]&gt;<br><span class="hljs-comment"># 也可以这样</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>item = Item(name=<span class="hljs-string">&#x27;item4&#x27;</span>)<br><span class="hljs-meta">&gt;&gt;&gt; </span>item.save()<br></code></pre></td></tr></table></figure></p>
-<h1 id="4-创建后端逻辑（View）"><a href="#4-创建后端逻辑（View）" class="headerlink" title="4. 创建后端逻辑（View）"></a>4. 创建后端逻辑（View）</h1><p>在<code>views.py</code>文件中完成</p>
-<p>比如最简单的，<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">home</span>(<span class="hljs-params">request</span>):<br>	<span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&quot;home page&quot;</span>)<br></code></pre></td></tr></table></figure><br>这样后续执行该逻辑时，网页上就显示了<code>home page</code>这行字。</p>
-<p>当然，更一般的，后端会提供一些<strong>数据处理</strong>，并显示在定义好的<strong>前端模板</strong>上，这样就要和前端模板绑定。比如现在要把所有的物品显示在前端页面上，那么后端就要从数据库拉取所有的items，<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_items</span>(<span class="hljs-params">request</span>):<br>	items = Item.objects.<span class="hljs-built_in">all</span>()<br>	<span class="hljs-keyword">return</span> render(request, <span class="hljs-string">&#x27;items.html&#x27;</span>, &#123;<span class="hljs-string">&#x27;items&#x27;</span>: items&#125;)<br></code></pre></td></tr></table></figure><br>这样就可以把items数据传递给<code>items.html</code>这个前端模板。</p>
-<h1 id="5-创建前端模板（templates）"><a href="#5-创建前端模板（templates）" class="headerlink" title="5. 创建前端模板（templates）"></a>5. 创建前端模板（templates）</h1><p>在<code>base</code>文件夹下创建<code>templates</code>文件夹，再在<code>templates</code>文件夹下创建<code>base</code>文件夹，并在其中新建<code>items.html</code>文件，即<code>base/templates/base/items.html</code>，这样设置后，在django项目中，我们可以通过<code>base/items.html</code>定位到这个模板。</p>
+<p>在shell中添加数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> base.models <span class="keyword">import</span> Item</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Item.objects.create(name=<span class="string">&#x27;item1&#x27;</span>)</span><br><span class="line">&lt;Item: Item <span class="built_in">object</span> (<span class="number">1</span>)&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Item.objects.create(name=<span class="string">&#x27;item2&#x27;</span>)</span><br><span class="line">&lt;Item: Item <span class="built_in">object</span> (<span class="number">2</span>)&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Item.objects.create(name=<span class="string">&#x27;item3&#x27;</span>)</span><br><span class="line">&lt;Item: Item <span class="built_in">object</span> (<span class="number">3</span>)&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>items = Item.objects.<span class="built_in">all</span>()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(items)</span><br><span class="line">&lt;QuerySet [&lt;Item: Item <span class="built_in">object</span> (<span class="number">1</span>)&gt;, &lt;Item: Item <span class="built_in">object</span> (<span class="number">2</span>)&gt;, &lt;Item: Item <span class="built_in">object</span> (<span class="number">3</span>)&gt;]&gt;</span><br><span class="line"><span class="comment"># 也可以这样</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>item = Item(name=<span class="string">&#x27;item4&#x27;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>item.save()</span><br></pre></td></tr></table></figure>
+<h1>4. 创建后端逻辑（View）</h1>
+<p>在<code>views.py</code>文件中完成</p>
+<p>比如最简单的，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">home</span>(<span class="params">request</span>):</span><br><span class="line">	<span class="keyword">return</span> HttpResponse(<span class="string">&quot;home page&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>这样后续执行该逻辑时，网页上就显示了<code>home page</code>这行字。</p>
+<p>当然，更一般的，后端会提供一些<strong>数据处理</strong>，并显示在定义好的<strong>前端模板</strong>上，这样就要和前端模板绑定。比如现在要把所有的物品显示在前端页面上，那么后端就要从数据库拉取所有的items，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">get_items</span>(<span class="params">request</span>):</span><br><span class="line">	items = Item.objects.<span class="built_in">all</span>()</span><br><span class="line">	<span class="keyword">return</span> render(request, <span class="string">&#x27;items.html&#x27;</span>, &#123;<span class="string">&#x27;items&#x27;</span>: items&#125;)</span><br></pre></td></tr></table></figure>
+<p>这样就可以把items数据传递给<code>items.html</code>这个前端模板。</p>
+<h1>5. 创建前端模板（templates）</h1>
+<p>在<code>base</code>文件夹下创建<code>templates</code>文件夹，再在<code>templates</code>文件夹下创建<code>base</code>文件夹，并在其中新建<code>items.html</code>文件，即<code>base/templates/base/items.html</code>，这样设置后，在django项目中，我们可以通过<code>base/items.html</code>定位到这个模板。</p>
 <blockquote>
 <p>Django框架中存在<strong>模板寻找器</strong>，可搜索每个app的特定文件夹。</p>
 </blockquote>
-<p>文件内容如下<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;IE=edge&quot;</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Items<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>		&#123;% for item in items %&#125;<br>		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>&#123;&#123;item.name&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>		&#123;% endfor %&#125;<br>	<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure><br>大意就是把各个物品的名字显示成一个无序列表。</p>
-<h1 id="6-绑定网址"><a href="#6-绑定网址" class="headerlink" title="6. 绑定网址"></a>6. 绑定网址</h1><p>以上已经完成了后端与数据库、前端与后端的数据传递，那么用户如何访问这样一个网页呢？就需要在<code>urls.py</code>中绑定好网址和后端。</p>
-<p>在base文件夹下新建<code>urls.py</code>文件，内容如下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> . <span class="hljs-keyword">import</span> views <br><span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> path<br><br>urlpatterns = [<br>	path(<span class="hljs-string">&quot;items/&quot;</span>, views.get_items),<br>	path(<span class="hljs-string">&quot;&quot;</span>, views.home)<br>]<br></code></pre></td></tr></table></figure></p>
-<p>但这个url目前只在base这个app下，并没有被django项目所识别，因此，需要在<code>myproject/urls.py</code>文件中进行引用，以让项目进行识别。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> include <span class="hljs-comment"># 这是新增的行</span><br><br>urlpatterns = [<br>    path(<span class="hljs-string">&#x27;admin/&#x27;</span>, admin.site.urls),<br>    path(<span class="hljs-string">&#x27;base/&#x27;</span>, include(<span class="hljs-string">&#x27;base.urls&#x27;</span>))  <span class="hljs-comment"># 这是新增的行</span><br>]<br></code></pre></td></tr></table></figure></p>
-<h1 id="7-运行"><a href="#7-运行" class="headerlink" title="7. 运行"></a>7. 运行</h1><p>最后，执行<code>python manage.py runserver</code>即可运行网站，打开<a target="_blank" rel="noopener" href="http://127.0.0.1:8000/base/items/">http://127.0.0.1:8000/base/items/</a> 就显示了物品列表如下。<br><img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/%E5%9F%BA%E6%9C%ACDjango%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%9C.png" alt="基本Django项目结果.png"></p>
-<h1 id="8-参考"><a href="#8-参考" class="headerlink" title="8. 参考"></a>8. 参考</h1><ol>
+<p>文件内容如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Items<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">		&#123;% for item in items %&#125;</span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;&#123;item.name&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		&#123;% endfor %&#125;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>大意就是把各个物品的名字显示成一个无序列表。</p>
+<h1>6. 绑定网址</h1>
+<p>以上已经完成了后端与数据库、前端与后端的数据传递，那么用户如何访问这样一个网页呢？就需要在<code>urls.py</code>中绑定好网址和后端。</p>
+<p>在base文件夹下新建<code>urls.py</code>文件，内容如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> views </span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">	path(<span class="string">&quot;items/&quot;</span>, views.get_items),</span><br><span class="line">	path(<span class="string">&quot;&quot;</span>, views.home)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>但这个url目前只在base这个app下，并没有被django项目所识别，因此，需要在<code>myproject/urls.py</code>文件中进行引用，以让项目进行识别。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> include <span class="comment"># 这是新增的行</span></span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;admin/&#x27;</span>, admin.site.urls),</span><br><span class="line">    path(<span class="string">&#x27;base/&#x27;</span>, include(<span class="string">&#x27;base.urls&#x27;</span>))  <span class="comment"># 这是新增的行</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h1>7. 运行</h1>
+<p>最后，执行<code>python manage.py runserver</code>即可运行网站，打开<a target="_blank" rel="noopener" href="http://127.0.0.1:8000/base/items/">http://127.0.0.1:8000/base/items/</a> 就显示了物品列表如下。<br>
+<img src="https://picbed562.oss-cn-shanghai.aliyuncs.com/img/%E5%9F%BA%E6%9C%ACDjango%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%9C.png" alt="基本Django项目结果.png"></p>
+<h1>8. 参考</h1>
+<ol>
 <li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=EuBQU_miReM">Django Crash Course - Introduction + Python Web Development Tutorial</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=cJveiktaOSQ&amp;t=304s">Django REST Framework Oversimplified</a></li>
 </ol>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/api/" rel="tag">api</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6/" rel="tag">后端框架</a></li></ul>
-
-      
-            
-      
-        
-	<div id="comment">
-		<!-- 来必力City版安装代码 -->
-		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
-		<script type="text/javascript">
-		   (function(d, s) {
-		       var j, e = d.getElementsByTagName(s)[0];
-
-		       if (typeof LivereTower === 'function') { return; }
-
-		       j = d.createElement(s);
-		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-		       j.async = true;
-
-		       e.parentNode.insertBefore(j, e);
-		   })(document, 'script');
-		</script>
-		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-		</div>
-		<!-- City版安装代码已完成 -->
-	</div>
-
-
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2022/12/31/%E5%9F%BA%E4%BA%8EDjango-Rest%E6%A1%86%E6%9E%B6%E6%9E%84%E5%BB%BAAPI/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          2. 基于Django Rest框架构建API
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2022/12/31/tmux%E5%A4%9F%E7%94%A8%E5%91%BD%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">tmux够用命令</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-<!-- Table of Contents -->
-
-  <aside id="sidebar">
-    <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
-    <strong class="toc-title">Contents</strong>
-    
-      <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%88%9B%E5%BB%BAdjango%E9%A1%B9%E7%9B%AE"><span class="nav-text">1. 创建django项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%87%E6%B3%A8"><span class="nav-text">备注</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%88%9B%E5%BB%BAapp"><span class="nav-text">2. 创建app</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%EF%BC%88Model%EF%BC%89"><span class="nav-text">3. 创建数据模型（Model）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%B4%E6%97%B6%E5%8A%A0%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="nav-text">临时加入数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%88%9B%E5%BB%BA%E5%90%8E%E7%AB%AF%E9%80%BB%E8%BE%91%EF%BC%88View%EF%BC%89"><span class="nav-text">4. 创建后端逻辑（View）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%88%9B%E5%BB%BA%E5%89%8D%E7%AB%AF%E6%A8%A1%E6%9D%BF%EF%BC%88templates%EF%BC%89"><span class="nav-text">5. 创建前端模板（templates）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E7%BB%91%E5%AE%9A%E7%BD%91%E5%9D%80"><span class="nav-text">6. 绑定网址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-%E8%BF%90%E8%A1%8C"><span class="nav-text">7. 运行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-%E5%8F%82%E8%80%83"><span class="nav-text">8. 参考</span></a></li></ol>
-    
-    </div>
-  </aside>
-</section>
-        
-      </div>
-      <footer id="footer" class="site-footer">
-  
-
-  <div class="clearfix container">
-      <div class="site-info">
-	      &copy; 2023 哈欠星人 All Rights Reserved.
-          
-            <span id="busuanzi_container_site_uv">
-              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
-              本站总访问量<span id="busuanzi_value_site_pv"></span>次
-            </span>
-          
-      </div>
-      <div class="site-credit">
-        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
-      </div>
-  </div>
-</footer>
-
-
-<!-- min height -->
-
-<script>
-    var contentdiv = document.getElementById("content");
-
-    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
-</script>
-
-<!-- Custome JS -->
-
-<script src="/js/my.js"></script>
-
-    </div>
-    <!-- <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/categories" class="mobile-nav-link">Categories</a>
-  
-    <a href="/tags" class="mobile-nav-link">Tags</a>
-  
-    <a href="/about" class="mobile-nav-link">About</a>
-  
-</nav> -->
-    
-
-<!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-
-  
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
-
-  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/scripts.js"></script>
-
-
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-<script src="/js/main.js"></script>
-
-
-
-
-
-
-
-
-  <div style="display: none;">
-    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
-  </div>
-
-
-
-	<script async src="https://dnqof95d40fo6.cloudfront.net/atw7f8.js">
-	</script>
-
-
-
-
-
-
-  </div>
-
-  <a id="rocket" href="#top" class=""></a>
-  <script type="text/javascript" src="/js/totop.js" async=""></script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
-
-</body>
-</html>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">哈欠星人</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2022/12/31/%E5%9F%BA%E6%9C%ACDjango%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/">http://example.com/2022/12/31/%E5%9F%BA%E6%9C%ACDjango%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/python/">python</a><a class="post-meta__tags" href="/tags/django/">django</a><a class="post-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6/">后端框架</a><a class="post-meta__tags" href="/tags/api/">api</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/12/31/%E5%9F%BA%E4%BA%8EDjango-Rest%E6%A1%86%E6%9E%B6%E6%9E%84%E5%BB%BAAPI/" title="2. 基于Django Rest框架构建API"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">2. 基于Django Rest框架构建API</div></div></a></div><div class="next-post pull-right"><a href="/2022/12/31/tmux%E5%A4%9F%E7%94%A8%E5%91%BD%E4%BB%A4/" title="tmux够用命令"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">tmux够用命令</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2022/12/31/%E5%9F%BA%E4%BA%8EDjango-Rest%E6%A1%86%E6%9E%B6%E6%9E%84%E5%BB%BAAPI/" title="2. 基于Django Rest框架构建API"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-31</div><div class="title">2. 基于Django Rest框架构建API</div></div></a></div><div><a href="/2023/03/31/Accelerate%20Your%20NumPy%20Matrix%20Operations%20with%20Cython/" title="Accelerate Your NumPy Matrix Operations with Cython"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-31</div><div class="title">Accelerate Your NumPy Matrix Operations with Cython</div></div></a></div><div><a href="/2023/04/26/pulp%E4%B8%8D%E5%90%8C%E6%B1%82%E8%A7%A3%E5%99%A8%E8%AE%BE%E7%BD%AE%E5%8F%82%E6%95%B0/" title="pulp不同求解器设置参数"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-26</div><div class="title">pulp不同求解器设置参数</div></div></a></div><div><a href="/2022/04/16/%E6%89%B9%E9%87%8F%E7%88%AC%E5%8F%96%E5%A4%A7%E5%AD%A6%E8%AF%BE%E4%BB%B6/" title="批量爬取大学课件"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-16</div><div class="title">批量爬取大学课件</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">哈欠星人</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ben-xj"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">You can contact me via Email 3290701522@qq.com~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">1. 创建django项目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%87%E6%B3%A8"><span class="toc-text">备注</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">2. 创建app</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">3. 创建数据模型（Model）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%B4%E6%97%B6%E5%8A%A0%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="toc-text">临时加入数据</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">4. 创建后端逻辑（View）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">5. 创建前端模板（templates）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">6. 绑定网址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">7. 运行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">8. 参考</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/26/pulp%E4%B8%8D%E5%90%8C%E6%B1%82%E8%A7%A3%E5%99%A8%E8%AE%BE%E7%BD%AE%E5%8F%82%E6%95%B0/" title="pulp不同求解器设置参数">pulp不同求解器设置参数</a><time datetime="2023-04-26T12:23:27.000Z" title="Created 2023-04-26 20:23:27">2023-04-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/31/Accelerate%20Your%20NumPy%20Matrix%20Operations%20with%20Cython/" title="Accelerate Your NumPy Matrix Operations with Cython">Accelerate Your NumPy Matrix Operations with Cython</a><time datetime="2023-03-31T00:44:10.000Z" title="Created 2023-03-31 08:44:10">2023-03-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/12/31/%E5%9F%BA%E4%BA%8EDjango-Rest%E6%A1%86%E6%9E%B6%E6%9E%84%E5%BB%BAAPI/" title="2. 基于Django Rest框架构建API">2. 基于Django Rest框架构建API</a><time datetime="2022-12-31T09:58:24.000Z" title="Created 2022-12-31 17:58:24">2022-12-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/12/31/%E5%9F%BA%E6%9C%ACDjango%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/" title="1. 基本Django项目构建">1. 基本Django项目构建</a><time datetime="2022-12-31T09:53:37.000Z" title="Created 2022-12-31 17:53:37">2022-12-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/12/31/tmux%E5%A4%9F%E7%94%A8%E5%91%BD%E4%BB%A4/" title="tmux够用命令">tmux够用命令</a><time datetime="2022-12-31T00:44:10.000Z" title="Created 2022-12-31 08:44:10">2022-12-31</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 哈欠星人</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
