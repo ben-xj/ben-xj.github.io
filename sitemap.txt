@@ -1,3 +1,4 @@
+https://ben-xj.github.io/2023/05/05/python%20parallel%20tools/
 https://ben-xj.github.io/2023/05/05/MapStruct-and-Lombok-not-working-together/
 https://ben-xj.github.io/2023/04/29/pip%E5%8C%85%E7%AE%A1%E7%90%86/
 https://ben-xj.github.io/2023/04/29/pybind11%20basic/
@@ -36,6 +37,10 @@ https://ben-xj.github.io/tags/java/
 https://ben-xj.github.io/tags/lombok/
 https://ben-xj.github.io/tags/mapstruct/
 https://ben-xj.github.io/tags/maven/
+https://ben-xj.github.io/tags/parallel-programming/
+https://ben-xj.github.io/tags/joblib/
+https://ben-xj.github.io/tags/ray/
+https://ben-xj.github.io/tags/multiprocessing/
 https://ben-xj.github.io/categories/Python/
 https://ben-xj.github.io/categories/%E4%BC%98%E5%8C%96/
 https://ben-xj.github.io/categories/Shell%E5%B7%A5%E5%85%B7/
