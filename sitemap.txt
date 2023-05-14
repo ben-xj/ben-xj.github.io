@@ -1,3 +1,4 @@
+https://ben-xj.github.io/2022/12/31/tmux%E5%A4%9F%E7%94%A8%E5%91%BD%E4%BB%A4/
 https://ben-xj.github.io/2023/05/05/python%20parallel%20tools/
 https://ben-xj.github.io/2023/05/05/MapStruct-and-Lombok-not-working-together/
 https://ben-xj.github.io/2023/04/29/pip%E5%8C%85%E7%AE%A1%E7%90%86/
@@ -12,7 +13,6 @@ https://ben-xj.github.io/2022/04/17/%E8%B6%85%E5%B9%B3%E9%9D%A2%E5%92%8C%E5%8D%8
 https://ben-xj.github.io/2022/04/16/%E6%89%B9%E9%87%8F%E7%88%AC%E5%8F%96%E5%A4%A7%E5%AD%A6%E8%AF%BE%E4%BB%B6/
 https://ben-xj.github.io/2022/12/31/%E5%9F%BA%E4%BA%8EDjango-Rest%E6%A1%86%E6%9E%B6%E6%9E%84%E5%BB%BAAPI/
 https://ben-xj.github.io/2022/04/16/%E4%BB%BF%E5%B0%84%E9%9B%86%20%E5%87%B8%E9%9B%86%20%E5%87%B8%E9%94%A5/
-https://ben-xj.github.io/2022/12/31/tmux%E5%A4%9F%E7%94%A8%E5%91%BD%E4%BB%A4/
 https://ben-xj.github.io/about/index.html
 https://ben-xj.github.io/tags/index.html
 https://ben-xj.github.io/categories/index.html

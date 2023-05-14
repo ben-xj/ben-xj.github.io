@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://ben-xj.github.io/2022/12/31/tmux%E5%A4%9F%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
+    <lastmod>2023-05-14</lastmod>
+  </url>
+  <url>
     <loc>https://ben-xj.github.io/2023/05/05/python%20parallel%20tools/</loc>
     <lastmod>2023-05-14</lastmod>
   </url>
@@ -54,10 +58,6 @@
   </url>
   <url>
     <loc>https://ben-xj.github.io/2022/04/16/%E4%BB%BF%E5%B0%84%E9%9B%86%20%E5%87%B8%E9%9B%86%20%E5%87%B8%E9%94%A5/</loc>
-    <lastmod>2023-04-26</lastmod>
-  </url>
-  <url>
-    <loc>https://ben-xj.github.io/2022/12/31/tmux%E5%A4%9F%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2023-04-26</lastmod>
   </url>
 </urlset> 
