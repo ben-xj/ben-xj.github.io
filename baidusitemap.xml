@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://ben-xj.github.io/2023/05/16/Grep/</loc>
+    <lastmod>2023-05-16</lastmod>
+  </url>
+  <url>
     <loc>https://ben-xj.github.io/2022/12/31/tmux%E5%A4%9F%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2023-05-14</lastmod>
   </url>
