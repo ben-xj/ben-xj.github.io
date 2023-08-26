@@ -1,0 +1,355 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>vim最常用命令 | 技术杂货铺</title><meta name="author" content="技术杂货铺"><meta name="copyright" content="技术杂货铺"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Vim中的最常用命令 本指南系统地介绍了Vim中的修改、移动、搜索、多窗口等功能的使用方法, 整合了数10个示例,旨在帮助Vim初学者快速掌握必备的Vim编辑命令。 本文提供了一份较全的常用命令查询手册，如果希望根据使用频率来学习，可来我的B站频道 观看视频教程：Vim最常用命令指南。 文章结构如下: 一、修改命令（基础） 二、移动命令（基础） 三、组合编辑命令（用得贼多） 四、搜索和定位命令 五">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vim最常用命令">
+<meta property="og:url" content="https://ben-xj.github.io/2023/08/25/vim%E6%9C%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="技术杂货铺">
+<meta property="og:description" content="Vim中的最常用命令 本指南系统地介绍了Vim中的修改、移动、搜索、多窗口等功能的使用方法, 整合了数10个示例,旨在帮助Vim初学者快速掌握必备的Vim编辑命令。 本文提供了一份较全的常用命令查询手册，如果希望根据使用频率来学习，可来我的B站频道 观看视频教程：Vim最常用命令指南。 文章结构如下: 一、修改命令（基础） 二、移动命令（基础） 三、组合编辑命令（用得贼多） 四、搜索和定位命令 五">
+<meta property="og:locale">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-08-25T11:24:21.000Z">
+<meta property="article:modified_time" content="2023-08-26T15:00:04.000Z">
+<meta property="article:author" content="技术杂货铺">
+<meta property="article:tag" content="vim">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://ben-xj.github.io/2023/08/25/vim%E6%9C%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'vim最常用命令',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-26 23:00:04'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="技术杂货铺"><span class="site-name">技术杂货铺</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">vim最常用命令</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-08-25T11:24:21.000Z" title="Created 2023-08-25 19:24:21">2023-08-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-08-26T15:00:04.000Z" title="Updated 2023-08-26 23:00:04">2023-08-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux/">Linux</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="vim最常用命令"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>Vim中的最常用命令</h1>
+<p>本指南系统地介绍了Vim中的修改、移动、搜索、多窗口等功能的使用方法, 整合了数10个示例,旨在帮助Vim初学者快速掌握必备的Vim编辑命令。</p>
+<p>本文提供了一份较全的常用命令查询手册，如果希望根据使用频率来学习，可来我的B站频道 观看视频教程：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1GN411B7bu/">Vim最常用命令指南</a>。</p>
+<p>文章结构如下:</p>
+<p>一、修改命令（基础）<br>
+二、移动命令（基础）<br>
+三、组合编辑命令（用得贼多）<br>
+四、搜索和定位命令<br>
+五、多窗口命令<br>
+六、Visual模式<br>
+七、文件操作命令</p>
+<p>每类命令都以示例讲解使用场景,力求深入浅出,可以作为Vim新手的实践指南,帮助各位快速上手Vim。</p>
+<span id="more"></span>
+<h2 id="一、编辑命令（基础）">一、编辑命令（基础）</h2>
+<h3 id="1-插入-i">1. 插入(i)</h3>
+<p>在当前光标位置的字符之前进行插入。</p>
+<p>使用方法:快捷键<code>i</code></p>
+<p>例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">操作前: </span><br><span class="line">abc</span><br><span class="line">^</span><br><span class="line">操作：i test</span><br><span class="line">操作后:</span><br><span class="line">testabc</span><br></pre></td></tr></table></figure>
+<p>其中,^表示当前光标位置,后续示例中也会使用该符号表示光标位置。</p>
+<h3 id="2-追加-a">2. 追加(a)</h3>
+<p>在当前光标位置的字符之后进行插入。</p>
+<p>使用方法:快捷键<code>a</code></p>
+<p>例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">操作前:</span><br><span class="line">abc</span><br><span class="line">^</span><br><span class="line">操作：a ba</span><br><span class="line">操作后:  </span><br><span class="line">ababc</span><br></pre></td></tr></table></figure>
+<h3 id="3-替换-s">3. 替换(s)</h3>
+<p>删除当前光标位置的字符,并进入插入模式。</p>
+<p>使用方法:快捷键<code>s</code></p>
+<p>例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">操作前:</span><br><span class="line">abc</span><br><span class="line"> ^</span><br><span class="line">操作：s x</span><br><span class="line">操作后:</span><br><span class="line">axc</span><br></pre></td></tr></table></figure>
+<h3 id="4-行首插入-I">4. 行首插入(I)</h3>
+<p>在当前行的行首插入。</p>
+<p>使用方法:快捷键<code>Shift+i</code></p>
+<p>例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">操作前:  </span><br><span class="line">include &lt;stdio.h&gt;</span><br><span class="line">      ^</span><br><span class="line">操作：Shift+i #</span><br><span class="line">操作后:</span><br><span class="line">#include &lt;stdio.h&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="5-行尾插入-A">5. 行尾插入(A)</h3>
+<p>在当前行的行尾插入。</p>
+<p>使用方法:快捷键<code>Shift+a</code></p>
+<p>例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">操作前:</span><br><span class="line">int x = 1</span><br><span class="line">    ^</span><br><span class="line">操作：Shift+a ;</span><br><span class="line">操作后: </span><br><span class="line">int x = 1;</span><br></pre></td></tr></table></figure>
+<h3 id="6-替换整行-S">6. 替换整行(S)</h3>
+<p>删除当前整行,并进入插入模式。</p>
+<p>使用方法:快捷键<code>Shift+s</code></p>
+<p>例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">操作前:</span><br><span class="line">int x = 1;</span><br><span class="line">     ^</span><br><span class="line">操作：Shift+s int y = 2;</span><br><span class="line">操作后:</span><br><span class="line">int y = 2; </span><br></pre></td></tr></table></figure>
+<h3 id="7-换行-o">7. 换行(o)</h3>
+<p>在当前行之下插入新行。</p>
+<p>使用方法:快捷键<code>o</code></p>
+<p>例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">操作前: </span><br><span class="line">int x = 1;</span><br><span class="line">      ^</span><br><span class="line">操作：o</span><br><span class="line">操作后:</span><br><span class="line">int x = 1;</span><br><span class="line">// ……这是一个新行</span><br></pre></td></tr></table></figure>
+<h3 id="8-上插行-O">8. 上插行(O)</h3>
+<p>在当前行之上插入新行。</p>
+<p>使用方法:快捷键<code>Shift+o </code></p>
+<p>例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">操作前:</span><br><span class="line">int main() &#123; </span><br><span class="line">&#125;</span><br><span class="line">^</span><br><span class="line">操作：Shift+o</span><br><span class="line">操作后:</span><br><span class="line">int main() &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="9-删除字符-x">9. 删除字符(x)</h3>
+<p>删除当前光标位置的字符。</p>
+<p>例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">操作前:</span><br><span class="line">int x = 1;</span><br><span class="line">     ^</span><br><span class="line">操作：x</span><br><span class="line">操作后:</span><br><span class="line">int x= 1;</span><br></pre></td></tr></table></figure>
+<h3 id="10-复制、粘贴1行-yy-p">10. 复制、粘贴1行(yy/p)</h3>
+<p><code>yy</code>复制当前行, 移动到指定位置后, <code>p</code>粘贴复制的内容到当前行之下(或<code>shift+p</code>粘贴到当前行之上)。<code>p</code>表示Paste,即粘贴。</p>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">操作前:</span><br><span class="line">    def __init__(self):</span><br><span class="line">    ^</span><br><span class="line">        self.__startTime = time.time()</span><br><span class="line">        self.__endTime = 0</span><br><span class="line">操作：yy j p// 复制当前行,并向下移动一行,粘贴复制的内容</span><br><span class="line">操作后:</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.__startTime = time.time()</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.__endTime = 0</span><br></pre></td></tr></table></figure>
+<h3 id="11-剪切1行-dd">11. 剪切1行(dd)</h3>
+<p><code>dd</code>剪切当前行, 同样可配合<code>p</code>进行粘贴，也可以不粘贴，就当是删除当前行。</p>
+<h3 id="12-剪切1行并进入插入模式-cc">12. 剪切1行并进入插入模式(cc)</h3>
+<p><code>cc</code>剪切当前行, 并进入插入模式。等于<code>dd + i</code>。</p>
+<h2 id="二、移动命令（基础）">二、移动命令（基础）</h2>
+<h3 id="1-上下左右移一个字符-k、j、h、l">1. 上下左右移一个字符(k、j、h、l)</h3>
+<p>使用方法:快捷键<code>k</code>、<code>j</code>、<code>h</code>、<code>l</code></p>
+<p>例如右移 <code>l</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">原位置:</span><br><span class="line">int x = 1; </span><br><span class="line">^</span><br><span class="line">操作后:</span><br><span class="line">int x = 1; </span><br><span class="line"> ^</span><br></pre></td></tr></table></figure>
+<h3 id="2-下个单词词首-w-W">2. 下个单词词首(w/W)</h3>
+<p>移动到下个单词的开头。</p>
+<p>使用方法:快捷键<code>w</code></p>
+<p>例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">原位置:</span><br><span class="line">def __init__(self):</span><br><span class="line">    ^</span><br><span class="line">操作后:</span><br><span class="line">def __init__(self):</span><br><span class="line">            ^  </span><br></pre></td></tr></table></figure>
+<p>另外,快捷键<code>W</code>可以跳过标点符号，只要是连在一起的字母数字字符都会被视为一个单词。<br>
+例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">原位置:</span><br><span class="line">def __init__(self):</span><br><span class="line">    ^</span><br><span class="line">    self._cards = [Card(rank, suit) for suit in self.suits</span><br><span class="line">                                        for rank in self.ranks]</span><br><span class="line">操作后:</span><br><span class="line">def __init__(self):</span><br><span class="line">     self._cards = [Card(rank, suit) for suit in self.suits</span><br><span class="line">     ^</span><br><span class="line">                                        for rank in self.ranks]</span><br></pre></td></tr></table></figure>
+<h3 id="3-本单词词尾-e-E">3. 本单词词尾(e/E)</h3>
+<p>移动到当前单词的末尾，如果本身就在单词末尾，则移动到下个单词的末尾。</p>
+<p>使用方法:快捷键<code>e</code></p>
+<p>例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">原位置:</span><br><span class="line">def __init__(self):</span><br><span class="line">    ^</span><br><span class="line">操作后:</span><br><span class="line">def __init__(self):</span><br><span class="line">           ^  </span><br></pre></td></tr></table></figure>
+<p>类似的,快捷键<code>E</code>可以跳过标点符号，只要是连在一起的字母数字字符都会被视为一个单词。</p>
+<p>例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">原位置:</span><br><span class="line">def __init__(self):</span><br><span class="line">    ^</span><br><span class="line">操作后:</span><br><span class="line">def __init__(self):</span><br><span class="line">                  ^  </span><br></pre></td></tr></table></figure>
+<h3 id="4-本单词词首-b-B">4. 本单词词首(b/B)</h3>
+<p>移动到当前单词的开头，如果本身就在单词开头，则移动到上个单词的开头。</p>
+<p>和<code>w/W</code>类似，快捷键<code>b/B</code>可以跳过标点符号，只要是连在一起的字母数字字符都会被视为一个单词。同样的概念不举例了。</p>
+<h3 id="5-移动到行首-0">5. 移动到行首(0)</h3>
+<p>将光标移动到当前行的第一个字符。</p>
+<p>使用方法:快捷键<code>0</code></p>
+<p>例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">原位置:</span><br><span class="line">def init(self):</span><br><span class="line">             ^</span><br><span class="line">操作后:</span><br><span class="line">def init(self):</span><br><span class="line">^</span><br></pre></td></tr></table></figure>
+<h3 id="6-移动到行尾">6. 移动到行尾($)</h3>
+<p>将光标移动到当前行的最后一个字符。</p>
+<p>使用方法:快捷键<code>$</code></p>
+<p>例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">原位置:</span><br><span class="line">def init(self):</span><br><span class="line">    ^</span><br><span class="line">操作后:</span><br><span class="line">def init(self):</span><br><span class="line">              ^</span><br></pre></td></tr></table></figure>
+<h3 id="7-移动到文件首-gg">7. 移动到文件首(gg)</h3>
+<p>将光标移动到文件的第一行第一个字符。</p>
+<p>使用方法:快捷键<code>gg</code></p>
+<h3 id="8-移动到文件尾-G">8. 移动到文件尾(G)</h3>
+<p>将光标移动到文件的最后一行第一个字符。</p>
+<p>使用方法:快捷键<code>G</code></p>
+<h3 id="9-移动到指定字符-f-F">9. 移动到指定字符(f/F)</h3>
+<p><code>f</code>向右移动到指定字符,<code>F</code>向左移动到指定字符。</p>
+<p>使用方法:</p>
+<ul>
+<li><code>f&#123;char&#125;</code>:向前移动到指定字符</li>
+<li><code>F&#123;char&#125;</code>:向后移动到指定字符</li>
+</ul>
+<p>例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">原位置:</span><br><span class="line">def init(self):</span><br><span class="line">     ^</span><br><span class="line">操作：f )</span><br><span class="line">def init(self):</span><br><span class="line">             ^</span><br><span class="line">继续操作：F e</span><br><span class="line">def init(self):</span><br><span class="line">          ^</span><br></pre></td></tr></table></figure>
+<h2 id="三、组合编辑命令（用得贼多）">三、组合编辑命令（用得贼多）</h2>
+<p>把编辑命令和移动命令组合起来使用，可以实现更强大的编辑功能。</p>
+<h3 id="1-删除指定区域-d">1. 删除指定区域(d)</h3>
+<p>删除当前光标位置到指定位置的字符。</p>
+<p>使用方法: <code>d + 移动命令</code></p>
+<p>例1:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">原代码:</span><br><span class="line">def __init__(self):</span><br><span class="line">    self.__startTime = time.time()</span><br><span class="line">    self.__endTime = 0</span><br><span class="line">    ^</span><br><span class="line">操作：d $  // 删除光标位置到行尾的字符</span><br><span class="line">操作后:</span><br><span class="line">def __init__(self):</span><br><span class="line">    self.__startTime = time.time()</span><br><span class="line">   </span><br><span class="line">   ^</span><br></pre></td></tr></table></figure>
+<p>例2:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">原代码:</span><br><span class="line">def __init__(self):</span><br><span class="line">    self.__startTime = time.time()</span><br><span class="line">    self.__endTime = 0</span><br><span class="line">    ^</span><br><span class="line">操作：d 2 w // 删除光标位置到下2个单词词首的字符</span><br><span class="line">操作后:</span><br><span class="line">def __init__(self):</span><br><span class="line">    self.__startTime = time.time()</span><br><span class="line">    __endTime = 0  // 删除了self. 这被视为2个单词</span><br><span class="line">    ^</span><br></pre></td></tr></table></figure>
+<p>例3:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">原代码:</span><br><span class="line">def __init__(self):</span><br><span class="line">    ^</span><br><span class="line">    self.__startTime = time.time()</span><br><span class="line">    self.__endTime = 0</span><br><span class="line">操作：d 2 d // 删除2行</span><br><span class="line">操作后:</span><br><span class="line">    self.__endTime = 0</span><br></pre></td></tr></table></figure>
+<h3 id="2-改变指定区域©">2. 改变指定区域©</h3>
+<p>删除当前光标位置到指定位置的字符，并进入插入模式。基本相当于<code>d + 移动命令 + i</code>，就不举例了。</p>
+<h3 id="3-i和a表示范围">3. i和a表示范围</h3>
+<p>我们经常遇到光标在一对符号之间的情况，比如在括号内部，或者在引号内部，具体位置无所谓，这时候可以使用<code>i</code>和<code>a</code>来表示范围。<code>i</code>表示inside, 即符号内部;<code>a</code>表示around，即包括符号内部和符号本身。配合<code>d</code>、<code>c</code>、<code>y</code>等命令使用，可以快速删除、复制、修改符号内部的内容。</p>
+<p>例1:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">原代码:</span><br><span class="line">def __init__(self):</span><br><span class="line">              ^</span><br><span class="line">操作：d i ( // 删除括号内部的内容,这里还可以写成d i )，效果一样</span><br><span class="line">操作后:</span><br><span class="line">def __init__():</span><br></pre></td></tr></table></figure>
+<p>例2:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">原代码:</span><br><span class="line">def __init__(self):</span><br><span class="line">               ^</span><br><span class="line">操作：y a ( // 复制括号内部的内容,这里还可以写成y i )，效果一样</span><br><span class="line">操作后:</span><br><span class="line">def __init__(self):  // (self)这6个字符被复制了</span><br></pre></td></tr></table></figure>
+<h2 id="四、搜索和定位命令">四、搜索和定位命令</h2>
+<h3 id="1-搜索">1. 搜索(/)</h3>
+<p>用于进入Vim的搜索模式,可以向前或向后搜索关键词。</p>
+<p>使用: <code>/搜索词</code></p>
+<p>例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/python   -&gt; 进入搜索模式，并匹配到第一个python</span><br></pre></td></tr></table></figure>
+<h3 id="2-向下搜索匹配-n">2. 向下搜索匹配(n)</h3>
+<p>在搜索模式下,可重复向下搜索匹配项。</p>
+<p>使用: <code>n</code></p>
+<p>例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/python  -&gt; 进入搜索模式，并匹配到第一个python</span><br><span class="line">n -&gt; 找到下一个python</span><br></pre></td></tr></table></figure>
+<h3 id="3-向上搜索匹配-N">3. 向上搜索匹配(N)</h3>
+<p>在搜索模式下,可重复向上搜索匹配项。</p>
+<p>使用: <code>N</code></p>
+<p>例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/python  -&gt; 进入搜索模式，并匹配到第一个python</span><br><span class="line">N -&gt; 找到上一个python</span><br></pre></td></tr></table></figure>
+<h3 id="4-书签功能-m">4. 书签功能(m)</h3>
+<p>命令 <code>m[a-zA-Z]</code> 命令会用选定的字母标记当前光标所在位置。 <code>m</code> 可以理解为 mark</p>
+<p>使用:</p>
+<ul>
+<li><code>m+标记</code> -&gt; 做标记</li>
+<li>`+标记 -&gt; 跳转到标记处</li>
+</ul>
+<p>例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">操作前:</span><br><span class="line">class StopWatch:</span><br><span class="line">         ^</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.__startTime = time.time()</span><br><span class="line">        self.__endTime = 0</span><br><span class="line"></span><br><span class="line">    def start(self):</span><br><span class="line">        self.__startTime = time.time()</span><br><span class="line"></span><br><span class="line">    def stop(self):</span><br><span class="line">        self.__endTime = time.time()</span><br><span class="line">操作1: ma  // 将光标位置标记为 a</span><br><span class="line">操作2: G   // 跳转到文件最后一行</span><br><span class="line">操作3: `a  // 跳转到 a 标记处</span><br><span class="line">操作后：光标回到原来位置</span><br></pre></td></tr></table></figure>
+<h2 id="五、多窗口命令">五、多窗口命令</h2>
+<h3 id="1-窗口拆分-vs-sp">1. 窗口拆分(vs/sp)</h3>
+<p><code>vs</code>垂直拆分窗口（v表示vertical）,<code>sp</code>水平拆分窗口。</p>
+<p><code>vs</code>的效果是将当前窗口分为两个垂直窗口,<code>sp</code>的效果是将当前窗口分为两个水平窗口。</p>
+<h3 id="2-快速窗口跳转-Ctrl-w-w">2. 快速窗口跳转(Ctrl+w+w)</h3>
+<p>一般我们最多也就开个2、3个窗口，<code>Ctrl+w+w</code>可以在窗口间快速跳转。</p>
+<h2 id="六、Visual模式">六、Visual模式</h2>
+<p>Visual模式就相当于普通编辑器的选中功能，可以高亮选中文本,再进行编辑操作。</p>
+<h3 id="1-进入Visual模式-v">1. 进入Visual模式(v)</h3>
+<p>按下<code>v</code>键进入Visual模式，高亮当前光标所在字符。</p>
+<h3 id="2-选中行-V">2. 选中行(V)</h3>
+<p>按下<code>shift+v</code>键可直接选中整行。</p>
+<h3 id="3-选中块-Ctrl-v">3. 选中块(Ctrl+v)</h3>
+<p>按<code>Ctrl+v</code>可实现块选择, 即选中一个矩形区域内的字符。</p>
+<h3 id="4-编辑操作">4. 编辑操作</h3>
+<p>Visual模式下选中合适的区域，配合一些编辑命令进行编辑操作, 可以批量修改选中文本。常用的组合命令举例:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">v + d : 删除选中文本</span><br><span class="line">v + y : 复制选中文本</span><br><span class="line">v + c : 修改选中文本</span><br></pre></td></tr></table></figure>
+<h2 id="七、文件操作命令">七、文件操作命令</h2>
+<h3 id="1-打开文件-e">1. 打开文件(e)</h3>
+<p><code>e</code>可以在Vim中打开指定文件。</p>
+<p>使用 <code>:e 文件名</code></p>
+<h3 id="2-保存文件-w">2. 保存文件(:w)</h3>
+<p><code>:w</code>可以保存当前文件。</p>
+<h3 id="3-退出-q">3. 退出(:q)</h3>
+<p><code>:q</code>可以退出vim。</p>
+<p>一般是和<code>:w</code>配合使用，先保存再退出，<code>:wq</code>可以合并为<code>:x</code>。</p>
+<p>内容很长很干，慢慢练吧兄弟。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://ben-xj.github.io">技术杂货铺</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://ben-xj.github.io/2023/08/25/vim%E6%9C%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">https://ben-xj.github.io/2023/08/25/vim%E6%9C%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/vim/">vim</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/07/23/python-sorted/" title="一文搞懂Python排序:sorted() vs list.sort()"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">一文搞懂Python排序:sorted() vs list.sort()</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">技术杂货铺</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ben-xj"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">You can contact me via Email 3290701522@qq.com~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">Vim中的最常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%BC%96%E8%BE%91%E5%91%BD%E4%BB%A4%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89"><span class="toc-text">一、编辑命令（基础）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%8F%92%E5%85%A5-i"><span class="toc-text">1. 插入(i)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%BF%BD%E5%8A%A0-a"><span class="toc-text">2. 追加(a)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%9B%BF%E6%8D%A2-s"><span class="toc-text">3. 替换(s)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%A1%8C%E9%A6%96%E6%8F%92%E5%85%A5-I"><span class="toc-text">4. 行首插入(I)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E8%A1%8C%E5%B0%BE%E6%8F%92%E5%85%A5-A"><span class="toc-text">5. 行尾插入(A)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E6%9B%BF%E6%8D%A2%E6%95%B4%E8%A1%8C-S"><span class="toc-text">6. 替换整行(S)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E6%8D%A2%E8%A1%8C-o"><span class="toc-text">7. 换行(o)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E4%B8%8A%E6%8F%92%E8%A1%8C-O"><span class="toc-text">8. 上插行(O)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E5%88%A0%E9%99%A4%E5%AD%97%E7%AC%A6-x"><span class="toc-text">9. 删除字符(x)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-%E5%A4%8D%E5%88%B6%E3%80%81%E7%B2%98%E8%B4%B41%E8%A1%8C-yy-p"><span class="toc-text">10. 复制、粘贴1行(yy&#x2F;p)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-%E5%89%AA%E5%88%871%E8%A1%8C-dd"><span class="toc-text">11. 剪切1行(dd)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-%E5%89%AA%E5%88%871%E8%A1%8C%E5%B9%B6%E8%BF%9B%E5%85%A5%E6%8F%92%E5%85%A5%E6%A8%A1%E5%BC%8F-cc"><span class="toc-text">12. 剪切1行并进入插入模式(cc)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%A7%BB%E5%8A%A8%E5%91%BD%E4%BB%A4%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89"><span class="toc-text">二、移动命令（基础）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%8A%E4%B8%8B%E5%B7%A6%E5%8F%B3%E7%A7%BB%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6-k%E3%80%81j%E3%80%81h%E3%80%81l"><span class="toc-text">1. 上下左右移一个字符(k、j、h、l)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%8B%E4%B8%AA%E5%8D%95%E8%AF%8D%E8%AF%8D%E9%A6%96-w-W"><span class="toc-text">2. 下个单词词首(w&#x2F;W)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%9C%AC%E5%8D%95%E8%AF%8D%E8%AF%8D%E5%B0%BE-e-E"><span class="toc-text">3. 本单词词尾(e&#x2F;E)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%9C%AC%E5%8D%95%E8%AF%8D%E8%AF%8D%E9%A6%96-b-B"><span class="toc-text">4. 本单词词首(b&#x2F;B)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E7%A7%BB%E5%8A%A8%E5%88%B0%E8%A1%8C%E9%A6%96-0"><span class="toc-text">5. 移动到行首(0)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E7%A7%BB%E5%8A%A8%E5%88%B0%E8%A1%8C%E5%B0%BE"><span class="toc-text">6. 移动到行尾($)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E7%A7%BB%E5%8A%A8%E5%88%B0%E6%96%87%E4%BB%B6%E9%A6%96-gg"><span class="toc-text">7. 移动到文件首(gg)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E7%A7%BB%E5%8A%A8%E5%88%B0%E6%96%87%E4%BB%B6%E5%B0%BE-G"><span class="toc-text">8. 移动到文件尾(G)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E7%A7%BB%E5%8A%A8%E5%88%B0%E6%8C%87%E5%AE%9A%E5%AD%97%E7%AC%A6-f-F"><span class="toc-text">9. 移动到指定字符(f&#x2F;F)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%BB%84%E5%90%88%E7%BC%96%E8%BE%91%E5%91%BD%E4%BB%A4%EF%BC%88%E7%94%A8%E5%BE%97%E8%B4%BC%E5%A4%9A%EF%BC%89"><span class="toc-text">三、组合编辑命令（用得贼多）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%A0%E9%99%A4%E6%8C%87%E5%AE%9A%E5%8C%BA%E5%9F%9F-d"><span class="toc-text">1. 删除指定区域(d)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%94%B9%E5%8F%98%E6%8C%87%E5%AE%9A%E5%8C%BA%E5%9F%9F%C2%A9"><span class="toc-text">2. 改变指定区域©</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-i%E5%92%8Ca%E8%A1%A8%E7%A4%BA%E8%8C%83%E5%9B%B4"><span class="toc-text">3. i和a表示范围</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%90%9C%E7%B4%A2%E5%92%8C%E5%AE%9A%E4%BD%8D%E5%91%BD%E4%BB%A4"><span class="toc-text">四、搜索和定位命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%90%9C%E7%B4%A2"><span class="toc-text">1. 搜索(&#x2F;)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%90%91%E4%B8%8B%E6%90%9C%E7%B4%A2%E5%8C%B9%E9%85%8D-n"><span class="toc-text">2. 向下搜索匹配(n)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%90%91%E4%B8%8A%E6%90%9C%E7%B4%A2%E5%8C%B9%E9%85%8D-N"><span class="toc-text">3. 向上搜索匹配(N)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%B9%A6%E7%AD%BE%E5%8A%9F%E8%83%BD-m"><span class="toc-text">4. 书签功能(m)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%A4%9A%E7%AA%97%E5%8F%A3%E5%91%BD%E4%BB%A4"><span class="toc-text">五、多窗口命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%AA%97%E5%8F%A3%E6%8B%86%E5%88%86-vs-sp"><span class="toc-text">1. 窗口拆分(vs&#x2F;sp)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%BF%AB%E9%80%9F%E7%AA%97%E5%8F%A3%E8%B7%B3%E8%BD%AC-Ctrl-w-w"><span class="toc-text">2. 快速窗口跳转(Ctrl+w+w)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81Visual%E6%A8%A1%E5%BC%8F"><span class="toc-text">六、Visual模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%BF%9B%E5%85%A5Visual%E6%A8%A1%E5%BC%8F-v"><span class="toc-text">1. 进入Visual模式(v)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%80%89%E4%B8%AD%E8%A1%8C-V"><span class="toc-text">2. 选中行(V)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%80%89%E4%B8%AD%E5%9D%97-Ctrl-v"><span class="toc-text">3. 选中块(Ctrl+v)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%BC%96%E8%BE%91%E6%93%8D%E4%BD%9C"><span class="toc-text">4. 编辑操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="toc-text">七、文件操作命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6-e"><span class="toc-text">1. 打开文件(e)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BF%9D%E5%AD%98%E6%96%87%E4%BB%B6-w"><span class="toc-text">2. 保存文件(:w)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%80%80%E5%87%BA-q"><span class="toc-text">3. 退出(:q)</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/08/25/vim%E6%9C%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="vim最常用命令">vim最常用命令</a><time datetime="2023-08-25T11:24:21.000Z" title="Created 2023-08-25 19:24:21">2023-08-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/23/python-sorted/" title="一文搞懂Python排序:sorted() vs list.sort()">一文搞懂Python排序:sorted() vs list.sort()</a><time datetime="2023-07-23T02:13:34.000Z" title="Created 2023-07-23 10:13:34">2023-07-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/22/Python%E7%94%9F%E6%88%90%E5%99%A8/" title="深入浅出Python生成器">深入浅出Python生成器</a><time datetime="2023-07-22T08:26:21.000Z" title="Created 2023-07-22 16:26:21">2023-07-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/05/16/Grep/" title="Linux/Unix常用命令: grep">Linux/Unix常用命令: grep</a><time datetime="2023-05-16T12:10:08.000Z" title="Created 2023-05-16 20:10:08">2023-05-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/05/05/python%20parallel%20tools/" title="Powering Up Your Code: Parallel Programming with three Python packages">Powering Up Your Code: Parallel Programming with three Python packages</a><time datetime="2023-05-05T13:44:10.000Z" title="Created 2023-05-05 21:44:10">2023-05-05</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 技术杂货铺</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
