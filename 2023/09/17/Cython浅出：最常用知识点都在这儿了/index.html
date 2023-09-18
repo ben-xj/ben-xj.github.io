@@ -1,0 +1,243 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Cython浅出：最常用知识点都在这儿了 | 技术杂货铺</title><meta name="author" content="技术杂货铺"><meta name="copyright" content="技术杂货铺"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="todo: p-&gt;P c-&gt;C 众所周知，Python是一门“极慢”的语言，无奈它写起来真的很快，各种库用起来太顺手了，以至于形成了良性的生态循环。这也导致越来越多的人用起了python（主要是有很多代码可以抄啊…）。 但是在某些领域，对代码运行效率的要求还是挺高的，比如本人所在的优化算法领域。那我又想拥有python的快速开发能力，又想获得较高的运行时效率，这怎么办？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cython浅出：最常用知识点都在这儿了">
+<meta property="og:url" content="https://ben-xj.github.io/2023/09/17/Cython%E6%B5%85%E5%87%BA%EF%BC%9A%E6%9C%80%E5%B8%B8%E7%94%A8%E7%9F%A5%E8%AF%86%E7%82%B9%E9%83%BD%E5%9C%A8%E8%BF%99%E5%84%BF%E4%BA%86/index.html">
+<meta property="og:site_name" content="技术杂货铺">
+<meta property="og:description" content="todo: p-&gt;P c-&gt;C 众所周知，Python是一门“极慢”的语言，无奈它写起来真的很快，各种库用起来太顺手了，以至于形成了良性的生态循环。这也导致越来越多的人用起了python（主要是有很多代码可以抄啊…）。 但是在某些领域，对代码运行效率的要求还是挺高的，比如本人所在的优化算法领域。那我又想拥有python的快速开发能力，又想获得较高的运行时效率，这怎么办？">
+<meta property="og:locale">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-09-17T04:30:38.000Z">
+<meta property="article:modified_time" content="2023-09-18T15:17:58.000Z">
+<meta property="article:author" content="技术杂货铺">
+<meta property="article:tag" content="cython">
+<meta property="article:tag" content="python加速">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://ben-xj.github.io/2023/09/17/Cython%E6%B5%85%E5%87%BA%EF%BC%9A%E6%9C%80%E5%B8%B8%E7%94%A8%E7%9F%A5%E8%AF%86%E7%82%B9%E9%83%BD%E5%9C%A8%E8%BF%99%E5%84%BF%E4%BA%86/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Cython浅出：最常用知识点都在这儿了',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-18 23:17:58'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="技术杂货铺"><span class="site-name">技术杂货铺</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Cython浅出：最常用知识点都在这儿了</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-09-17T04:30:38.000Z" title="Created 2023-09-17 12:30:38">2023-09-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-18T15:17:58.000Z" title="Updated 2023-09-18 23:17:58">2023-09-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/">Python</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Cython浅出：最常用知识点都在这儿了"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>todo: p-&gt;P c-&gt;C</h1>
+<p>众所周知，Python是一门“极慢”的语言，无奈它写起来真的很快，各种库用起来太顺手了，以至于形成了良性的生态循环。这也导致越来越多的人用起了python（主要是有很多代码可以抄啊…）。</p>
+<p>但是在某些领域，对代码运行效率的要求还是挺高的，比如本人所在的优化算法领域。那我又想拥有python的快速开发能力，又想获得较高的运行时效率，这怎么办？</p>
+<span id="more"></span>
+<p>有很多的加速方案，比如pybind11、numba、cython等，个人一番体验下来觉得最简单的就是cython啦，绝对是可以以最低成本获得不错效果的加速手段（之一？）。</p>
+<p>这篇文章就简单介绍下cython的一些核心用法，我也录了相关的系列视频在B站，建议关注<a target="_blank" rel="noopener" href="https://space.bilibili.com/3494375778683308/channel/collectiondetail?sid=1706390&amp;ctype=0">Cython系列</a>，其中包含完整的代码示例。</p>
+<p>首先，cython是什么？Cython 是一个功能强大的工具，它允许你以 Python 语言为基础编写代码，并通过一些优化技巧将其转化为 C 代码，从而提高运行时效率。文章标题只有浅出，没有深入，因为我自以为并没有很深入了解cython，只是希望介绍一些 Cython 的核心用法，帮大家以最低成本（相对小的代码修改）获得不错的加速效果，具体包括指定变量类型、边界检查优化、内存视图优化以及 cdef、def 和 cpdef 的区别。Cython还有一些高级用法，比如直接给C/C++代码加wrapper，个人认为已经偏离Python太远了，非必要就不研究了。</p>
+<h2 id="基础配置">基础配置</h2>
+<p>当你开始使用 Cython 进行项目加速时，需要了解一些基础配置和工作流程。在本部分，我们将介绍 Cython 的安装，创建 <code>setup.py</code> 文件以及将 cython的<code>.pyx</code> 文件转换为 <code>.c</code> 并编译为扩展模块的过程。这部分可参考之前的文章<a href="/2023/03/31/Accelerate%20Your%20NumPy%20Matrix%20Operations%20with%20Cython/">Accelerate Your NumPy Matrix Operations with Cython</a></p>
+<h3 id="安装-Cython">安装 Cython</h3>
+<p>首先，你需要安装 Cython。你可以使用 pip 来安装 Cython：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install cython</span><br></pre></td></tr></table></figure>
+<h3 id="创建-pyx-文件">创建 pyx 文件</h3>
+<p>cython的模块需要以<code>.pyx</code>为后缀，所以我们需要创建一个<code>.pyx</code>文件，比如<code>multiply.pyx</code>，内容如下，这个代码可以直接把python的代码复制过来（没错，一个字都不改也ok，当然这样加速效果有限）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">cnp</span>.ndarray[double, ndim=<span class="number">2</span>] elementwise_multiply(</span><br><span class="line">        cnp.ndarray[double, ndim=<span class="number">2</span>] A,</span><br><span class="line">        cnp.ndarray[double, ndim=<span class="number">2</span>] B):</span><br><span class="line">    cdef <span class="built_in">int</span> nrows = A.shape[<span class="number">0</span>]</span><br><span class="line">    cdef <span class="built_in">int</span> ncols = A.shape[<span class="number">1</span>]</span><br><span class="line">    cdef cnp.ndarray[double, ndim=<span class="number">2</span>] result = np.zeros((nrows, ncols), dtype=np.float64)</span><br><span class="line"></span><br><span class="line">    cdef <span class="built_in">int</span> i, j</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(nrows):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(ncols):</span><br><span class="line">            result[i, j] = A[i, j] * B[i, j]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
+<h3 id="创建-setup-py-文件">创建 <code>setup.py</code> 文件</h3>
+<p><code>setup.py</code> 文件是用于构建和安装你的 Cython 扩展模块的关键文件。一般放在根目录，便于对整个项目进行管理，以下是一个简单的 <code>setup.py</code> 示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> setuptools <span class="keyword">import</span> setup, Extension</span><br><span class="line"><span class="keyword">from</span> Cython.Build <span class="keyword">import</span> cythonize</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">ext_modules = [</span><br><span class="line">    Extension(<span class="string">&quot;acceleration.multiply&quot;</span>,</span><br><span class="line">              [<span class="string">&quot;acceleration/cython/multiply.pyx&quot;</span>],</span><br><span class="line">              include_dirs=[np.get_include()]), </span><br><span class="line">    Extension(<span class="string">&quot;acceleration.knapsack&quot;</span>,</span><br><span class="line">              [<span class="string">&quot;acceleration/cython/knapsack.pyx&quot;</span>],</span><br><span class="line">              include_dirs=[np.get_include()])</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    name=<span class="string">&#x27;Fluent Python&#x27;</span>,</span><br><span class="line">    ext_modules=cythonize(ext_modules),</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>在这个示例中，我添加了两个cython模块，<code>multiply</code>和<code>knapsack</code>。写法上，<code>Extension</code>的第一个参数是编译后扩展模块的路径，第二个参数是<code>.pyx</code>文件的路径，第三个参数是需要包含的头文件路径，这里我用了numpy的头文件。</p>
+<p><code>setup</code>函数的<code>name</code>参数是项目名称，<code>ext_modules</code>参数是需要编译的模块，这里用了<code>cythonize</code>函数。</p>
+<h3 id="编译和安装">编译和安装</h3>
+<p>你可以通过 <code>setup.py</code> 文件来编译和安装你的扩展模块。在项目根目录下运行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python setup.py build_ext --inplace</span><br></pre></td></tr></table></figure>
+<p>这将编译扩展模块并将其安装到指定目录下，而生成的<code>.c</code>文件在相应的<code>.pyx</code>同级目录下。</p>
+<p>扩展模块在windows下是<code>.pyd</code>文件，在linux下是<code>.so</code>文件，比方我用的是windows，所以生成的文件是类似于<code>multiply.cp39-win_amd64.pyd</code>和<code>knapsack.cp39-win_amd64.pyd</code>。</p>
+<h3 id="使用-Cython-扩展模块">使用 Cython 扩展模块</h3>
+<p>现在，你可以在 Python 中正常导入和使用你的 Cython 扩展模块（把<code>.pyd</code>或<code>.so</code>文件当成是一个python的模块就行）。例如，如果你的扩展模块名称是 <code>your_module</code>，可以这样导入它：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> your_module</span><br></pre></td></tr></table></figure>
+<p>然后，你可以使用其中定义的函数和类，它们已经被编译成 C 代码，因此在性能上比纯 Python 代码更高效。</p>
+<h2 id="Cython-的核心用法">Cython 的核心用法</h2>
+<p>在上一部分，我们介绍了 Cython 的基础配置和工作流程。在本部分，我们将介绍 Cython 的一些核心用法，包括指定变量类型、边界检查优化、内存视图优化以及 cdef、def 和 cpdef 的区别。</p>
+<h3 id="指定变量类型">指定变量类型</h3>
+<p>Python 是一门动态类型语言，这意味着变量的类型在运行时确定。这种灵活性使得代码编写和调试变得非常容易，但也导致了运行效率较低。Cython 允许你为变量和函数参数指定静态类型，这样编译器就能更好地优化你的代码。</p>
+<p>例如，考虑以下 Python 函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">a, b</span>):</span><br><span class="line">    <span class="keyword">return</span> a + b</span><br></pre></td></tr></table></figure>
+<p>在 Cython 中，你可以使用类型声明来指定参数的类型：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params"><span class="built_in">int</span> a, <span class="built_in">int</span> b</span>):</span><br><span class="line">    <span class="keyword">return</span> a + b</span><br></pre></td></tr></table></figure>
+<p>这样，Cython 编译器可以生成更高效的 C 代码，无需在运行时进行类型检查。</p>
+<p>这里列举一下Python和Cython的类型对应关系如下[1]：</p>
+<img src="/images/cython_types.png" width="60%" />
+<p>当然除了这些基础类型外，cython还支持从C++标准库中导入一些类型，或者导入numpy的数组类型，可以看看我的<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV18w411S72N/?spm_id_from=333.999.0.0&amp;vd_source=cf31d9cac0fa551e18ae08140eb873a3">B站视频</a>。</p>
+<h3 id="边界检查优化">边界检查优化</h3>
+<p>Python 的列表和数组通常会在访问元素时执行边界检查，以确保不会访问超出范围的元素。这会导致额外的性能开销。在 Cython 中，你可以使用数组的 “boundscheck” 属性和 “wraparound” 属性来控制边界检查。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在Cython中关闭边界检查</span></span><br><span class="line">cimport cython</span><br><span class="line"></span><br><span class="line"><span class="meta">@cython.boundscheck(<span class="params"><span class="literal">False</span></span>)</span></span><br><span class="line"><span class="meta">@cython.wraparound(<span class="params"><span class="literal">False</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">access_element</span>(<span class="params">my_list</span>):</span><br><span class="line">    <span class="keyword">return</span> my_list[<span class="number">10</span>]</span><br></pre></td></tr></table></figure>
+<p>通过关闭边界检查，你可以显著提高代码的执行速度，但需要手动确保访问的索引不会超出数组的实际范围。</p>
+<h3 id="内存视图优化">内存视图优化</h3>
+<p>Cython 提供了内存视图（memoryview）的支持，它允许你有效地访问和操作数组的内存。内存视图可以加速数组的操作，尤其是多维数组的索引及切片操作。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cimport cython</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">process_array</span>(<span class="params">double[:] arr</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(arr.shape[<span class="number">0</span>]):</span><br><span class="line">        arr[i] = arr[i] * <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>double[:] arr 定义了一个内存视图，该视图可以访问以 arr 为基础的双精度浮点数数组。[:] 表示可以访问整个数组。</li>
+<li>arr.shape[0] 返回数组的长度，允许你在循环中迭代整个数组。</li>
+<li>在循环中，你可以直接访问内存视图 arr 的元素，并执行操作，而不需要生成临时对象。</li>
+</ul>
+</blockquote>
+<p>一般来说，Python的切片操作是通过生成一个<code>slice</code>对象，再把该对象传入一个函数来实现的，内存视图允许你以一种更接近底层的方式操作数据，内存视图的优点在于它们不会复制数据，而是在原始数据的基础上执行操作。这减少了内存使用量和数据复制开销，因此在处理大型数据集时，内存视图可以显著提高性能。</p>
+<h3 id="cdef、def-和-cpdef-的区别">cdef、def 和 cpdef 的区别</h3>
+<p>在 Cython 中，有三种不同的函数声明方式：cdef、def 和 cpdef。</p>
+<ul>
+<li><code>cdef</code> 声明的函数是纯 C 函数，只能从 Cython 代码中调用，不可从 Python 代码中访问。</li>
+<li><code>def</code> 声明的函数是 Python 函数，可以从 Python 代码中调用，但会带来一些性能开销。</li>
+<li><code>cpdef</code> 声明的函数是混合函数，既可以从 Cython 代码中调用，也可以从 Python 代码中调用，其底层其实生成了两个函数版本。</li>
+</ul>
+<p>选择适当的声明方式取决于你的需求，如果需要最大的性能，可以使用 <code>cdef</code> 声明，如果需要与 Python 交互，可以使用 <code>cpdef</code>。</p>
+<p>以上是 Cython 的一些核心用法，它们可以帮助你在不牺牲开发速度的情况下提高 Python 代码的运行效率。上述示例可能并不完整，如果你对 Cython 感兴趣，可以关注我的<a target="_blank" rel="noopener" href="https://space.bilibili.com/3494375778683308/channel/collectiondetail?sid=1706390&amp;ctype=0">Cython系列视频</a>，其中包括更多实际案例和示范。</p>
+<h2 id="其他资料">其他资料</h2>
+<p>[1] <a target="_blank" rel="noopener" href="https://cython.readthedocs.io/en/latest/index.html">Welcome to Cython’s Documentation — Cython 3.0.2 documentation</a></p>
+<p>[2] <a target="_blank" rel="noopener" href="https://www.oreilly.com/library/view/cython/9781491901731/">PyVideo.org https://pyvideo.org/search.html?q=cython<br>
+Cython [Book]</a></p>
+<p>[3] <a target="_blank" rel="noopener" href="https://www.computer.org/csdl/magazine/cs/2011/02/mcs2011020031/13rRUx0Pqtw">Cython: The Best of Both Worlds</a></p>
+<p>[4] <a target="_blank" rel="noopener" href="https://conference.scipy.org/proceedings/SciPy2009/paper_1/">Proceedings of the Python in Science Conference (SciPy): Cython tutorial</a></p>
+<p>[5] <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=yeX1pb8OhVg">Cython 3.0: Compiling Python to C, the next generation - YouTube</a></p>
+<h2 id="Ref">Ref</h2>
+<p>[1] <a target="_blank" rel="noopener" href="https://cython.readthedocs.io/en/latest/src/userguide/language_basics.html">Language Basics — Cython 3.0.2 documentation</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://ben-xj.github.io">技术杂货铺</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://ben-xj.github.io/2023/09/17/Cython%E6%B5%85%E5%87%BA%EF%BC%9A%E6%9C%80%E5%B8%B8%E7%94%A8%E7%9F%A5%E8%AF%86%E7%82%B9%E9%83%BD%E5%9C%A8%E8%BF%99%E5%84%BF%E4%BA%86/">https://ben-xj.github.io/2023/09/17/Cython%E6%B5%85%E5%87%BA%EF%BC%9A%E6%9C%80%E5%B8%B8%E7%94%A8%E7%9F%A5%E8%AF%86%E7%82%B9%E9%83%BD%E5%9C%A8%E8%BF%99%E5%84%BF%E4%BA%86/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/cython/">cython</a><a class="post-meta__tags" href="/tags/python%E5%8A%A0%E9%80%9F/">python加速</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/08/25/vim%E6%9C%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="vim最常用命令"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">vim最常用命令</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2023/03/31/Accelerate%20Your%20NumPy%20Matrix%20Operations%20with%20Cython/" title="Accelerate Your NumPy Matrix Operations with Cython"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-31</div><div class="title">Accelerate Your NumPy Matrix Operations with Cython</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">技术杂货铺</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ben-xj"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">You can contact me via Email 3290701522@qq.com~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">todo: p-&gt;P c-&gt;C</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="toc-text">基础配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Cython"><span class="toc-text">安装 Cython</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-pyx-%E6%96%87%E4%BB%B6"><span class="toc-text">创建 pyx 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-setup-py-%E6%96%87%E4%BB%B6"><span class="toc-text">创建 setup.py 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%92%8C%E5%AE%89%E8%A3%85"><span class="toc-text">编译和安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-Cython-%E6%89%A9%E5%B1%95%E6%A8%A1%E5%9D%97"><span class="toc-text">使用 Cython 扩展模块</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cython-%E7%9A%84%E6%A0%B8%E5%BF%83%E7%94%A8%E6%B3%95"><span class="toc-text">Cython 的核心用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B"><span class="toc-text">指定变量类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%B9%E7%95%8C%E6%A3%80%E6%9F%A5%E4%BC%98%E5%8C%96"><span class="toc-text">边界检查优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E8%A7%86%E5%9B%BE%E4%BC%98%E5%8C%96"><span class="toc-text">内存视图优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cdef%E3%80%81def-%E5%92%8C-cpdef-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">cdef、def 和 cpdef 的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E8%B5%84%E6%96%99"><span class="toc-text">其他资料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ref"><span class="toc-text">Ref</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/09/17/Cython%E6%B5%85%E5%87%BA%EF%BC%9A%E6%9C%80%E5%B8%B8%E7%94%A8%E7%9F%A5%E8%AF%86%E7%82%B9%E9%83%BD%E5%9C%A8%E8%BF%99%E5%84%BF%E4%BA%86/" title="Cython浅出：最常用知识点都在这儿了">Cython浅出：最常用知识点都在这儿了</a><time datetime="2023-09-17T04:30:38.000Z" title="Created 2023-09-17 12:30:38">2023-09-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/08/25/vim%E6%9C%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="vim最常用命令">vim最常用命令</a><time datetime="2023-08-25T11:24:21.000Z" title="Created 2023-08-25 19:24:21">2023-08-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/23/python-sorted/" title="一文搞懂Python排序:sorted() vs list.sort()">一文搞懂Python排序:sorted() vs list.sort()</a><time datetime="2023-07-23T02:13:34.000Z" title="Created 2023-07-23 10:13:34">2023-07-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/22/Python%E7%94%9F%E6%88%90%E5%99%A8/" title="深入浅出Python生成器">深入浅出Python生成器</a><time datetime="2023-07-22T08:26:21.000Z" title="Created 2023-07-22 16:26:21">2023-07-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/05/16/Grep/" title="Linux/Unix常用命令: grep">Linux/Unix常用命令: grep</a><time datetime="2023-05-16T12:10:08.000Z" title="Created 2023-05-16 20:10:08">2023-05-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 技术杂货铺</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
